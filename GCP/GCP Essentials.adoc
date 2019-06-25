@@ -1,0 +1,223 @@
+GCP Essentials
+==============
+
+**Set Up Network and HTTP Load Balancers**
+
+In Cloud Shell, set the default zone:
+
+[source.console]
+----
+$ gcloud config set compute/zone us-central1-a
+Updated property [compute/zone].
+----
+
+And set the default region:
+
+[source.console]
+----
+$gcloud config set compute/region us-central1
+Updated property [compute/region].
+----
+
+Create multiple web server instances
+------------------------------------
+
+In Cloud Shell, create a startup script to be used by every virtual machine instance. This script sets up the Nginx server upon startup:
+
+[source.console]
+----
+$ cat << EOF > startup.sh
+#! /bin/bash
+apt-get update
+apt-get install -y nginx
+service nginx start
+sed -i -- 's/nginx/Google Cloud Platform - '"\$HOSTNAME"'/' /var/www/html/index.nginx-debian.html
+EOF
+----
+
+Create an instance template, which uses the startup script:
+
+[source.console]
+----
+$ gcloud compute instance-templates create nginx-template \
+        --metadata-from-file startup-script=startup.sh
+Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/global/instanceTemplates/nginx-template].
+NAME            MACHINE_TYPE   PREEMPTIBLE  CREATION_TIMESTAMP
+nginx-template  n1-standard-1               2019-06-25T04:47:21.983-07:00
+----
+
+Create a target pool. A target pool allows a single access point to all the instances in a group and is necessary for load balancing in the future steps.
+
+[source.console]
+----
+$ gcloud compute target-pools create nginx-pool
+Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/regions/us-central1/targetPools/nginx-pool].
+NAME        REGION       SESSION_AFFINITY  BACKUP  HEALTH_CHECKS
+nginx-pool  us-central1  NONE
+----
+
+Create a managed instance group using the instance template:
+
+[source.console]
+----
+$ gcloud compute instance-groups managed create nginx-group \
+        --base-instance-name nginx \
+        --size 2 \
+        --template nginx-template \
+        --target-pool nginx-pool
+Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/zones/us-central1-a/instanceGroupManagers/nginx-group].
+NAME         LOCATION       SCOPE  BASE_INSTANCE_NAME  SIZE  TARGET_SIZE  INSTANCE_TEMPLATE  AUTOSCALED
+nginx-group  us-central1-a  zone   nginx               0     2            nginx-template     no
+----
+
+This creates 2 virtual machine instances with names that are prefixed with nginx-. This may take a couple of minutes.
+
+List the compute engine instances and you should see all of the instances created:
+
+[source.console]
+----
+$ gcloud compute instances list
+NAME        ZONE           MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP      STATUS
+nginx-2nvg  us-central1-a  n1-standard-1               10.128.0.2   104.154.253.234  STAGING
+nginx-q0rn  us-central1-a  n1-standard-1               10.128.0.3   34.67.31.99      STAGING
+----
+
+Now configure a firewall so that you can connect to the machines on port 80 via the EXTERNAL_IP addresses:
+
+[source.console]
+----
+$ gcloud compute firewall-rules create www-firewall --allow tcp:80
+Creating firewall...⠧Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/global/firewalls/www-firewall].
+Creating firewall...done.
+NAME          NETWORK  DIRECTION  PRIORITY  ALLOW   DENY  DISABLED
+www-firewall  default  INGRESS    1000      tcp:80        False
+----
+
+You should be able to connect to each of the instances via their external IP addresses via http://EXTERNAL_IP/ shown as the result of running the previous command.
+
+
+Create a Network Load Balancer
+------------------------------
+
+Create an L3 network load balancer targeting your instance group:
+
+[source.console]
+----
+$ gcloud compute forwarding-rules create nginx-lb \
+        --region us-central1 \
+        --ports=80 \
+        --target-pool nginx-pool
+Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/regions/us-central1/forwardingRules/nginx-lb].
+----
+
+List all Google Compute Engine forwarding rules in your project.
+
+[source.console]
+----
+$ gcloud compute forwarding-rules list
+NAME      REGION       IP_ADDRESS      IP_PROTOCOL  TARGET
+nginx-lb  us-central1  104.154.50.101  TCP          us-central1/targetPools/nginx-pool
+----
+
+You can then visit the load balancer from the browser http://IP_ADDRESS/ where IP_ADDRESS is the address shown as the result of running the previous command.
+
+
+Create a HTTP(s) Load Balancer
+------------------------------
+
+First, create a health check. Health checks verify that the instance is responding to HTTP or HTTPS traffic:
+
+[source.console]
+----
+$ gcloud compute http-health-checks create http-basic-check
+Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/global/httpHealthChecks/http-basic-check].
+NAME              HOST  PORT  REQUEST_PATH
+http-basic-check        80    /
+----
+
+Define an HTTP service and map a port name to the relevant port for the instance group. Now the load balancing service can forward traffic to the named port:
+
+[source.console]
+----
+$ gcloud compute instance-groups managed \
+        set-named-ports nginx-group \
+        --named-ports http:80
+Updated [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/zones/us-central1-a/instanceGroups/nginx-group].
+----
+
+Create a backend service:
+
+[source.console]
+----
+$ gcloud compute backend-services create nginx-backend \
+        --protocol HTTP --http-health-checks http-basic-check --global
+Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/global/backendServices/nginx-backend].
+NAME           BACKENDS  PROTOCOL
+nginx-backend            HTTP
+----
+
+Add the instance group into the backend service:
+
+[source.console]
+----
+$ gcloud compute backend-services add-backend nginx-backend \
+        --instance-group nginx-group \
+        --instance-group-zone us-central1-a \
+        --global
+Updated [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/global/backendServices/nginx-backend].
+----
+
+Create a default URL map that directs all incoming requests to all your instances:
+
+[source.console]
+----
+$ gcloud compute url-maps create web-map \
+        --default-service nginx-backend
+Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/global/urlMaps/web-map].
+NAME     DEFAULT_SERVICE
+web-map  backendServices/nginx-backend
+----
+
+To direct traffic to different instances based on the URL being requested, see content-based routing.
+
+Create a target HTTP proxy to route requests to your URL map:
+
+[source.console]
+----
+$ gcloud compute target-http-proxies create http-lb-proxy \
+        --url-map web-map
+Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/global/targetHttpProxies/http-lb-proxy].
+NAME           URL_MAP
+http-lb-proxy  web-map
+----
+
+Create a global forwarding rule to handle and route incoming requests. A forwarding rule sends traffic to a specific target HTTP or HTTPS proxy depending on the IP address, IP protocol, and port specified. The global forwarding rule does not support multiple ports.
+
+[source.console]
+----
+$ gcloud compute forwarding-rules create http-content-rule \
+        --global \
+        --target-http-proxy http-lb-proxy \
+        --ports 80
+Created [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-667f039cb3a91d12/global/forwardingRules/http-content-rule].
+----
+
+After creating the global forwarding rule, it can take several minutes for your configuration to propagate.
+
+[source.console]
+----
+$ gcloud compute forwarding-rules list
+NAME               REGION       IP_ADDRESS      IP_PROTOCOL  TARGET
+http-content-rule               34.98.102.146   TCP          http-lb-proxy
+nginx-lb           us-central1  104.154.50.101  TCP          us-central1/targetPools/nginx-pool
+----
+
+Take note of the http-content-rule IP_ADDRESS for the forwarding rule.
+
+From the browser, you should be able to connect to http://IP_ADDRESS/. It may take three to five minutes. If you do not connect, wait a minute then reload the browser.
+
+
+References
+----------
+
+- Google Cloud Training - GCP Essentials, _https://google.qwiklabs.com/quests/23_

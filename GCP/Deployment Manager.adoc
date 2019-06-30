@@ -1,0 +1,264 @@
+Cloud Architecture
+==================
+
+Deployment Manager
+
+Clone the Deployment Manager Sample Templates
+---------------------------------------------
+
+[source.console]
+----
+$ mkdir ~/dmsamples
+
+$ cd ~/dmsamples
+
+$ git clone https://github.com/GoogleCloudPlatform/deploymentmanager-samples.git
+
+$ cd ~/dmsamples/deploymentmanager-samples/examples/v2
+
+$ cd nodejs/python
+
+$ ls -al
+total 28
+drwxr-xr-x 2 google3971787_student google3971787_student 4096 Jun 30 11:15 .
+drwxr-xr-x 5 google3971787_student google3971787_student 4096 Jun 30 11:15 ..
+-rw-r--r-- 1 google3971787_student google3971787_student 2604 Jun 30 11:15 frontend.py
+-rw-r--r-- 1 google3971787_student google3971787_student 1632 Jun 30 11:15 frontend.py.schema
+-rw-r--r-- 1 google3971787_student google3971787_student 2221 Jun 30 11:15 nodejs.py
+-rw-r--r-- 1 google3971787_student google3971787_student  955 Jun 30 11:15 nodejs.py.schema
+-rw-r--r-- 1 google3971787_student google3971787_student  965 Jun 30 11:15 nodejs.yaml
+----
+
+Customize the Deployment
+------------------------
+
+[source.console]
+----
+$ gcloud compute zones list
+NAME                       REGION                   STATUS  NEXT_MAINTENANCE  TURNDOWN_DATE
+us-east1-b                 us-east1                 UP
+us-east1-c                 us-east1                 UP
+us-east1-d                 us-east1                 UP
+...
+australia-southeast1-b     australia-southeast1     UP
+australia-southeast1-c     australia-southeast1     UP
+australia-southeast1-a     australia-southeast1     UP
+
+$ cat nodejs.yaml
+...
+imports:
+- path: nodejs.py
+resources:
+- name: nodejs
+  type: nodejs.py
+  properties:
+    zone: us-east1-d
+
+$ cat nodejs.py
+...
+"""Create nodejs template with the back-end and front-end templates."""
+
+def GenerateConfig(context):
+  """Generate configuration."""
+
+  backend = context.env['deployment'] + '-backend'
+  frontend = context.env['deployment'] + '-frontend'
+  firewall = context.env['deployment'] + '-application-fw'
+  application_port = 8080
+  mysql_port = 8080
+  resources = [{
+      'name': backend,
+      'type': 'container_vm.py',
+      'properties': {
+          'zone': context.properties['zone'],
+          'dockerImage': 'gcr.io/deployment-manager-examples/mysql',
+          'containerImage': 'family/cos-stable',
+          'port': mysql_port
+      }
+  }, {
+      'name': frontend,
+      'type': 'frontend.py',
+      'properties': {
+          'zone': context.properties['zone'],
+          'dockerImage': 'gcr.io/deployment-manager-examples/nodejsservice',
+          'port': application_port,
+          # Define the variables that are exposed to container as env variables.
+          'dockerEnv': {
+              'SEVEN_SERVICE_MYSQL_PORT': mysql_port,
+              'SEVEN_SERVICE_PROXY_HOST': '$(ref.' + backend
+                                          + '.networkInterfaces[0].networkIP)'
+          },
+          # If left out will default to 1
+          'size': 2,
+          # If left out will default to 1
+          'maxSize': 4
+      }
+  }, {
+      'name': firewall,
+      'type': 'compute.v1.firewall',
+      'properties': {
+          'allowed': [{
+              'IPProtocol': 'TCP',
+              'ports': [application_port]
+          }],
+          'sourceRanges': ['0.0.0.0/0']
+      }
+  }]
+  return {'resources': resources}
+----
+
+Run the Application
+-------------------
+
+[source.console]
+----
+$ gcloud deployment-manager deployments create advanced-configuration --config nodejs.yaml
+The fingerprint of the deployment is tpKQhvHG9onX0qKp39fTqw==
+Waiting for create [operation-1561857836865-58c805d8e5948-6ce5d70e-1e4611a4]...done.
+Create operation operation-1561857836865-58c805d8e5948-6ce5d70e-1e4611a4 completed successfully.
+NAME                                   TYPE                             STATE      ERRORS  INTENT
+advanced-configuration-application-fw  compute.v1.firewall              COMPLETED  []
+advanced-configuration-backend         compute.v1.instance              COMPLETED  []
+advanced-configuration-frontend-as     compute.v1.autoscaler            COMPLETED  []
+advanced-configuration-frontend-hc     compute.v1.httpHealthCheck       COMPLETED  []
+advanced-configuration-frontend-igm    compute.v1.instanceGroupManager  COMPLETED  []
+advanced-configuration-frontend-it     compute.v1.instanceTemplate      COMPLETED  []
+advanced-configuration-frontend-lb     compute.v1.forwardingRule        COMPLETED  []
+advanced-configuration-frontend-tp     compute.v1.targetPool            COMPLETED  []
+----
+
+image::Deployment Manager - Deployments.png[Deployments]
+
+image::Deployment Manager - Deployments Details.png[Deployments Details]
+
+image::Deployment Manager - Instance groups.png[Instance groups]
+
+image::Deployment Manager - Instance groups Members.png[Instance groups - Members]
+
+image::Deployment Manager - Instance groups Details.png[Instance groups - Details]
+
+image::Deployment Manager - Instance groups Monitoring.png[Instance groups - Monitoring]
+
+image::Deployment Manager - VM instances.png[VM instances]
+
+Verify that the application is operational
+------------------------------------------
+
+[source.console]
+----
+$ gcloud compute forwarding-rules list
+NAME                                REGION    IP_ADDRESS     IP_PROTOCOL  TARGET
+advanced-configuration-frontend-lb  us-east1  35.227.83.171  TCP          us-east1/targetPools/advanced-configuration-frontend-tp
+----
+
+It may take several minutes for the service to become operational.
+
+In browser, go to URL: _http://35.227.83.171:8080/?msg=my dog has spots_
+
+Create Stackdriver workspace
+----------------------------
+
+Configure an uptime check and alert policy in Stackdriver:
+
+image::Deployment Manager - Stackdriver Uptime Checks.png[Stackdriver - Uptime Checks]
+
+image::Deployment Manager - Stackdriver New Uptime Check.png[Stackdriver - New Uptime Check]
+
+image::Deployment Manager - Stackdriver Uptime Check Created.png[Stackdriver - Uptime Check Created]
+
+Configure an alerting policy and notification:
+
+image::Deployment Manager - Stackdriver Alerting.png[Stackdriver - Alerting]
+
+image::Deployment Manager - Stackdriver New Alerting Policy.png[Stackdriver - New Alerting Policy]
+
+image::Deployment Manager - Stackdriver New Alerting Policy Created.png[Stackdriver - New Alerting Policy Created]
+
+Configure a Dashboard with a Couple of Useful Charts
+----------------------------------------------------
+
+image::Deployment Manager - Stackdriver Chart CPU usage.png[Stackdriver - CPU usage chart]
+
+image::Deployment Manager - Stackdriver Chart Sent bytes.png[Stackdriver - Sent bytes chart]
+
+image::Deployment Manager - Stackdriver Chart Dashboard.png[Stackdriver - Dashboard chart]
+
+Create a test VM with ApacheBench
+---------------------------------
+
+image::Deployment Manager - New VM instance.png[New VM instance]
+
+image::Deployment Manager - Target CPU usage.png[Target CPU usage]
+
+image::Deployment Manager - New VM instance Autoscale.png[New VM instance Autoscale]
+
+image::Deployment Manager - Firewall rules.png[Firewall rules]
+
+[source.console]
+----
+$ ab -n 1000 -c 100 http://35.227.83.171:8080/
+This is ApacheBench, Version 2.3 <$Revision: 1757674 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+Benchmarking 35.227.83.171 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+Server Software:
+Server Hostname:        35.227.83.171
+Server Port:            8080
+Document Path:          /
+Document Length:        20 bytes
+Concurrency Level:      100
+Time taken for tests:   1.390 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      120000 bytes
+HTML transferred:       20000 bytes
+Requests per second:    719.48 [#/sec] (mean)
+Time per request:       138.990 [ms] (mean)
+Time per request:       1.390 [ms] (mean, across all concurrent requests)
+Transfer rate:          84.31 [Kbytes/sec] received
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       33   34   1.1     34      39
+Processing:    34  101 128.1     41     632
+Waiting:       34  101 128.1     41     632
+Total:         68  135 129.1     75     671
+Percentage of the requests served within a certain time (ms)
+  50%     75
+  66%     86
+  75%    127
+  80%    145
+  90%    448
+  95%    461
+  98%    470
+  99%    668
+ 100%    671 (longest request)
+
+$ ab -n 5000 -c 100 http://35.227.83.171:8080/
+
+$ ab -n 10000 -c 100 http://35.227.83.171:8080/
+----
+
+image::Deployment Manager - Stackdriver Dashboard Overview.png[Stackdriver - Dashboard Overview]
+
+image::Deployment Manager - Stackdriver Alerting Incidents.png[Stackdriver - Alerting Incidents]
+
+image::Deployment Manager - Stackdriver Logging.png[Stackdriver - Logging]
+
+image::Deployment Manager - Stackdriver Debug.png[Stackdriver - Debug]
+
+References
+----------
+
+- Deployment Manager Full Production training, _https://google.qwiklabs.com/focuses/5875?parent=catalog_
+- Deployment Manager Examples, _https://github.com/GoogleCloudPlatform/deploymentmanager-samples_

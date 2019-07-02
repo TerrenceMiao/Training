@@ -1,7 +1,9 @@
 GCP Essentials
 ==============
 
-**Set Up Network and HTTP Load Balancers**
+Set Up Network and HTTP Load Balancers
+
+image::https://cdn.qwiklabs.com/GMOHykaqmlTHiqEeQXTySaMXYPHeIvaqa2qHEzw6Occ%3D[Google Cloud Self-Paced Labs]
 
 In Cloud Shell, set the default zone:
 
@@ -221,3 +223,4 @@ References
 ----------
 
 - Google Cloud Training - GCP Essentials, _https://google.qwiklabs.com/quests/23_
+- Set Up Network and HTTP Load Balancers, _https://google.qwiklabs.com/focuses/4798?parent=catalog_

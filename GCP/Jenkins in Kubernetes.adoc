@@ -596,4 +596,5 @@ image::Jenkins in Kubernetes - Instance Metadata modified.png[Instance Metadata 
 References
 ----------
 
+- Google Cloud Training - Cloud Architecture, _https://google.qwiklabs.com/quests/24_
 - Continuous Delivery with Jenkins in Kubernetes Engine, _https://google.qwiklabs.com/focuses/1104?parent=catalog_

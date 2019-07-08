@@ -316,6 +316,10 @@ You can also run [skaffold run --tail] to get the logs
 Error Rate SLO Violation - Find the Problem
 -------------------------------------------
 
+image::https://cdn.qwiklabs.com/mKOPcuzeiF5YyOGB5fhBtoGYaV6K9x5vGLmQX0skoFM%3D[Debug]
+
+image::https://cdn.qwiklabs.com/EaOhOK3AZYY%2B3MSSkP9UCsm5Ns%2FF57bmLU%2FNpSBP6aI%3D[Select Source Code]
+
 Deploy Change to Address Error Rate
 -----------------------------------
 
@@ -327,6 +331,9 @@ $ skaffold run
 Application optimization with Stackdriver APM
 ---------------------------------------------
 
+image::https://cdn.qwiklabs.com/R95cC%2BUwqjx3QgDKsVxT6tgOYmxaAZGkHfUCj0WnjBw%3D[]
+
+The flame graph shows the function calls grouped by their use of the resource (in this case CPU) where the X-axis is the amount of CPU, and the Y-axis shows parent child relationships.
 
 image::Site Reliability - Monitoring Overview.png[Monitoring Overview]
 

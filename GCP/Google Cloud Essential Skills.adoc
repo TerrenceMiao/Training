@@ -1,0 +1,89 @@
+GCP Architecture
+================
+
+**Google Cloud Essential Skills: Challenge Lab**
+
+Create a Compute Engine VM instance
+-----------------------------------
+
+image::Google Cloud Essential Skills - Create VM Instance.png[Create a Compute Engine VM instance]
+
+with instance options
+
+image::Google Cloud Essential Skills - Create VM Instance options.png[Create a Compute Engine VM instance options]
+
+with security options
+
+image::Google Cloud Essential Skills - Create VM Instance security.png[Create a Compute Engine VM instance security options]
+
+with disks options
+
+image::Google Cloud Essential Skills - Create VM Instance disks.png[Create a Compute Engine VM instance disks options]
+
+with networking options
+
+image::Google Cloud Essential Skills - Create VM Instance networking.png[Create a Compute Engine VM instance networking options]
+
+with sole tenancy
+
+image::Google Cloud Essential Skills - Create VM Instance sole tenancy.png[Create a Compute Engine VM instance sole tenancy]
+
+Compute Engine VM instance
+--------------------------
+
+Compute Engine -> VM instances
+
+image::Google Cloud Essential Skills - VM instances.png[VM instances]
+
+Compute Engine -> Disks
+
+image::Google Cloud Essential Skills - Disks.png[Disks]
+
+Compute Engine -> Metadata
+
+image::Google Cloud Essential Skills - Metadata.png[Metadata]
+
+Compute Engine -> Operations
+
+image::Google Cloud Essential Skills - Operations.png[Operations]
+
+Update Linux
+------------
+
+image::Google Cloud Essential Skills - Update Linux.png[Update Linux]
+
+Install Apache2
+---------------
+
+image::Google Cloud Essential Skills - Install Apache2.png[Install Apache2]
+
+Monitoring
+----------
+
+VM instances monitoring
+
+image::Google Cloud Essential Skills - Monitoring.png[Monitoring]
+
+Linux System boot log
+
+image::Google Cloud Essential Skills - Linux System boot log.png[Linux System boot log]
+
+Networking
+----------
+
+VPC networks
+
+image::Google Cloud Essential Skills - VPC networks.png[VPC networks]
+
+Routes
+
+image::Google Cloud Essential Skills - Routes.png[Routes]
+
+image::Google Cloud Essential Skills - Route analysis.png[Route analysis]
+
+
+References
+----------
+
+- Google Cloud Training - Challenge: GCP Architecture, _https://google.qwiklabs.com/quests/47_
+- Google Cloud Essential Skills: Challenge Lab, _https://google.qwiklabs.com/focuses/6159?parent=catalog_

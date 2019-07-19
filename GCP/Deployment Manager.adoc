@@ -260,5 +260,6 @@ image::Deployment Manager - Stackdriver Debug.png[Stackdriver - Debug]
 References
 ----------
 
+- Google Cloud Training - Cloud Architecture, _https://google.qwiklabs.com/quests/24_
 - Deployment Manager Full Production training, _https://google.qwiklabs.com/focuses/5875?parent=catalog_
 - Deployment Manager Examples, _https://github.com/GoogleCloudPlatform/deploymentmanager-samples_

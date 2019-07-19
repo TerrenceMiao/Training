@@ -173,7 +173,7 @@ rm: refusing to remove '.' or '..' directory: skipping 'tmp/error/..'
 Develop Sample SLOs and SLIs
 ----------------------------
 
-**Service Kevel Indicators (SLIs)**, **Service Kevel Objectives (SLOs)**, and **Service Kevel Agreements (SLAs)**
+**Service Level Indicators (SLIs)**, **Service Level Objectives (SLOs)**, and **Service Level Agreements (SLAs)**
 
 Most services consider **request latency**, how long it takes to return a response to a request, the **error rate**, often expressed as a fraction of all requests received, and **system throughput**, typically measured in requests per second, **availability**, the fraction of the time that a service is usable, often defined in terms of the fraction of well-formed requests that succeed, **durability**, the likelihood that data will be retained over a long period of time, is equally important for data storage systems.
 
@@ -344,4 +344,4 @@ References
 - Site Reliability Troubleshooting with Stackdriver APM, _https://google.qwiklabs.com/focuses/4186?parent=catalog_
 - Easy and Repeatable Kubernetes Development, _https://github.com/GoogleContainerTools/skaffold_
 - Sample cloud-native application with 10 microservices showcasing Kubernetes, Istio, gRPC and OpenCensus, _https://github.com/GoogleCloudPlatform/microservices-demo_
-- Cloud Source Repositories, _https://source.cloud.google.com/onboarding/welcome_
+- Google Cloud Source Repositories, _https://cloud.google.com/source-repositories/_

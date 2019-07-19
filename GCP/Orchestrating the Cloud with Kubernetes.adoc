@@ -607,6 +607,7 @@ image::Orchestrating the Cloud with Kubernetes - Workloads.png[Workloads]
 References
 ----------
 
-- Cloud Architecture, _https://google.qwiklabs.com/quests/24_
-- An example 12-Facter Application, _https://github.com/kelseyhightower/app_
+- Google Cloud Training - Cloud Architecture, _https://google.qwiklabs.com/quests/24_
+- Orchestrating the Cloud with Kubernetes, _https://google.qwiklabs.com/focuses/6251?parent=catalog_
 - Orchestrating the Cloud with Kuberenetes source code, _https://github.com/googlecodelabs/orchestrate-with-kubernetes_
+- An example 12-Facter Application, _https://github.com/kelseyhightower/app_

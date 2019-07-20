@@ -191,6 +191,40 @@ Did you mean zone [asia-southeast1-a] for instance: [vm-test] (Y/n)?  n
 
 No zone specified. Using zone [us-central1-a] for instance: [vm-test].
 Updated [https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-49a02a1349db2e35/zones/us-central1-a/instances/vm-test].
+
+$ gcloud config list project
+[core]
+project = qwiklabs-gcp-49a02a1349db2e35
+
+Your active configuration is: [cloudshell-9887]
+
+$ gcloud compute project-info describe --project qwiklabs-gcp-49a02a1349db2e35
+commonInstanceMetadata:
+  fingerprint: Bmv2RhhGaAk=
+  items:
+  - key: google-compute-default-zone
+    value: us-central1-a
+  - key: google-compute-default-region
+    value: us-central1
+  - key: ssh-keys
+    value: google4271162_student:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUh0zVuwOP4fcf3AJp/V5FwNzw/UaOyOhUPKd5KHlz1jMEGK/9PQ0rGnT4kauJlS5C51Zd7++Ktpjb+LIXBVRl1cc6eHFllB6WTIK2aLHHigbZtWpQ6faIDXIVizmfXtpPd6uPenYIqR8dVDkoF4CWc//+aJOfKpCkdgKNa21ANdDLYUgHUi2PFU5jPtMNkFHg/rCh/II7Y2+yH83ZDgl4KlB4vrTmh70kFMwu6YcoGar+Oq6rwrk2ZWK/zMctxxrN1M+vPfIExj7OoW8tbERaEwg8GY5aB/HVR1qhChwT17E/QobhZsRzU6YkUabrlpfaJYd9zTQQjFFCtZoYFonZ
+      google4271162_student@qwiklabs.net
+  - key: enable-oslogin
+    value: 'true'
+  kind: compute#metadata
+creationTimestamp: '2019-07-19T14:29:23.403-07:00'
+defaultNetworkTier: PREMIUM
+defaultServiceAccount: 210252680589-compute@developer.gserviceaccount.com
+id: '8812823090265295068'
+kind: compute#project
+name: qwiklabs-gcp-49a02a1349db2e35
+quotas:
+- limit: 1000.0
+  metric: SNAPSHOTS
+  usage: 0.0
+...
+selfLink: https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-49a02a1349db2e35
+xpnProjectStatus: UNSPECIFIED_XPN_PROJECT_STATUS
 ----
 
 

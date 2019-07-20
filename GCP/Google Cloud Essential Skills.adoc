@@ -79,7 +79,7 @@ Routes
 
 image::Google Cloud Essential Skills - Routes.png[Routes]
 
-image::Google Cloud Essential Skills - Route analysis.png[Route analysis]
+image::Google Cloud Essential Skills - Route Analysis.png[Route Analysis]
 
 
 References

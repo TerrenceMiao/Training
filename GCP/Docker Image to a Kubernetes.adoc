@@ -329,3 +329,4 @@ References
 - Google Cloud Training - Cloud Architecture, _https://google.qwiklabs.com/quests/24_
 - Build and Deploy a Docker Image to a Kubernetes Cluster, _https://google.qwiklabs.com/focuses/1738?parent=catalog_
 - Sample Application with Docker Configuration, _https://google.qwiklabs.com/instructions/140145/download_
+- kubectl commands reference with examples, _https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands_

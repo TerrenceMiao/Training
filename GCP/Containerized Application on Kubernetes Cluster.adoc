@@ -104,20 +104,9 @@ Hostname: echo-web-dddd7877d-2n4ct
 Host ip-address(es): 10.40.0.6
 ----
 
-image::Containerized Application on Kubernetes Cluster - echo-web overview before.png[echo-web overview before change]
-
-image::Containerized Application on Kubernetes Cluster - echo-web details before.png[echo-web details before change]
+Deployment configuration YAML before the change:
 
 image::Containerized Application on Kubernetes Cluster - echo-web YAML before.png[echo-web YAML before change]
-
-Try to rolling-update deployment image from command line:
-
-[source.console]
-----
-$ kubectl rolling-update echo-web --image=gcr.io/qwiklabs-gcp-a876091ef0655a9d/echo-app:v2
-Command "rolling-update" is deprecated, use "rollout" instead
-The connection to the server localhost:8080 was refused - did you specify the right host or port?
-----
 
 Update in GCP console:
 
@@ -128,6 +117,12 @@ image::Containerized Application on Kubernetes Cluster - Actions Autoscale.png[A
 image::Containerized Application on Kubernetes Cluster - Actions Expose.png[Actions Expose]
 
 image::Containerized Application on Kubernetes Cluster - Actions Rolling Update.png[Actions Rolling Update]
+
+After upgrade container image:
+
+image::Containerized Application on Kubernetes Cluster - echo-web overview before.png[echo-web overview before change]
+
+image::Containerized Application on Kubernetes Cluster - echo-web details before.png[echo-web details before change]
 
 Scale to **2**:
 
@@ -222,6 +217,20 @@ Host ip-address(es): 10.40.1.8
 $ gcloud container clusters delete echo-cluster
 ----
 
+Upgrade Kubernetes using command lines:
+
+[source.console]
+----
+$ kubectl get pods -l app=echo-web -L deployment
+
+$ replica_spec=$(kubectl get deployment/echo-web -o jsonpath='{.spec.replicas}')
+
+$ kubectl scale --replicas=0 deployment echo-web
+
+$ kubectl set image deployment/echo-web echo-app=gcr.io/qwiklabs-gcp-a876091ef0655a9d/echo-app:v2
+
+$ kubectl scale --replicas=$replica_spec deployment echo-web
+----
 
 References
 ----------
@@ -229,3 +238,4 @@ References
 - Google Cloud Training - Cloud Architecture, _https://google.qwiklabs.com/quests/24_
 - Build and Deploy a Docker Image to a Kubernetes Cluster, _https://google.qwiklabs.com/focuses/1739?parent=catalog_
 - Sample Application with Docker Configuration, _https://google.qwiklabs.com/instructions/143835/download_
+- kubectl Cheat Sheet, _https://kubernetes.io/docs/reference/kubectl/cheatsheet/_

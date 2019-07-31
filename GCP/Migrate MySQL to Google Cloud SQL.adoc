@@ -118,6 +118,27 @@ Or, using commnad line, on blog VM:
 ----
 $ mysqldump -h localhost -u blogadmin -pPassword1* wordpress > workdpress-data-dump.sql
 
+$ more workdpress-data-dump.sql
+-- MySQL dump 10.16  Distrib 10.1.38-MariaDB, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: wordpress
+-- ------------------------------------------------------
+-- Server version       10.1.38-MariaDB-0+deb9u1
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+--
+-- Table structure for table `wp_commentmeta`
+--
+...
+
 $ mysql -h 35.239.95.10 -u blogadmin -pPassword1* wordpress < workdpress-data-dump.sql
 ----
 
@@ -132,6 +153,52 @@ image::Migrate MySQL to Google Cloud SQL - connect SQL from VM 3.png[connect SQL
 image::Migrate MySQL to Google Cloud SQL - connect SQL from VM 4.png[connect SQL from VM]
 
 image::Migrate MySQL to Google Cloud SQL - connect SQL from VM 5.png[connect SQL from VM]
+
+Update Wordpress configuration file with new GCP SQL connection:
+
+[source.console]
+----
+$ cat /var/www/html/wordpress/wp-config.php
+...
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define('DB_NAME', 'wordpress');
+
+/** MySQL database username */
+define('DB_USER', 'blogadmin');
+
+/** MySQL database password */
+define('DB_PASSWORD', 'Password1*');
+
+/** MySQL hostname */
+define('DB_HOST', '35.239.95.10');
+
+/** Database Charset to use in creating database tables. */
+define('DB_CHARSET', 'utf8mb4');
+
+/** The Database Collate type. Don't change this if in doubt. */
+define('DB_COLLATE', '');
+...
+----
+
+Stop MySQL runs on localhost with blog VM:
+
+[source.console]
+----
+$ sudo /etc/init.d/mysql stop
+[ ok ] Stopping mysql (via systemctl): mysql.service.
+----
+
+Restart Apache2:
+
+[source.console]
+----
+$ sudo /etc/init.d/apache2 stop
+[ ok ] Stopping apache2 (via systemctl): apache2.service.
+
+$ sudo /etc/init.d/apache2 start
+[ ok ] Starting apache2 (via systemctl): apache2.service.
+----
 
 References
 ----------

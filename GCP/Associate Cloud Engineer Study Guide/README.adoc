@@ -18,38 +18,38 @@ Assessment Test
 - **Organizations, folders, and projects** are the components used to manage an organizational hierarchy. **Buckets, directories, and subdirectories** are used to organize storage
 - Cloud Dataproc is the managed Spark service. Cloud Dataflow is for stream and batch processing of data, BigQuery is for analytics
 
-Google Cloud Function
+**Google Cloud Function**
 
 image::Associate Cloud Engineer Study Guide - Cloud Function.png[Google Cloud Function]
 
 GCP Decision Tree
 -----------------
 
-GCP Network Tier decision tree
+**GCP Network Tier decision tree**
 
 image::https://miro.medium.com/max/1200/1*JnDFATWt5-7DgQusex4BeQ.png[GCP Network Tier decision tree]
 
-GCP Network Service Tiers decision tree
+**GCP Network Service Tiers decision tree**
 
 image::Associate Cloud Engineer Study Guide - Network Service Tiers.jpeg[GCP Network Service Tiers decision tree]
 
-GCP Authentiation options decision tree
+**GCP Authentiation options decision tree**
 
 image::https://miro.medium.com/max/1200/1*Uw6w0_X8X29jhpfMgW58Sw.png[GCP Authentiation options decision tree]
 
-GCP Compute options decision tree
+**GCP Compute options decision tree**
 
 image::https://miro.medium.com/max/628/1*OV12s1M9O3OcEn2cwdtmEA.png[GCP Compute options decision tree]
 
-Google Data products decision tree
+**Google Data products decision tree**
 
 image::Google Data products decision tree.png[Google Data products decision tree]
 
-Difference between Google Cloud Dataflow and Google Cloud Dataproc
+**Google Cloud Dataflow vs. Cloud Dataproc**
 
 image::https://cloud.google.com/dataflow/images/flow-vs-proc-flowchart.svg[Google Dataflow vs. Dataproc]
 
-Data encryption decision tree
+**Data encryption decision tree**
 
 image::https://miro.medium.com/max/640/1*LTWOlTPPGXIWSPmJEoBVRQ.png[Data encryption decision tree]
 

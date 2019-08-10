@@ -1,0 +1,62 @@
+Official Google Cloud Certified Associate Cloud Engineer Study Guide
+====================================================================
+
+Assessment Test
+---------------
+
+- Machine type, boot disk image or container image, zone, and labels are all configuration parameters or attributes of a VM
+- **gsutil mb** is the specific command for creating, or making, a bucket
+- Create a lifecycle management configuration policy specifying an age of 90 days and SetStorageClass as nearline is the most efficient way to meet object management policy requirement. Read more: Storage classes https://cloud.google.com/storage/docs/storage-classes, Storage classes https://cloud.google.com/storage/docs/storage-classes
+- **gsutil rsync** to synchronize the contents of the two buckets
+- VPCs are **Global** resources. Google operates a global network, and VPCs are resources that can span that global network
+- **gcloud** by default will retry a failed network operation and will wait a long time before each retry. The time to wait is calculated using a truncated binary exponential back-off strategy
+- Only Google Spanner and Cloud SQL databases support transactions and have a SQL interface. Datastore has transactions but does not support fully compliant SQL; it has a SQL-like query language. Cloud Storage does not support transactions or SQL
+- App Engine is a PaaS that allows developers to deploy full applications without having to manage servers or clusters. Compute Engine and Kubernetes Engine require management of servers. Cloud Functions is suitable for short-running but not full applications
+- BigQuery is designed for petabyte-scale analytics and provides a SQL interface
+- Cloud Dataflow allows for stream and batch processing of data and is well suited for this kind of ETL work. Dataproc is a managed Hadoop and Spark service that is used for big data analytics
+- Preemptible virtual machines may be shut down at any time but will always be shut down after running 24 hours by Google
+- **Organizations, folders, and projects** are the components used to manage an organizational hierarchy. **Buckets, directories, and subdirectories** are used to organize storage
+- Cloud Dataproc is the managed Spark service. Cloud Dataflow is for stream and batch processing of data, BigQuery is for analytics
+
+Google Cloud Function
+
+image::Associate Cloud Engineer Study Guide - Cloud Function.png[Google Cloud Function]
+
+GCP Decision Tree
+-----------------
+
+GCP Network Tier decision tree
+
+image::https://miro.medium.com/max/1200/1*JnDFATWt5-7DgQusex4BeQ.png[GCP Network Tier decision tree]
+
+GCP Network Service Tiers decision tree
+
+image::Associate Cloud Engineer Study Guide - Network Service Tiers.jpeg[GCP Network Service Tiers decision tree]
+
+GCP Authentiation options decision tree
+
+image::https://miro.medium.com/max/1200/1*Uw6w0_X8X29jhpfMgW58Sw.png[GCP Authentiation options decision tree]
+
+GCP Compute options decision tree
+
+image::https://miro.medium.com/max/628/1*OV12s1M9O3OcEn2cwdtmEA.png[GCP Compute options decision tree]
+
+Google Data products decision tree
+
+image::Google Data products decision tree.png[Google Data products decision tree]
+
+Difference between Google Cloud Dataflow and Google Cloud Dataproc
+
+image::https://cloud.google.com/dataflow/images/flow-vs-proc-flowchart.svg[Google Dataflow vs. Dataproc]
+
+Data encryption decision tree
+
+image::https://miro.medium.com/max/640/1*LTWOlTPPGXIWSPmJEoBVRQ.png[Data encryption decision tree]
+
+
+References
+----------
+
+- Official Google Cloud Certified Associate Cloud Engineer Study Guide, _https://www.wiley.com/en-au/Official+Google+Cloud+Certified+Associate+Cloud+Engineer+Study+Guide-p-9781119564393_
+- QwikLabs Free Codes — GCP and AWS, _https://medium.com/@sathishvj/qwiklabs-free-codes-gcp-and-aws-e40f3855ffdb_
+- GCP flowchart of decision tree, _https://medium.com/google-cloud/a-gcp-flowchart-a-day-2d57cc109401_

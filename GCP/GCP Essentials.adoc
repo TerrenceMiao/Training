@@ -17,7 +17,7 @@ And set the default region:
 
 [source.console]
 ----
-$gcloud config set compute/region us-central1
+$ gcloud config set compute/region us-central1
 Updated property [compute/region].
 ----
 

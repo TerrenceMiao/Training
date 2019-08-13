@@ -75,8 +75,8 @@ you explicitly configure them to be
 - Databases require persistent storage on block devices. Object storage does not provide data block or file system storage
 
 
-Google Cloud Computing Services
--------------------------------
+Chapter 2 - Google Cloud Computing Services
+-------------------------------------------
 
 GCP services list:
 
@@ -89,8 +89,6 @@ GCP services list:
 - Management tools - Stackdriver, Monitoring, Logging, Error Reporting, Trace, Debugger, Profiler
 - Specialized services - Apigee API Platform, Data Anylytics (BigQuery, Cloud Dataflow, Dataproc, Dataprep), AI and Machine Learning (Cloud AutoML, Machine Learning Engine, NLP, Vision)
 
-Highlight:
-
 - Container is another approach to isolating computing resources is to use features of the host operating system to isolate processes and resources without hypervisor. No guest operating systems run on top of the container manager. Containers make use of host operating system functionality, while the operating system and container manager ensure isolation between the running containers
 - App Engine is well suited for web and mobile backend applications
 - A zone is considered a single failure domain
@@ -102,6 +100,26 @@ Highlight:
 - Cloud SQL does not have global transaction
 - Dataproc is designed to execute workflows in both batch and streaming modes
 - Error reporting consolidates crash information
+
+
+Chapter 3 - Projects, Service, Accounts, and Billing
+----------------------------------------------------
+
+- All resources are organized within your **resource hierarchy** (Organisation, Folder, Project). Organization policies are defined in terms of constraints on resources in the **resource hierarchy**. IAM lets you assign permissions so users or roles can perform specific operations in the cloud. The Organization Policy Service lets you specify limits on the ways resources can be used. IAM specifies who can do things, and the Organization Policy Service specifies what can be done with resources
+- Projects must have billing accounts associated with them. A billing account can be associated with more than one project
+- It is in projects that we create resources, use GCP services, manage permissions, and manage billing options
+- Organization will have a quota of projects it can create. Google makes decisions about project quotas based on typical use, the customer’s usage history, and other factors
+- To Policy Evaluation, policies are inherited and cannot be disabled or overridden by objects lower in the hierarchy
+- Role (Primitive, Predefined, Custom) is a collection of permissions
+- Service accounts are identities can be assigned to a resource. Resources can perform operations that the service account has permission to perform. Service accounts are treat them as resources and identities
+- Billing accounts: self-serve and invoiced. A budget is associated with a billing account
+- Inherited policies can be ONLY overridden by defining a policy at a folder or project level
+- A self-service Billing account is appropriate only for amounts that are within the credit limits of credit cards
+- When a user is granted **iam.serviceAccountUser** at the project level, that user can manage all service accounts in the project. If a new service account is created, they will automatically have privilege to manage that service account
+- When a service account is created, Google generates encrypted keys for authentication
+- Service accounts are resources that are managed by administrators
+- Primitive roles are building blocks for other roles
+- Users with the Organization IAM role are not necessarily responsible for determining what privileges should be assigned to users. That is determined based on the person’s role in the organization and the security policies established within the organization
 
 
 References

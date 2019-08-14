@@ -130,8 +130,8 @@ Chapter 4 - Introduction to Computing in Google Cloud
 - Kubernetes administrates clusters of virtual and bare-metal machines, and is designed to support clusters that run a variety of applications.
 - A group containers in Kubernetes called pods. Containers within a single pod share storage, network resources, an IP address and port space. A pod is a logically single unit for providing a service. A group of running identical pods is called a deployment. The identical pods are referred to as replicas.
 - Kubernetes Engine is for large-scale applications that require high availability and high reliability. Kubernetes manage services which have different lifecycles and scalability requirements as a logical unit and at levels of abstraction
-- Kubernetes uses 2.5 percent of memory up to 4GB and then slightly less for the next 4GB, and it continues to reduce the percentage of additional memory down to 2 percent of
-memory over 128GB
+- Kubernetes uses 25 percent of memory up to 4GB and then slightly less for the next 4GB, and it continues to reduce the percentage of additional memory down to 2 percent of
+memory over 128GB; takes 6 percent CPU resources of the first core, down to 0.25 percent of any cores above four cores
 - Kubernetes does not provide vulnerability scanning. GCP does have a Cloud Security Scanner product, but that is designed to work with App Engine to identify common application
 vulnerabilities
 - Cloud Functions provides the “glue” between services

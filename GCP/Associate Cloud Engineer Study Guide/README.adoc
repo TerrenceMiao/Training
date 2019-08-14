@@ -122,6 +122,23 @@ Chapter 3 - Projects, Service, Accounts, and Billing
 - Users with the Organization IAM role are not necessarily responsible for determining what privileges should be assigned to users. That is determined based on the person’s role in the organization and the security policies established within the organization
 
 
+Chapter 4 - Introduction to Computing in Google Cloud
+-----------------------------------------------------
+
+- App Engine (dynamic and resident instances). The App Engine standard environment can autoscale down to no instances when there is no load and thereby minimize costs. App Engine flexible environment is similar to the Kubernetes Engine, and flexible environment will always be **at least one container** running with your service
+- High performance computing clusters can use preemptible machines because work on a preemptible machine can be automatically rescheduled for another node on the cluster when a server is preempted
+- Kubernetes administrates clusters of virtual and bare-metal machines, and is designed to support clusters that run a variety of applications.
+- A group containers in Kubernetes called pods. Containers within a single pod share storage, network resources, an IP address and port space. A pod is a logically single unit for providing a service. A group of running identical pods is called a deployment. The identical pods are referred to as replicas.
+- Kubernetes Engine is for large-scale applications that require high availability and high reliability. Kubernetes manage services which have different lifecycles and scalability requirements as a logical unit and at levels of abstraction
+- Kubernetes uses 2.5 percent of memory up to 4GB and then slightly less for the next 4GB, and it continues to reduce the percentage of additional memory down to 2 percent of
+memory over 128GB
+- Kubernetes does not provide vulnerability scanning. GCP does have a Cloud Security Scanner product, but that is designed to work with App Engine to identify common application
+vulnerabilities
+- Cloud Functions provides the “glue” between services
+- All Google regions have the same level of service level agreement, so reliability is the same
+- Preemptible VM can save a snapshot and use that to create a new regular instance
+- Custom machine types can have between 1 and 64 vCPUs and up to 6.5GB of memory per vCPU
+
 References
 ----------
 

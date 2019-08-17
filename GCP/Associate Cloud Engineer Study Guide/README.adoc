@@ -174,6 +174,23 @@ that has GPUs available. And CPU must be compatible with the GPU selected, and G
 - In addition to load balancing, managed instance groups can be configured to autoscale. You can configure an autoscaling policy to trigger adding or removing instances based on CPU utilization, monitoring metric, load-balancing capacity, or queue-based workloads
 - Instances are created automatically when an instance group is created
 
+
+Chapter 7 - Computing with Kubernetes
+-------------------------------------
+
+- Pods treat the multiple containers as a single entity for management purposes. Replicas are copies of pods and constitute a group of pods that are managed as a unit. Pods support autoscaling as well. Pods are considered ephemeral; that is, they are expected to terminate. Pods are single instances of a running process in a cluster. Pods run containers but are not sets of containers. Pods are ephemeral
+- Service is an object that provides API endpoints with a stable IP address that allow applications to discover pods running a particular application. Services update when changes are made to pods, so they maintain an up-to-date list of pods running an application. Services provide a level of indirection to accessing pods
+- ReplicaSet is a controller used by a deployment that ensures the correct number identical of pods are running
+- Deployments are sets of identical pods. The members of the set may change as some pods are terminated and others are started, but they are all running the same application
+- StatefulSets are like deployments, but they assign unique identifiers to pods. This enables Kubernetes to track which pod is used by which client and keep them together. StatefulSets are used when an application needs a unique network identifier or stable persistent storage
+- Job is an abstraction about a workload. Jobs create pods and run them until the application completes a workload
+- The first time you use Kubernetes Engine, you may need to create credentials
+- Kubernetes creates instance groups as part of the process of creating a cluster. Multizone/multiregion clusters are available in Kubernetes Engine and are used to provide resiliency to an application
+- **kubectl** commands specify a verb and then a resource. **kubectl** command is used to control workloads on a Kubernetes cluster once it is created, like run a Docker image on a cluster. **kubectl**, not gcloud, is used to initiate deployments
+- Stackdriver is a comprehensive monitoring, logging, alerting, and notification service that can be used to monitor Kubernetes clusters
+- Workspaces are logical structures for storing information about resources in a project that are being monitored
+- Alerts are assigned to instances or sets of instances
+
 References
 ----------
 

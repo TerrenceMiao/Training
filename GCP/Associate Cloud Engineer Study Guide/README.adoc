@@ -195,7 +195,7 @@ Chapter 7 - Computing with Kubernetes
 Chapter 8 - Managing Kubernetes Clusters
 ----------------------------------------
 
-- **gcloud ** command is used to view, modify Kubernetes resources such as clusters, nodes, Container Registry images, which managed by GCP
+- **gcloud ** command is used to view, modify Kubernetes resources such as clusters, nodes (**gcloud container clusters resize**), Container Registry images (**gcloud container images list**), which managed by GCP
 - **kubectl** command is used to view, modify Kubernetes resources such as pods, deployments, services, which managed by Kubernetes
 - **gcloud container clusters get-credentials** command is the correct command to configure kubectl to use GCP credentials for the cluster
 - **gcloud container clusters resize** command requires the name of the cluster and the node pool to modify

@@ -208,6 +208,50 @@ Chapter 8 - Managing Kubernetes Clusters
 - In Kubernetes, IP addresses are assigned to VMs, not services
 
 
+Chapter 9 - Computing with App Engine
+-------------------------------------
+
+- App Engine **Standard** and App Engine **Flexible**
+- App Engine **Standard** applications consist of four components: Application -> Service -> Version -> Instance
+- A project can support only one App Engine app. If you’d like to run other applications, they will need to be placed in their own projects
+- All resources associated with an App Engine app are created in the region specified when the app is created
+- Services are defined by their source code and their configuration file. The combination of those files constitutes a version of the app
+- in **app.yaml** file **runtime** parameter specifies the language environment to execute in; **script parameter** specifies the script to execute; there is no parameter for specifying the maximum time an application can run
+- **gcloud app deploy app.yaml** is used to deploy an App Engine app from the command line. It breaks **gcloud [service] [resource] verb" command line convention. This command must be executed from the directory with the **app.yaml** file. **--no-promote** parameter is to deploy the app without routing traffic to it. It is the way to get code out as soon as possible without exposing it to customers
+- **gcloud app logs** command
+- **gcloud app browse** command
+- **gcloud app versions stop** command
+- App Engine applications are accessible from URLs that consist of the project name followed by appspot.com. Can also assign a custom domain rather not appspot.com URL. Do this from the Add New Custom domain function on the App Engine Settings page
+- Two kinds of instances available in App Engine Standard - **resident instances** are resident and running all the time, optimized for performance so users will wait less while an instance is started, used with **manual scaling**; **dynamic instances** are scaled based on load, used with **autoscaling and basic scaling**
+- Autoscaling enables: **target_cpu_utilization**, **target_throughput_utilization**, **max_concurrent_requests**, **max_instances**, **min_instances**, **max_pending_latency**, **min_pending_latency**
+- **target_cpu_utilization** specifies the maximum CPU utilization that occurs before additional instances are started
+- **target_throughput_utilization** specifies the maximum number of concurrent requests before additional instances are started, uses a 0.05 to 0.95 scale to specify maximum throughput utilization
+- **max_concurrent_requests** specifies the max concurrent requests an instance can accept before starting a new instance. The default is 10; the max is 80
+- **max_instances** / **min_instances** specifie the maximum / minimum number of instances that can run for this application
+- **max_pending_latency** / **min_pending_latency** indicates the maximum and minimum time a request will wait in the queue to be processed
+- Basic scaling only allows parameters for **idle_timeout** and **max_instances**
+- Manual scaling only allows parameter for **instances**
+- **IP address**, **HTTP cookie** (preferred way), and **random splitting**, are allowed methods for splitting traffic
+- The cookie used for splitting in App Engine is called **GOOGAPPUID**
+- **gcloud app services set-traffic** command allocates service to some users to the new version without exposing all users to it. If no service name is specified, then all services are split; **set-traffic** command takes the following parameters: **--split** is the mandatory parameter for specifying a list of instances and the percent of traffic they should receive; **--migrate** migrate traffic from the previous version to the new version; **--split-by** values are ip, cookie, and random;
+
+
+Chapter 10 - Computing with Cloud Functions
+-------------------------------------------
+
+- App Engine supports multiple services organized into a single application
+- Cloud Functions supports individual services that are managed and operate independently of other services. Cloud Functions will time out after 1 minute, although you can set the timeout for as long as 9 minutes
+- **Events** categories: Cloud Storage, Cloud Pub/Sub, HTTP, Firebase, Stackdriver Logging
+- **Trigger** is a way of responding to an event
+- **Triggers** have an associated **Function**
+- **Function** takes two arguments: event_data and event_context
+- **Function** memory options range from 128MB to 2GB, default is 256MB
+- **Function** parameters for **Cloud Storage**: Cloud function name, Memory allocated for the function, Trigger, **Event type**, Source of the function code, Runtime, Source code, Name of the function to execute
+- **Function** parameters for **Cloud Pub/Sub**: Cloud function name, Memory allocated for the function, Trigger, **Topic**, Source of the function code, Runtime, Source code, Name of the function to execute
+- Parameters creating Cloud Storage function: runtime, trigger-resource, trigger-event. Trigger events are: google.storage.object.finalize, google.storage.object.delete, google.storage.object.archive, google.storage.object.metadataUpdate
+- Parameters creating Cloud Pub/Sub function: runtime, trigger-topic. Trigger event is: topic
+
+
 References
 ----------
 

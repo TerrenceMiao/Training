@@ -252,6 +252,22 @@ Chapter 10 - Computing with Cloud Functions
 - Parameters creating Cloud Pub/Sub function: runtime, trigger-topic. Trigger event is: topic
 
 
+Chapter 11 - Planning Storage in the Cloud
+------------------------------------------
+
+- Four storage classes in Cloud Storage: Regional, multiregional, nearline, and coldline
+- Lifecycle on Cloud Storage: Regional and multiregional class can be changed to nearline or coldline; Nearline storage class can change to coldline. Regional class storage cannot be changed to multiregional. Multiregional class cannot be changed to regional
+- Cloud Storage uses an object data model
+- Cloud SQL and Cloud Spanner use relational databases for transaction processing applications; BigQuery uses a relational model for data warehouse and analytic applications
+- Datastore and Firebase are document databases
+- Bigtable is a wide-column table
+- Data stores decision: Read and write patterns, consistency requirements, transaction support, cost, and latency ...
+- The most recent version of an object on bucket is called the Live version
+- Cloud SQL and Bigtable require you to specify some configuration information for VMs
+- Second-generation instance, can configure the MySQL version, connectivity, machine type, automatic backups, failover replicas, database flags, maintenance windows, and labels
+- Memorystore can be configured to use between 1GB and 300GB of memory
+
+
 References
 ----------
 

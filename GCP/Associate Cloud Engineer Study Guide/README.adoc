@@ -279,27 +279,27 @@ Chapter 12 - Deploying Storage in Google Cloud Platform
 -------------------------------------------------------
 
 - Query the document database using GQL, a query language similar to SQL
-- gcloud is used for most products but not all; gsutil is used to work with Cloud Storage from the command line; bq used for BigQuery from the command line; cbt used to work with Bigtable from the command line
+- **gcloud** is used for most products but not all; **gsutil** is used to work with Cloud Storage from the command line; **bq** used for BigQuery from the command line; **cbt** used to work with Bigtable from the command line
 - gcloud sql backups create
 - gcloud sql instances patch ace-exam-mysql --backup-start-time 03:00
 - gcloud datastore export –namespaces='[NAMESPACE]' gs://ace_exam_backups
 - gcloud datastore import gs://[BUCKET]/[PATH]/[FILE].overall_export_metadata
-- BigQuery displays an estimate of the amount of data scanned. Use the scanned data estimate with the Pricing Calculator to get an estimate cost
+- BigQuery displays an estimate of the amount of data scanned. Use the scanned data estimate with the **Pricing Calculator** to get an estimate cost
 - In BigQuery console Job History shows active jobs, completed jobs, and jobs that generated errors
-- bq ––location=[LOCATION] query ––use_legacy_sql=false ––dry_run [SQL_QUERY]
+- bq --location=[LOCATION] query --use_legacy_sql=false --dry_run [SQL_QUERY]
 - bq --location=US show -j gcpace-project:US.bquijob_119adae7_167c373d5c3
 - Subscriptions can be pulled, in which the application reads from a topic, or pushed, in which the subscription writes messages to an endpoint
 - Pub/Sub will wait the period of time specified in the Acknowledgment Deadline parameter. The time to wait can range from 10 to 600 seconds
 - gcloud pubsub topics create [TOPIC-NAME]
-- gcloud pubsub subscriptions create [SUBSCRIPTION-NAME] ––topic [TOPIC-NAME]
+- gcloud pubsub subscriptions create [SUBSCRIPTION-NAME] --topic [TOPIC-NAME]
 - Unread messages have a retention period after which they are deleted
 - cbt createtable ace-exam-bt-table
 - cbt ls
 - cbt createfamily ace-exam-bt-table colfam1
 - cbt set ace-exam-bt-table row1 colfam1:col1=ace-exam-value
 - cbt read ace-exam-bt-table
-- gcloud dataproc clusters create cluster-bc3d ––zone us-west2-a
-- gcloud dataproc jobs submit spark ––cluster cluster-bc3d ––jar ace_exam_jar.jar
+- gcloud dataproc clusters create cluster-bc3d --zone us-west2-a
+- gcloud dataproc jobs submit spark --cluster cluster-bc3d --jar ace_exam_jar.jar
 - gsutil rewrite -s [STORAGE_CLASS] gs://[PATH_TO_OBJECT]
 - gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKET_NAME]/[DESTINATION_OBJECT_NAME]
 - gsutil mv gs://[BUCKET_NAME]/[OLD_OBJECT_NAME] gs://[BUCKET_NAME]/[NEW_OBJECT_NAME]

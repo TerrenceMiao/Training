@@ -255,17 +255,24 @@ Chapter 10 - Computing with Cloud Functions
 Chapter 11 - Planning Storage in the Cloud
 ------------------------------------------
 
-- Four storage classes in Cloud Storage: Regional, multiregional, nearline, and coldline
-- Lifecycle on Cloud Storage: Regional and multiregional class can be changed to nearline or coldline; Nearline storage class can change to coldline. Regional class storage cannot be changed to multiregional. Multiregional class cannot be changed to regional
+- Memorystore can be configured to use between 1GB and 300GB of memory
+- Persistent disks, both SSD and HDD can be up to 64TB. Persistent disks automatically encrypt data on the disk
+- Four storage classes in **Cloud Storage**: Regional, multiregional, nearline, and coldline
 - Cloud Storage uses an object data model
+- Lifecycle rule can be  specified on objects in Cloud Storage. Condition options: Age, Creation Data, Storage Class, Newer Versions, and Live State (live or
+archived versions of an object)
+- Lifecycle on Cloud Storage: Regional and multiregional class can be changed to nearline or coldline; Nearline storage class can change to coldline. Regional class storage cannot be changed to multiregional. Multiregional class cannot be changed to regional
+- When versioning is enabled on a bucket, a copy of an object is archived each time the object is overwritten or when it is deleted. The most recent version of an object on bucket is called the **Live version**
+- There are three broad categories of data models available in GCP: object, relational, and NoSQL. Cloud Firestore and Firebase as a fourth category
 - Cloud SQL and Cloud Spanner use relational databases for transaction processing applications; BigQuery uses a relational model for data warehouse and analytic applications
+- The first task for using BigQuery is to create a data set to hold data, by clicking Create Dataset
 - Datastore and Firebase are document databases
+- Datastore has some features in common with relational databases, such as support for transactions and indexes to improve query performance. The main difference is that Datastore does not require a fixed schema or structure and does not support relational operations, such as joining tables, or computing aggregates, such as sums and counts.
+- Cloud Firestore is that it is designed for storing, synchronizing, and querying data across distributed applications, like mobile apps. Apps can be automatically updated in close to real time when data is changed on the backend. Cloud Firestore supports transactions and provides multiregional replication.
 - Bigtable is a wide-column table
 - Data stores decision: Read and write patterns, consistency requirements, transaction support, cost, and latency ...
-- The most recent version of an object on bucket is called the Live version
 - Cloud SQL and Bigtable require you to specify some configuration information for VMs
 - Second-generation instance, can configure the MySQL version, connectivity, machine type, automatic backups, failover replicas, database flags, maintenance windows, and labels
-- Memorystore can be configured to use between 1GB and 300GB of memory
 
 
 References

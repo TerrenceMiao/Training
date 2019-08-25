@@ -291,7 +291,9 @@ Chapter 12 - Deploying Storage in Google Cloud Platform
 - Subscriptions can be pulled, in which the application reads from a topic, or pushed, in which the subscription writes messages to an endpoint
 - Pub/Sub will wait the period of time specified in the Acknowledgment Deadline parameter. The time to wait can range from 10 to 600 seconds
 - gcloud pubsub topics create [TOPIC-NAME]
+- gcloud pubsub topics publish [TOPIC_NAME] --message [MESSAGE]
 - gcloud pubsub subscriptions create [SUBSCRIPTION-NAME] --topic [TOPIC-NAME]
+- gcloud pubsub subscriptions pull --auto-ack [SUBSCRIPTION_NAME]
 - Unread messages have a retention period after which they are deleted
 - cbt createtable ace-exam-bt-table
 - cbt ls
@@ -303,6 +305,33 @@ Chapter 12 - Deploying Storage in Google Cloud Platform
 - gsutil rewrite -s [STORAGE_CLASS] gs://[PATH_TO_OBJECT]
 - gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKET_NAME]/[DESTINATION_OBJECT_NAME]
 - gsutil mv gs://[BUCKET_NAME]/[OLD_OBJECT_NAME] gs://[BUCKET_NAME]/[NEW_OBJECT_NAME]
+
+
+Chapter 13 - Loading Data into Storage
+--------------------------------------
+
+- The first step in loading data into Cloud Storage is to create a bucket
+- Folder can't be moved in GCP Console, under Storage menu
+- gsutil mb gs://[BUCKET_NAME]/
+- gsutil cp [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
+- gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKET_NAME]/[DESTINATION_OBJECT_NAME]
+- gsutil acl ch -u [SERVICE_ACCOUNT_ADDRESS]:W gs://[BUCKET_NAME]
+- gcloud sql instances describe [INSTANCE_NAME]
+- gcloud sql export sql|csv [INSTANCE_NAME] gs://[BUCKET_NAME]/[EXPORT_FILE_NAME] --database=[DATABASE_NAME]
+- gcloud sql import sql|csv [INSTANCE_NAME] gs://[BUCKET_NAME]/[IMPORT_FILE_NAME] --database=[DATABASE_NAME]
+- Exports and imports of Cloud Datastore are done at the level of **namespaces**. The default namespace for Cloud Datastore is **default**
+- Cloud Datastore export process creates a metadata file with information about the data exported and a folder that has the data itself. Export folder name is using the data and time of the export, e.g., **gcloud datastore export --namespaces="(default)" gs://ace-exam-bucket1**; when import, e.g., **gcloud datastore import gs://ace-exam-datastore1/2018-12-20T19:13:55_64324/2018-12-20T19:13:55_64324.overall_export_metadata**
+- BigQuery export format options are CSV, Avro, and JSON. Choose a compression type. The options are None or Gzip for CSV and “**deflate**” and “**snappy**” for Avro
+- **Avro** is a compact binary format that supports complex data structures, a schema is written to the file along with data. Schemas are defined in JSON. Avro is a good option for large data sets, and compressed using either the **deflate** or **snappy** utilities
+- BigQuery imported, file format options include CSV, JSON, Avro, Parquet, PRC, and Cloud Datastore Backup
+- BigQuery table type may be **native type** or **external table**. If the table is external, the data is kept in the source location, and only metadata about the table is stored in BigQuery. This is used when you have large data sets and do not want to load them all into BigQuery
+- To export BigQuery data from the command line, use the **bq extract** command: bq extract --destination_format [FORMAT] --compression [COMPRESSION_TYPE] --field_delimiter [DELIMITER] --print_header [BOOLEAN] [PROJECT_ID]:[DATASET].[TABLE] gs://[BUCKET]/[FILENAME]
+- To import data into BigQuery from the command line, use the **bq load** command: bq load --autodetect --source_format=[FORMAT] [DATASET].[TABLE] [PATH_TO_SOURCE]. **--autodetect** automatically detect the schema of a file on import
+- Export from Cloud Spanner will be charges for running **Cloud Dataflow**, a pipeline service for processing streaming and batch data that implements workflows,because there is no gcloud command to export data, and there may be data egress charges for data sent between regions
+- Cloud Bigtable does not have an Export and Import option in the Cloud Console or in gcloud. Two other options: using a Java application for importing and exporting or using the HBase interface to execute HBase commands
+- Cloud Dataproc is a data analysis platform. These platforms are designed more for data manipulation, statistical analysis, machine learning, and other complex operations than for data storage and retrieval. When you export from Dataproc, you are exporting the cluster configuration, not data in the cluster
+- gcloud beta dataproc clusters export [CLUSTER_NAME] --destination=[PATH_TO_EXPORT_FILE]
+- gcloud beta dataproc clusters import [SOURCE_FILE]
 
 
 References

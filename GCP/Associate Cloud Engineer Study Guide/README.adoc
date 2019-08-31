@@ -339,7 +339,7 @@ Chapter 14 - Creating a Virtual Private Cloud with Subnets
 
 - GCP automatically creates a VPC when you create a project
 - VPCs are global resources, so they are not tied to a specific region or zone
-- VPCs are logical data centers in the cloud. VPCs are global, they have subnets in all regions. Resources in any region can be accessed through the VPC,can communicate with each other in SAME VPC
+- VPCs are logical data centers in the cloud. VPCs are global, they have subnets in all regions. Resources in any region can be accessed through the VPC, can communicate with each other in SAME VPC
 - VPCs can have multiple subnets but each subnet has its own address range, subnets are regional resources
 - The shared VPC is hosted in a common project. Users in other projects who have sufficient permissions can create resources in the shared VPC
 - Classless Inter Domain Routing (CIDR) notation
@@ -376,9 +376,9 @@ Chapter 14 - Creating a Virtual Private Cloud with Subnets
 - Dynamic (routes are learned regionally or globally), Route-Based (IP ranges of the remote network), or Policy-Based Routing (remote IP ranges, local subnet, local IP ranges)
 - Dynamic routing uses the Board Gateway Protocol (**BGP protocol**) to learn routes in your networks. Private **Autonomous System Number (ASN)** used by the BGP protocol. The ASN is a number in the range 64512–65534 or 4000000000–4294967294. Each cloud router you create will need a **unique ASN**
 - Internet Key Exchange (IKE) protocol
-- gcloud compute target-vpn-gateways create NAME --network VPN_NETWORK --region REGION
-- gcloud compute forwarding-rules create NAME --TARGET_SPECIFICATION (--target-instance, --target-http-proxy, --target-vpn-gateway) VPN_GATEWAY
-- gcloud compute vpn-tunnels create NAME --peer-address PEER_ADDRESS (IPv4 address of the remote tunnel endpoint) --sharedsecret SHARED_SECRET --target-vpn-gateway TARGET_VPN_GATEWAY (target VPN gateway IP)
+- gcloud compute target-vpn-gateways create NAME --network [VPN_NETWORK] --region [REGION]
+- gcloud compute forwarding-rules create NAME --TARGET_SPECIFICATION (--target-instance, --target-http-proxy, --target-vpn-gateway) [VPN_GATEWAY]
+- gcloud compute vpn-tunnels create NAME --peer-address [PEER_ADDRESS] (IPv4 address of the remote tunnel endpoint) --sharedsecret [SHARED_SECRET] --target-vpn-gateway [TARGET_VPN_GATEWAY] (target VPN gateway IP)
 
 
 Chapter 15 - Networking in the Cloud: DNS, Load Balancing, and IP Addressing

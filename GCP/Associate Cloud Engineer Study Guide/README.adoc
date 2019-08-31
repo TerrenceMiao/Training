@@ -337,38 +337,52 @@ Chapter 13 - Loading Data into Storage
 Chapter 14 - Creating a Virtual Private Cloud with Subnets
 ----------------------------------------------------------
 
-- VPCs are logical data centers in the cloud. VPCs are global, they have subnets in all regions. Resources in any region can be accessed through the VPC
-- VPCs can have multiple subnets but each subnet has its own address range
-- gcloud compute networks create ace-exam-vpc1 --subnet-mode=auto
+- GCP automatically creates a VPC when you create a project
+- VPCs are global resources, so they are not tied to a specific region or zone
+- VPCs are logical data centers in the cloud. VPCs are global, they have subnets in all regions. Resources in any region can be accessed through the VPC,can communicate with each other in SAME VPC
+- VPCs can have multiple subnets but each subnet has its own address range, subnets are regional resources
+- The shared VPC is hosted in a common project. Users in other projects who have sufficient permissions can create resources in the shared VPC
+- Classless Inter Domain Routing (CIDR) notation
+- Private Google Access allows VMs on the subnet to access Google services without assigning an external IP address to the VM
+- Flow Logs option turns on / off logging of network traffic and sent to Stackdriver
+- Regional routing will have Google Cloud Routers learn routes within the region. Global routing will enable Google Cloud Routers to learn routes on all subnetworks in the VPC
+- gcloud compute networks create ace-exam-vpc1 --subnet-mode=auto (**auto mode network** is GCP chooses a range of IP addresses for each subnet when creating subnets)
 - gcloud compute networks create ace-exam-vpc1 --subnet-mode=custom
-- The **Flow Log** option of command determines whether logs are sent to Stackdriver
 - gcloud beta compute networks **subnets** create ace-exam-vpc-subnet1 --network=aceexam-vpc1 --region=us-west2 --range=10.10.0.0/16 --enable-private-ip-googleaccess --enable-flow-logs
-- gcloud organizations add-iam-policy-binding [ORG_ID] --member='user:[EMAIL_ADDRESS]' --role="roles/compute.xpnAdmin"
-- gcloud beta resource-manager **folders** add-iam-policy-binding [FOLDER_ID] --member='user:[EMAIL_ADDRESS]' --role="roles/compute.xpnAdmin"
+- gcloud organizations add-iam-policy-binding [ORG_ID] --member='user:[EMAIL_ADDRESS]' --role="roles/compute.xpnAdmin" (Shared VPC Admin role to a organisation)
+- gcloud organizations list
+- gcloud beta resource-manager **folders** add-iam-policy-binding [FOLDER_ID] --member='user:[EMAIL_ADDRESS]' --role="roles/compute.xpnAdmin" (Shared VPC Admin role to a folder)
 - gcloud beta resource-manager **folders** list --organization=[ORG_ID]
-- Shared VPCs can be shared at the **network or folder level**. Shared VPCs need to bind identity and access management (IAM) policies at the **organizational or folder level** to enable Shared VPC Admin roles. **VPC peering** can be used for interproject connectivity
-- gcloud compute shared-vpc enable [HOST_PROJECT_ID]
-- gcloud compute shared-vpc associated-projects add [SERVICE_PROJECT_ID] --host-project [HOST_PROJECT_ID]
+- Shared VPCs can be shared at the **network or folder level**. Shared VPCs need to bind identity and access management (IAM) policies at the **organizational or folder level** to enable Shared VPC Admin roles
+- gcloud compute shared-vpc enable [HOST_PROJECT_ID] (sharing VPC at the organisation level)
+- gcloud compute shared-vpc associated-projects add [SERVICE_PROJECT_ID] --host-project [HOST_PROJECT_ID] (sharing VPC at the organisation level)
 - gcloud beta compute shared-vpc enable [HOST_PROJECT_ID] (sharing VPC at the folder level)
 - gcloud beta compute shared-vpc associated-projects add [SERVICE_PROJECT_ID] --host-project [HOST_PROJECT_ID] (sharing VPC at the folder level)
+- **VPC peering** for interproject connectivity
 - gcloud compute networks peerings create peer-ace-exam-1 --network ace-exam-network-A --peer-project ace-exam-project-B --peer-network ace-exam-network-B --auto-create-routes (peering on network from A to B)
 - gcloud compute networks peerings create peer-ace-exam-1 --network ace-exam-network-B --peer-project ace-exam-project-A --peer-network ace-exam-network-A --auto-create-routes (peering on network from B to A)
 
-- Firewall is stateful which means if traffic is allowed in one direction and a connection established, it is allowed in the other direction. An active connection is one with at least one packet exchanged every ten minutes
-- All VPCs start with two **implied rules**: One allows egress traffic to all destinations (IP address 0.0.0.0/0), and one denies all incoming traffic from any source (IP address 0.0.0.0/0)
-- Firewall rules consist of direction (incoming / outcoming), priority (which of all the matching rules is applied), action (allow / deny), target, source/destination, protocols and port, and enforcement status. Firewall rules are applied to a subnet
-- Compute and the resource used for creating a firewall rule
+- Firewall is stateful which means if traffic is allowed in one direction and a connection established, it is allowed in the other direction
+- An active connection is one with at least one packet exchanged every ten minutes
+- All VPCs start with two **implied rules**: One allows egress traffic to all destinations (IP address 0.0.0.0/0), and one denies all incoming traffic from any source (IP address 0.0.0.0/0). **implied rules** can't be deleted
+- Firewall rules consist of direction (incoming / outcoming), priority (which of all the matching rules is applied), action (allow / deny), target (an instance, alll instances in a network, instances with particular network tags, instances using a special service account), source (IP ranges, instances with particular network tags, instances using a special service account) / destination (IP ranges), protocols (TCP, UDP, ICMP) and port, and enforcement status (enabled / disabled)
+- Compute and the resource used for creating, deleting, describing, updating, listing a firewall rule
+- Firewall rules are only applied to subnet level, can't to VPC level
 - gcloud compute firewall-rules create ace-exam-fwr1 –-network ace-exam-vpc1 –-allow tcp:20000-25000
 - gcloud compute firewall-rules create ace-exam-fwr1 –-direction ingress –-allow udp:20000-30000
 
 - VPNs are secure connections between your VPC subnets and your internal network. VPNs route traffic between your cloud resources and your internal network. VPNs include gateways, forwarding rules, and tunnels (**gcloud compute forwarding-rule**, **gcloud compute target-vpn-gateways**, **gcloud compute vpn-tunnels**)
 - Routers can be configured to learn **regional routes** or **global routes**. Global dynamic routing is used to learn all routes on a network. Regional dynamic routing would learn only routes in a region
-- Dynamic routing is the parameter that specifies whether routes are learned regionally or globally
+- Dynamic (routes are learned regionally or globally), Route-Based (IP ranges of the remote network), or Policy-Based Routing (remote IP ranges, local subnet, local IP ranges)
 - Dynamic routing uses the Board Gateway Protocol (**BGP protocol**) to learn routes in your networks. Private **Autonomous System Number (ASN)** used by the BGP protocol. The ASN is a number in the range 64512–65534 or 4000000000–4294967294. Each cloud router you create will need a **unique ASN**
-- If you choose route-based routing, you will need to enter remote IP ranges network
-- If you choose policy-based routing, you will need to enter remote IP ranges network, local subnetworks that will use the VPN, and local IP ranges
-- gcloud compute forwarding-rules create NAME --TARGET_SPECIFICATION=VPN_GATEWAY
-- gcloud compute vpn-tunnels create NAME --peer-address=PEER_ADDRESS --sharedsecret=SHARED_SECRET --target-vpn-gateway=TARGET_VPN_GATEWAY
+- Internet Key Exchange (IKE) protocol
+- gcloud compute target-vpn-gateways create NAME --network VPN_NETWORK --region REGION
+- gcloud compute forwarding-rules create NAME --TARGET_SPECIFICATION (--target-instance, --target-http-proxy, --target-vpn-gateway) VPN_GATEWAY
+- gcloud compute vpn-tunnels create NAME --peer-address PEER_ADDRESS (IPv4 address of the remote tunnel endpoint) --sharedsecret SHARED_SECRET --target-vpn-gateway TARGET_VPN_GATEWAY (target VPN gateway IP)
+
+
+Chapter 15 - Networking in the Cloud: DNS, Load Balancing, and IP Addressing
+----------------------------------------------------------------------------
 
 
 References

@@ -384,6 +384,49 @@ Chapter 14 - Creating a Virtual Private Cloud with Subnets
 Chapter 15 - Networking in the Cloud: DNS, Load Balancing, and IP Addressing
 ----------------------------------------------------------------------------
 
+- Domain Name System (DNS)
+- HTTP(S), SSL Proxy, TCP Proxy, Network TCP/UDP, and Internal TCP/UDP Network
+- A record maps a hostname to IP addresses in IPv4
+- AAAA records are used in IPv6 to map names to IPv6 addresses
+- CNAME records hold the canonical name. CNAME record takes a name, or alias of a server. The DNS name and TTL parameters are the same as in the A record
+- DNSSEC (DNS security) is designed to prevent spoofing (a client appearing to be some other client) and cache poisoning (a client sending incorrect information to update the DNS server)
+- NS (Name Server)
+- SOA (Start Of Authority)
+- TTL (Time To Live)
+- DNS Forwarding allows your DNS queries to be passed to an on-premise DNS server if you are using Cloud VPN or Interconnect
+- gcloud beta dns managed-zones create ace-exam-zone1 --description= --dnsname=aceexamzone.com.
+- gcloud beta dns managed-zones create ace-exam-zone1 --description= --dnsname=aceexamzone.com. --visibility=private --networks=default
+- To add an A record, start a transaction, add the A record information, execute the transaction:
+** gcloud dns record-sets transaction **start** --zone=ace-exam-zone1
+** gcloud dns record-sets transaction **add** 192.0.2.91 --name=aceexamzone.com. --ttl=300 **--type=A** --zone=ace-exam-zone1
+** gcloud dns record-sets transaction **execute** --zone=ace-exam-zone1.
+- To create a CNAME record:
+** gcloud dns record-sets transaction **start** --zone=ace-exam-zone1
+** gcloud dns record-sets transaction **add** server1.aceexamezone.com. --name=www2.aceexamzone.com. --ttl=300 **--type=CNAME** --zone=ace-exam-zone1
+** gcloud dns record-sets transaction **execute** --zone=ace-exam-zone1
+- Reserved addresses stay attached to a VM when it is not in use and stay attached until released
+- Ephemeral addresses are released automatically when a VM shuts down
+- gcloud beta compute addresses create ace-exam-reserved-static1 --region=us-west2 --network-tier=PREMIUM
+
+- Global Load Balancers
+** HTTP(S)
+** SSL Proxy, non-HTTPS traffic
+** TCP Proxy, configure both the frontend (specify ports to forward when configuring the frontend) and backend (backend is where you configure how traffic is routed to VMs)
+- Regional Load Balancers:
+** Internal TCP/UDP
+** Network TCP/UDP, based on IP protocol, address, and port, are used for SSL and TCP traffic not supported by the SSL Proxy and TCP Proxy load balancers
+- External Load Balancer:
+** HTTP(S)
+** SSL Proxy
+** TCP Proxy
+** Network TCP/UDP
+- Internal Load Balancer, balance traffic only from within GCP:
+** Internal TCP/UDP
+- The prefix length specifies the length in bits of the subnet mask
+- gcloud compute target-pools add-instances ace-exam-pool --instances ig1,ig2
+- gcloud compute forwarding-rules create ace-exam-lb --port=80 --target-pool ace-exam-pool
+- gcloud compute networks subnets expand-ip-range ace-exam-subnet1 --prefix-length 16
+
 
 References
 ----------

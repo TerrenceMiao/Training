@@ -437,13 +437,36 @@ Chapter 16 - Deploying Applications with Cloud Launcher and Deployment Manager
 - Deployment Manager configuration files can be long or complicated, you can modularize them using templates. Templates define resources and can be imported into other templates. Template can be written in Python or Jinja2. Google recommends using Python for complicated templates
 - Free, Paid, and Bring You Own Licence (BYOL) are all license options used in Cloud Launcher
 - Deployment Manager configuration files start with the word **resources**, followed by resource entities, which are defined using three fields:
-** name, which is the name of the resource
-** type, which is the type of the resource, such as compute.v1.instance
-** properties, which are key-value pairs that specify configuration parameters for the resource. For example, a VM has properties to specify machine type, disks, and network interfaces
-- gcloud deployment-manager deployments create quickstart-deployment --config vm.yaml
-- gcloud deployment-manager deployments describe quickstart-deployment
-- gcloud deployment-manager deployments list
+** **name**, which is the name of the resource
+** **type**, which is the type of the resource, such as compute.v1.instance
+** **properties**, which are key-value pairs that specify configuration parameters for the resource. For example, a VM has properties to specify machine type, disks, and network interfaces
+- gcloud **deployment-manager** deployments create quickstart-deployment --config vm.yaml
+- gcloud **deployment-manager** deployments describe quickstart-deployment
+- gcloud **deployment-manager** deployments list
 - gcloud compute list images
+
+
+Chapter 17 - Configuring Access and Security
+--------------------------------------------
+
+- **Least privileges**, **Separation Of Duties** (ensures that two or more people are required to complete a sensitive task), **Defense In Depth** (combines multiple security controls)
+- Primitive Roles (provide coarse-grained access controls to resources), IAM (Identity and Access Management, predefined roles are collections of permissions), Scopes (are access control, permissions granted to a **VM** to perform some operation, is used to limit operations that can be performed by an instance, is specified using a URL that starts with https://www.googleapis.com/auth/ and is then followed by permission on a resource)
+- Use IAM roles to constrain scopes and use scopes to constrain IAM roles
+- Primitive Roles:
+** Owner: Owners have editor permissions and can manage roles and permission on an entity. Owners can also set up billing for a project
+** Editor: Editors have viewer permissions and permission to modify an entity
+** Viewer: Viewers have permission to perform read-only operations
+- Custome Role launch stage: **Alpha**, **Beta**, **General Availability**, **Disabled**. Not all permissions are available for use in a Custom Role
+- **Service Accounts** are used to provide identities independent of human users. **Service Accounts** are identities that can be granted roles
+- Accessing scopes: Default Access, Full Access to all Cloud APIs, Set Access for Each API
+- View Audit Logs in Stackdriver by **resource**, **types of logs to display**, **log level**, **period of time**
+
+- gcloud projects get-iam-policy ace-exam-project
+- gcloud projects add-iam-policy-binding ace-exam-project --member user:jane@aceexam.com --role roles/appengine.deployer
+- gcloud iam roles describe roles/appengine.deployer
+- gcloud iam roles create customAppEngine1 --project ace-exam-project --title='Custom Update App Engine' --description='Custom update' --permissions=appengine.applications.update --stage=alpha
+- gcloud compute instances **set-service-account** ace-instance **--service-account** examadmin@ace-exam-project.iam.gserviceaccount.com --scopes compute-rw,storage-ro
+- gcloud compute instances create [INSTANCE_NAME] **--service-account** [SERVICE_ACCOUNT_EMAIL]
 
 
 References

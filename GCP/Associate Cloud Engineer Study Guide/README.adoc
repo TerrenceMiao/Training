@@ -428,6 +428,24 @@ Chapter 15 - Networking in the Cloud: DNS, Load Balancing, and IP Addressing
 - gcloud compute networks subnets expand-ip-range ace-exam-subnet1 --prefix-length 16
 
 
+Chapter 16 - Deploying Applications with Cloud Launcher and Deployment Manager
+------------------------------------------------------------------------------
+
+- Cloud Launcher / Marketplace categories are: Datasets, Operationg System, Developer Tools, Kubernetes Apps, API & Services, Databases
+- Deployment Manager is a GCP service for creating configuration files that define resources to use with an application
+- Deployment Manager addresses that problem by making it relatively simple to deploy an application and resources in a repeatable process
+- Deployment Manager configuration files can be long or complicated, you can modularize them using templates. Templates define resources and can be imported into other templates. Template can be written in Python or Jinja2. Google recommends using Python for complicated templates
+- Free, Paid, and Bring You Own Licence (BYOL) are all license options used in Cloud Launcher
+- Deployment Manager configuration files start with the word **resources**, followed by resource entities, which are defined using three fields:
+** name, which is the name of the resource
+** type, which is the type of the resource, such as compute.v1.instance
+** properties, which are key-value pairs that specify configuration parameters for the resource. For example, a VM has properties to specify machine type, disks, and network interfaces
+- gcloud deployment-manager deployments create quickstart-deployment --config vm.yaml
+- gcloud deployment-manager deployments describe quickstart-deployment
+- gcloud deployment-manager deployments list
+- gcloud compute list images
+
+
 References
 ----------
 

@@ -450,12 +450,12 @@ Chapter 17 - Configuring Access and Security
 --------------------------------------------
 
 - **Least privileges**, **Separation Of Duties** (ensures that two or more people are required to complete a sensitive task), **Defense In Depth** (combines multiple security controls)
-- Primitive Roles (provide coarse-grained access controls to resources), IAM (Identity and Access Management, predefined roles are collections of permissions), Scopes (are access control, permissions granted to a **VM** to perform some operation, is used to limit operations that can be performed by an instance, is specified using a URL that starts with https://www.googleapis.com/auth/ and is then followed by permission on a resource)
+- Primitive Roles (provide coarse-grained access controls to resources), IAM (Identity and Access Management, predefined roles are collections of permissions), Scopes (access control, permissions granted to a **VM** to perform some operation, used to limit operations that can be performed by an instance, specified using a URL that starts with https://www.googleapis.com/auth/ and is then followed by permission on a resource)
 - Use IAM roles to constrain scopes and use scopes to constrain IAM roles
 - Primitive Roles:
-** Owner: Owners have editor permissions and can manage roles and permission on an entity. Owners can also set up billing for a project
-** Editor: Editors have viewer permissions and permission to modify an entity
-** Viewer: Viewers have permission to perform read-only operations
+** **Owner**: Owners have editor permissions and can manage roles and permission on an entity, can also set up billing for a project
+** **Editor**: Editors have viewer permissions and permission to modify an entity
+** **Viewer**: Viewers have permission to perform read-only operations
 - Custome Role launch stage: **Alpha**, **Beta**, **General Availability**, **Disabled**. Not all permissions are available for use in a Custom Role
 - **Service Accounts** are used to provide identities independent of human users. **Service Accounts** are identities that can be granted roles
 - Accessing scopes: Default Access, Full Access to all Cloud APIs, Set Access for Each API
@@ -467,6 +467,21 @@ Chapter 17 - Configuring Access and Security
 - gcloud iam roles create customAppEngine1 --project ace-exam-project --title='Custom Update App Engine' --description='Custom update' --permissions=appengine.applications.update --stage=alpha
 - gcloud compute instances **set-service-account** ace-instance **--service-account** examadmin@ace-exam-project.iam.gserviceaccount.com --scopes compute-rw,storage-ro
 - gcloud compute instances create [INSTANCE_NAME] **--service-account** [SERVICE_ACCOUNT_EMAIL]
+
+
+Chapter 18 - Monitoring, Logging, and Cost Estimating
+-----------------------------------------------------
+
+- **Aligning** is the process of grouping data that arrives within a time into regular buckets of time, functions including min, max, mean, count, sum ...
+- **Aggregation** specifies a reducer, which is a function for combining values in a group of time series to produce a single value. It is used to combine data points using common statistics, such as sum, min, max, count ...
+- OpenCensus provides a higher-level, monitoring-focused API, while the Stackdriver Monitoring API is lower-level
+- **Gauges** are measures at a point in time, **Deltas** capture the change over an interval, **Cumulative** are accumulated values over an interval
+- Logging to a storage system is called **exporting**, the location to which you write the log data is called a **sink**
+- Label or Text Search, Resource Type, Log Type, Time Limit, Log Level can be used to filter log entries when viewing logs in Stackdriver Logging
+- Log Level statuses include Critical, Error, Warning, Info, Debug
+- Cloud Trace is a distributed tracing application that helps developers and DevOps engineers identify sections of code that are performance bottlenecks
+- Cloud Debug provides for creating snapshots of running code and injecting log messages without altering source code
+- Logpoint, which is a log statement that is written to the log when the statement executes
 
 
 References

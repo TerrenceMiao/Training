@@ -484,6 +484,57 @@ Chapter 18 - Monitoring, Logging, and Cost Estimating
 - Logpoint, which is a log statement that is written to the log when the statement executes
 
 
+Practice Exam
+-------------
+
+- The Associate Cloud Engineer practice exam, _https://cloud.google.com/certification/practice-exam/cloud-engineer_
+- More practice exam:
+
+. You need to grant access for three users so that they can view and edit table data on a Cloud Spanner instance. What should you do?
+.... Run gcloud iam roles describe roles/spanner.viewer --project my-project. Add the users to a new group. Add the group to the role.
+.... Run gcloud iam roles describe roles/spanner.databaseUser. Add the users to the role.
+.... Run gcloud iam roles describe roles/spanner.viewer --project my-project. Add the users to the role.
+.... Run gcloud iam roles describe roles/spanner.databaseUser. Add the users to a new group. Add the group to the role.
+
+. You are analyzing Google Cloud Platform service costs from three separate projects. You want to use this information to create service cost estimates by service type, daily and monthly, for the next six months using standard query syntax. What should you do?
+.... Export your bill to a Cloud Storage bucket, and then import into Google Sheets for analysis.
+.... Export your transactions to a local file and perform analysis with a desktop tool.
+.... Export your bill to a Cloud Storage bucket and then import into Cloud Bigtable for analysis.
+.... Export your bill to a BigQuery dataset, and then write time window-based SQL queries for analysis.
+
+. You've deployed a microservice called myapp1 to a Google Kubernetes Engine cluster using the YAML file specified below. You need to refactor this configuration so that the database password is not stored in plain text. You want to follow Google recommended practices. What should you do?
+.... Store the database password inside a ConfigMap object. Modify the YAML file to populate the DB_PASSWORD environment variable from the ConfigMap.
+.... Store the database password inside a Secret object. Modify the YAML file to populate the DB_PASSWORD environment variable from the Secret.
+.... Store the database password in a file inside a Kubernetes persistent volume, and use a persistent volume claim to mount the volume to the container.
+.... Store the database password inside the Docker image of the container, not in the YAML file.
+
+. You need to update a deployment in Deployment Manager without any resource downtime in the deployment. Which command should you use?
+.... gcloud deployment-manager deployments create --config <deployment-config-path>
+.... gcloud deployment-manager resources update --config <deployment-config-path>
+.... gcloud deployment-manager deployments update --config <deployment-config-path>
+.... gcloud deployment-manager resources create --config <deployment-config-path>
+
+. You want to send and consume Cloud Pub/Sub messages from your App Engine application. The Cloud Pub/Sub API is currently disabled. You will use a service account to authenticate your application to the API. You want to make sure your application can use Cloud Pub/Sub. What should you do?
+.... Use Deployment Manager to deploy your application. Rely on the automatic enablement of all APIs used by the application being deployed.
+.... Grant the App Engine Default service account the role of Cloud Pub/Sub Admin. Have your application enable the API on the first connection to Cloud Pub/Sub.
+.... Enable the Cloud Pub/Sub API in the API Library on the GCP Console.
+.... Rely on the automatic enablement of the Cloud Pub/Sub API when the Service Account accesses it .
+
+. You need to select and configure compute resources for a set of batch processing jobs. These jobs take around 2 hours to complete and are run nightly. You want to minimize service costs. What should you do?
+.... Select Google Kubernetes Engine. Use a three-node cluster with micro instance type.
+.... Select Compute Engine. Use preemptible VM instances of the appropriate standard machine type.
+.... Select Google Kubernetes Engine. Use a single-node culster with a small instance type.
+.... Select Compute Engine. Use VM instance types that support micro bursting.
+
+Answer:
+
+. **B**
+. **D**
+. **A**
+. **C**
+. **C**
+. **B**
+
 References
 ----------
 

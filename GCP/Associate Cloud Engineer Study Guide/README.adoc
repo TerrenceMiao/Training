@@ -487,8 +487,8 @@ Chapter 18 - Monitoring, Logging, and Cost Estimating
 Practice Exam
 -------------
 
-- The Associate Cloud Engineer practice exam, _https://cloud.google.com/certification/practice-exam/cloud-engineer_
-- More practice exam:
+- The Associate Cloud Engineer official practice exam, _https://cloud.google.com/certification/practice-exam/cloud-engineer_
+- Leaked exam:
 
 . You need to grant access for three users so that they can view and edit table data on a Cloud Spanner instance. What should you do?
 .... Run gcloud iam roles describe roles/spanner.viewer --project my-project. Add the users to a new group. Add the group to the role.

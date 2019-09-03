@@ -484,23 +484,21 @@ Chapter 18 - Monitoring, Logging, and Cost Estimating
 - Logpoint, which is a log statement that is written to the log when the statement executes
 
 
-Practice Exam
--------------
+Official Practice Exam
+----------------------
 
-- The Associate Cloud Engineer official practice exam, _https://cloud.google.com/certification/practice-exam/cloud-engineer_
-- Leaked exam:
+- The Associate Cloud Engineer practice exam, _https://cloud.google.com/certification/practice-exam/cloud-engineer_
 
-[arabic]
+Leaked exam
+-----------
+
 . You need to grant access for three users so that they can view and edit table data on a Cloud Spanner instance. What should you do?
-[upperalpha]
 .... Run gcloud iam roles describe roles/spanner.viewer --project my-project. Add the users to a new group. Add the group to the role.
 .... Run gcloud iam roles describe roles/spanner.databaseUser. Add the users to the role.
 .... Run gcloud iam roles describe roles/spanner.viewer --project my-project. Add the users to the role.
 .... Run gcloud iam roles describe roles/spanner.databaseUser. Add the users to a new group. Add the group to the role.
 
-[arabic]
 . You are analyzing Google Cloud Platform service costs from three separate projects. You want to use this information to create service cost estimates by service type, daily and monthly, for the next six months using standard query syntax. What should you do?
-[upperalpha]
 .... Export your bill to a Cloud Storage bucket, and then import into Google Sheets for analysis.
 .... Export your transactions to a local file and perform analysis with a desktop tool.
 .... Export your bill to a Cloud Storage bucket and then import into Cloud Bigtable for analysis.

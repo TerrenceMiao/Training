@@ -195,16 +195,27 @@ Chapter 7 - Computing with Kubernetes
 Chapter 8 - Managing Kubernetes Clusters
 ----------------------------------------
 
-- **gcloud ** command is used to view, modify Kubernetes resources such as clusters, nodes (**gcloud container clusters resize**), Container Registry images (**gcloud container images list**), which managed by GCP
-- **kubectl** command is used to view, modify Kubernetes resources such as pods, deployments, services, which managed by Kubernetes
+- **gcloud ** command is used to view, modify Kubernetes resources such as clusters, nodes, Container Registry images, which managed by GCP
 - **gcloud container clusters get-credentials** command is the correct command to configure kubectl to use GCP credentials for the cluster
-- **gcloud container clusters resize** command requires the name of the cluster and the node pool to modify
-- Pods are used to implement replicas of a deployment. It is a best practice to modify the deployments, which are configured with a specification of the number of replicas that should always run
+- **gcloud container clusters create** ch07-cluster --num-nodes=3 --region=us-central1
+- **gcloud container clusters resize** standard-cluster-1 --node-pool default-pool --size 5 --region=us-central1, command requires the name of the cluster and the node pool to modify
+- **gcloud container clusters update** standard-cluster-1 **--enable-autoscaling --min-nodes 1 --max-nodes 5** --zone us-central1-a --node-pool default-pool, to enable autoscaling, use the update command to specify
+the maximum and minimum number of nodes
+- Pods are used to implement replicas of a deployment. Pods are managed through deployments. A deployment includes a configuration parameter called **replicas**, which are the number of pods running the application specified in the deployment. It is a best practice to modify the deployments, which are configured with a specification of the number of replicas that should always run
 - Deployments are listed under Workloads in Kubernetes Engine menu
 - In Create Deployment page in Cloud Console, can specify container image, cluster name, application name along with the labels, initial command, and namespace
-- **kubectl run** is the command used to start a deployment. It takes a name for the deployment, an image, and a port specification
+- Actions in Deployment details are: **Autoscale**, **Expose**, **Rolling Update**, **Scale**
+- **kubectl** command is used to view, modify Kubernetes resources such as pods, deployments, services, which managed by Kubernetes
+- **kubectl run** hello-server --image=gcr.io/google/samples/hello-app:1.0 --port 8080, is the command used to start a deployment. It takes a name for the deployment, an image, and a port specification
+- **kubectl expose deployment** hello-server --type="LoadBalancer", command makes a service accessible
+- **kubectl get deployments** to list deployments
+- **kubectl scale deployment** to modify the number of deployments
+- **kubectl autoscale deployment** to enable autoscaling.
+- **kubectl get services**, command to list services
+- **kubectl delete service** hello-server
 - The Container Registry is the service for managing images that can be used in other services, including Kubernetes Engine and Compute Engine
-- **kubectl expose deployment** command makes a service accessible
+- **gcloud container images** list --repository gcr.io/google-containers
+- **gcloud container images** describe gcr.io/appengflex-project-1/nginx
 - In Kubernetes, IP addresses are assigned to VMs, not services
 
 

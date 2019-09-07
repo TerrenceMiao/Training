@@ -112,7 +112,7 @@ Chapter 3 - Projects, Service, Accounts, and Billing
 ** Defining the structure of the resource hierarchy
 ** Defining identity access management policies over the resource hierarchy
 ** Delegating other management roles to other users
-- Project Creattor (with **resourcemanager.projects.create** permission) and Billing Account Creator IAM roles to all users in the domain
+- Project Creator (with **resourcemanager.projects.create** permission) and Billing Account Creator IAM roles to all users in the domain
 - Projects must have billing accounts associated with them. A billing account can be associated with more than one project
 - It is in projects that we create resources, use GCP services, manage permissions, and manage billing options
 - Organization will have a quota of projects it can create. Google makes decisions about project quotas based on typical use, the customer’s usage history, and other factors
@@ -139,7 +139,7 @@ Chapter 3 - Projects, Service, Accounts, and Billing
 - Service accounts are resources that are managed by administrators
 - Users with the Organization IAM role are not necessarily responsible for determining what privileges should be assigned to users. That is determined based on the person’s role in the organization and the security policies established within the organization
 - Billing accounts: self-serve (paid by credit card or direct debit from a bank account, costs are charged automatically) and invoiced
-- A budget is associated with a billing account,not a project
+- A budget is associated with a billing account, not a project
 - A self-service Billing account is appropriate only for amounts that are within the credit limits of credit cards
 - Billing data can be exported to either a BigQuery database or a Cloud Storage file
 - Stackdriver is a set of services for monitoring, logging, tracing, and debugging applications and resources. For monitoring and logging data to be saved into Stackdriver, need to create a workspace to save it

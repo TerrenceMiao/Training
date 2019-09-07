@@ -483,9 +483,8 @@ Chapter 16 - Deploying Applications with Cloud Launcher and Deployment Manager
 Chapter 17 - Configuring Access and Security
 --------------------------------------------
 
-- Access controls in GCP are managed using **IAM**, **primitive roles**, **scopes**
 - **Least privileges**, **Separation Of Duties** (ensures that two or more people are required to complete a sensitive task), **Defense In Depth** (combines multiple security controls)
-- Primitive Roles (provide coarse-grained access controls to resources), IAM (Identity and Access Management, predefined roles are collections of permissions), Scopes (access control, permissions granted to a **VM** to perform some operation, used to limit operations that can be performed by an instance, specified using a URL that starts with https://www.googleapis.com/auth/ and is then followed by permission on a resource)
+- Access controls in GCP are managed using **Primitive Roles** (provide coarse-grained access controls to resources), **IAM** (Identity and Access Management, predefined roles are collections of permissions), **Scopes** (access control, permissions granted to a **VM** to perform some operation, used to limit operations that can be performed by an instance, specified using a URL that starts with https://www.googleapis.com/auth/ and is then followed by permission on a resource)
 - Use IAM roles to constrain scopes and use scopes to constrain IAM roles
 - Primitive Roles:
 ** **Owner**: Owners have editor permissions and can manage roles and permission on an entity, can also set up billing for a project
@@ -493,9 +492,9 @@ Chapter 17 - Configuring Access and Security
 ** **Viewer**: Viewers have permission to perform read-only operations
 - Custome Role launch stage: **Alpha**, **Beta**, **General Availability**, **Disabled**. Not all permissions are available for use in a Custom Role
 - **Service Accounts** are used to provide identities independent of human users. **Service Accounts** are identities that can be granted roles
-- **Scopes** are permissions granted to a VM to perform some operation. **Scopes** are access controls that apply to instances of VMs. **Scopes** authorize the access to API methods.
+- **Scopes** are permissions granted to a VM to perform some operation. **Scopes** are access controls that apply to instances of VMs. **Scopes** authorize the access to API methods
 - **Service account** assigned to a VM has roles associated with it. To configure access controls for a VM, you will need to configure both IAM roles and scopes
-- A VM instance can only perform operations allowed by both IAM roles assigned to the service account and scopes defined on the instance. Roles constrain Scopes and Scopes constrain Roles each other
+- A VM instance can only perform operations allowed by both IAM roles assigned to the service account and scopes defined on the instance
 - **Accessing scopes** options when creating an instance: **Default Access**, **Full Access to all Cloud APIs**, **Set Access for Each API**
 - View Audit Logs in Stackdriver by **resource**, **types of logs to display**, **log level**, **period of time**
 

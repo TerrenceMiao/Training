@@ -105,21 +105,45 @@ GCP services list:
 Chapter 3 - Projects, Service, Accounts, and Billing
 ----------------------------------------------------
 
-- All resources are organized within your **resource hierarchy** (Organisation, Folder, Project). Organization policies are defined in terms of constraints on resources in the **resource hierarchy**. IAM lets you assign permissions so users or roles can perform specific operations in the cloud. The Organization Policy Service lets you specify limits on the ways resources can be used. IAM specifies who can do things, and the Organization Policy Service specifies what can be done with resources
+- All resources are grouped, organized and managed within **resource hierarchy** (Organisation, Folder, Project). Organization policies are defined in terms of constraints on resources in the **resource hierarchy**
+- **IAM** lets you assign permissions so users or roles can perform specific operations in the cloud. The **Organization Policy Service** lets you specify limits on the ways resources can be used. **IAM** specifies who can do things, and the **Organization Policy Service** specifies what can be done with resources
+- Organisation Administrator Identity, Access Management IAM roles to manage the organisation
+- The users with the Organization Administrator IAM role are responsible for the following:
+** Defining the structure of the resource hierarchy
+** Defining identity access management policies over the resource hierarchy
+** Delegating other management roles to other users
+- Project Creattor (with **resourcemanager.projects.create** permission) and Billing Account Creator IAM roles to all users in the domain
 - Projects must have billing accounts associated with them. A billing account can be associated with more than one project
 - It is in projects that we create resources, use GCP services, manage permissions, and manage billing options
 - Organization will have a quota of projects it can create. Google makes decisions about project quotas based on typical use, the customer’s usage history, and other factors
+- List constraints:
+** Allow a specific set of values
+** Deny a specific set of values
+** Deny a value and all its child values
+** Allow all allowed values
+** Deny all values
+- Boolean Constraints: **constraints/compute.disableSerialPortAccess**
 - To Policy Evaluation, policies are inherited and cannot be disabled or overridden by objects lower in the hierarchy
-- Role (Primitive, Predefined, Custom) is a collection of permissions
-- Service accounts are identities can be assigned to a resource. Resources can perform operations that the service account has permission to perform. Service accounts are treat them as resources and identities
-- Billing accounts: self-serve and invoiced. A budget is associated with a billing account
-- Inherited policies can be ONLY overridden by defining a policy at a folder or project level
-- A self-service Billing account is appropriate only for amounts that are within the credit limits of credit cards
-- When a user is granted **iam.serviceAccountUser** at the project level, that user can manage all service accounts in the project. If a new service account is created, they will automatically have privilege to manage that service account
-- When a service account is created, Google generates encrypted keys for authentication
+- Inherited policies can be ONLY overridden by defining a policy at a folder or project level. Service accounts and billing accounts are not part of the resource hierarchy and are not involved in overriding policies
+- Role is a collection of permissions
+** **Primitive roles** are building blocks for other roles, including Owner, Editor, Viewer. Primitive roles grant wide ranges of permissions that may not always be needed by a user. It is a best practice to use Predefined roles instead of Primitive roles when possible
+** **Predefined roles** provide granular access to resources, designed for GCP products and services
+** **Custom roles** allow cloud administrators to create and administer their own roles. Not all permissions are available in **Custom roles**
+- Service accounts are resources managed by administrators. Resources can perform operations that the Service account has permission to perform.
+- Service accounts are identities assigned to roles
+- Two types of Service accounts:
+** User managed Service accounts
+** Google managed Service accounts
+- Service accounts can be managed as a group of accounts at the **project level** or at the **individual service account level**. When a user is granted **iam.serviceAccountUser** at the project level, that user can manage all Service accounts in the project. If a new Service account is created, they will automatically have privilege to manage that Service account
+- When a Service account is created, Google generates encrypted keys for authentication
 - Service accounts are resources that are managed by administrators
-- Primitive roles are building blocks for other roles
 - Users with the Organization IAM role are not necessarily responsible for determining what privileges should be assigned to users. That is determined based on the person’s role in the organization and the security policies established within the organization
+- Billing accounts: self-serve (paid by credit card or direct debit from a bank account, costs are charged automatically) and invoiced
+- A budget is associated with a billing account,not a project
+- A self-service Billing account is appropriate only for amounts that are within the credit limits of credit cards
+- Billing data can be exported to either a BigQuery database or a Cloud Storage file
+- Stackdriver is a set of services for monitoring, logging, tracing, and debugging applications and resources. For monitoring and logging data to be saved into Stackdriver, need to create a workspace to save it
+- Strakdriver workspaces are linked to projects, not individual resources
 
 
 Chapter 4 - Introduction to Computing in Google Cloud
@@ -130,8 +154,7 @@ Chapter 4 - Introduction to Computing in Google Cloud
 - Kubernetes administrates clusters of virtual and bare-metal machines, and is designed to support clusters that run a variety of applications.
 - A group containers in Kubernetes called pods. Containers within a single pod share storage, network resources, an IP address and port space. A pod is a logically single unit for providing a service. A group of running identical pods is called a deployment. The identical pods are referred to as replicas.
 - Kubernetes Engine is for large-scale applications that require high availability and high reliability. Kubernetes manage services which have different lifecycles and scalability requirements as a logical unit and at levels of abstraction
-- Kubernetes uses 25 percent of memory up to 4GB and then slightly less for the next 4GB, and it continues to reduce the percentage of additional memory down to 2 percent of
-memory over 128GB; takes 6 percent CPU resources of the first core, down to 0.25 percent of any cores above four cores
+- Kubernetes uses 25 percent of memory up to 4GB and then slightly less for the next 4GB, and it continues to reduce the percentage of additional memory down to 2 percent of memory over 128GB; takes 6 percent CPU resources of the first core, down to 0.25 percent of any cores above four cores
 - Kubernetes does not provide vulnerability scanning. GCP does have a Cloud Security Scanner product, but that is designed to work with App Engine to identify common application
 vulnerabilities
 - Cloud Functions provides the “glue” between services

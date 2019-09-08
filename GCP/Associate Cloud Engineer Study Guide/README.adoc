@@ -834,3 +834,5 @@ References
 - Official Google Cloud Certified Associate Cloud Engineer Study Guide, _https://www.wiley.com/en-au/Official+Google+Cloud+Certified+Associate+Cloud+Engineer+Study+Guide-p-9781119564393_
 - QwikLabs Free Codes — GCP and AWS, _https://medium.com/@sathishvj/qwiklabs-free-codes-gcp-and-aws-e40f3855ffdb_
 - GCP flowchart of decision tree, _https://medium.com/google-cloud/a-gcp-flowchart-a-day-2d57cc109401_
+- GCP Hosting Options, _https://cloud.google.com/hosting-options/_
+- GCP Serverless Options, _https://cloud.google.com/serverless-options/_

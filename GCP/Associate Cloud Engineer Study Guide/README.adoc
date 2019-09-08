@@ -32,6 +32,10 @@ image::https://cloud.google.com/dataflow/images/flow-vs-proc-flowchart.svg[Googl
 
 image::https://miro.medium.com/max/640/1*LTWOlTPPGXIWSPmJEoBVRQ.png[Data encryption decision tree]
 
+** Serverless Compute Platform decition tree**
+
+image::https://cloud.google.com/images/serverless-options/serverless-guide.svg[Serverless Compute Platform]
+
 
 Assessment Test
 ---------------

@@ -36,6 +36,9 @@ image::https://miro.medium.com/max/640/1*LTWOlTPPGXIWSPmJEoBVRQ.png[Data encrypt
 
 image::https://cloud.google.com/images/serverless-options/serverless-guide.svg[Serverless Compute Platform]
 
+**GCP Hosting Options**
+
+image::GCP Hosting Options.png[GCP Hosting Options]
 
 Assessment Test
 ---------------

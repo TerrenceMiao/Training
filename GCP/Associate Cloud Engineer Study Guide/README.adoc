@@ -125,7 +125,7 @@ Chapter 4 - Introduction to Computing in Google Cloud
 - Kubernetes uses 25 percent of memory up to 4GB and then slightly less for the next 4GB, and it continues to reduce the percentage of additional memory down to 2 percent of memory over 128GB; takes 6 percent CPU resources of the first core, down to 0.25 percent of any cores above four cores
 - Kubernetes does not provide vulnerability scanning. GCP does have a Cloud Security Scanner product, but that is designed to work with App Engine to identify common application
 vulnerabilities
-- Kubernetes deployment can be in are progressing, completed, and failed
+- Kubernetes deployment can be in are **progressing**, **completed**, and **failed**
 - Cloud Functions provides the “glue” between services
 - All Google regions have the same level of service level agreement, so reliability is the same
 - Preemptible VM can save a snapshot and use that to create a new regular instance

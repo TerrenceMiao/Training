@@ -205,6 +205,7 @@ the maximum and minimum number of nodes
 - **kubectl autoscale deployment** to enable autoscaling.
 - **kubectl get services**, command to list services
 - **kubectl delete service** hello-server
+- **kubectl set image deployment** [DEPLOYMENT NAME] [IMAGE NAME], is the command to update the image of a deployment imperatively without editing the manifest template; it will perform a rolling update on existing deployment to use the new image
 - The Container Registry is the service for managing images that can be used in other services, including Kubernetes Engine and Compute Engine
 - **gcloud container images** list --repository gcr.io/google-containers
 - **gcloud container images** describe gcr.io/appengflex-project-1/nginx
@@ -495,3 +496,6 @@ References
 
 - Official Google Cloud Certified Associate Cloud Engineer Study Guide, _https://www.wiley.com/en-au/Official+Google+Cloud+Certified+Associate+Cloud+Engineer+Study+Guide-p-9781119564393_
 - QwikLabs Free Codes — GCP and AWS, _https://medium.com/@sathishvj/qwiklabs-free-codes-gcp-and-aws-e40f3855ffdb_
+- Get GCP Certified - GCP Fundamentals, _https://www.getgcpcertified.com/courses/613442/lectures/10982362_
+- Get GCP Certified - GCP Compute & Storage Solutions, _https://www.getgcpcertified.com/courses/628044/lectures/11207103_
+- Get GCP Certified - Associate Cloud Engineer, _https://www.getgcpcertified.com/p/free-trial-associate-cloud-engineer_

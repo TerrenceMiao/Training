@@ -197,7 +197,7 @@ Chapter 8 - Managing Kubernetes Clusters
 
 - **gcloud ** command is used to view, modify Kubernetes resources such as clusters, nodes, Container Registry images, which managed by GCP
 - **gcloud container clusters get-credentials** command is the correct command to configure kubectl to use GCP credentials for the cluster
-- **gcloud container clusters create** ch07-cluster --num-nodes=3 --region=us-central1
+- **gcloud beta container clusters create** ch07-cluster --num-nodes=3 --region=us-central1
 - **gcloud container clusters resize** standard-cluster-1 --node-pool default-pool --size 5 --region=us-central1, command requires the name of the cluster and the node pool to modify
 - **gcloud container clusters update** standard-cluster-1 **--enable-autoscaling --min-nodes 1 --max-nodes 5** --zone us-central1-a --node-pool default-pool, to enable autoscaling, use the update command to specify
 the maximum and minimum number of nodes

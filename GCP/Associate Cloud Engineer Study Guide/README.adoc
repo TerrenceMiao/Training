@@ -139,14 +139,22 @@ Chapter 5 - Computing with Compute Engine Virtual Machines
 - The first time you try to work a VM you will have to create a billing account. When you start using the console, create a project, only if billing is enabled
 - A zone is a data center–like facility within a region. Different zones may have different machine types available, so you will need to specify a region first and then a zone to determine the set of machine types available
 - The boot disk type, which can be either Standard Persistent Disk or SSD Persistent Disk
-- Labels and a general description will help track numbers of VMs and their related costs. --labels parameter and specify the key followed by an equal sign followed by the value, e.g., KEYS=VALUE
+- Labels and a general description will help track numbers of VMs and their related costs. **--labels** parameter and specify the key followed by an equal sign followed by the value, e.g., **KEYS=VALUE**
 - Metadata can specify key-value pairs associated with the instance. These values are stored in a metadata server, which is available for querying using the Compute Engine API. Metadata tags are especially useful if you have a common script you want to run on startup or shutdown but want the behavior of the script to vary according to some metadata values
-- Availability Policy: Preemptibility, Automatic restart, On host maintenance
-- Shielded VM is an advanced set of security controls that includes Integrity Monitoring, a check to ensure boot images have not been tampered with, including Secure Boot, Virtual Trusted Platform Module, Integrity Monitoring
-- Sole Tenancy is used if you need to run your VMs on physical servers that only run your VMs
+- Availability Policy: **Preemptibility**, **Automatic restart**, **On host maintenance**
+- **Shielded VM** is an advanced set of security controls that includes Integrity Monitoring, a check to ensure boot images have not been tampered with, including Secure Boot, Virtual Trusted Platform Module, Integrity Monitoring
+- **Sole Tenancy** is used if you need to run your VMs on physical servers that only run your VMs
 - The two operations are using the book disk configuration are adding a new disk and attaching an existing disk. Reformatting an existing disk is not an option
 - If you can tolerate unplanned disruptions, use preemptible VMs
+- Cost of Virtual Machines
+** VMs are billed in 1-second increments
+** The cost is based on machine type. The more CPUs and memory used, the higher the cost. You can create custom machine types
+** Google offers discounts for sustained usage
+** VMs are charged for a minimum of 1 minute of use
+** Preemptible VMs can save you up to 80 percent of the cost of a VM
 - **gcloud** commands start with gcloud followed by a service, such as compute, followed by a resource type, such as instances, followed by a command or verb
+- gcloud compute instances create **--boot-disk-size** [BOOT DISK SIZE] **--boot-disk-type** [BOOT DISK TYPE] **--machine-type=n1-standard-4** **--preemptible** ...
+- gcloud compute instances **stop** web-server-1
 
 
 Chapter 6 - Managing Virtual Machines

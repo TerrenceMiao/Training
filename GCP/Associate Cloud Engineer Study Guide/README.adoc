@@ -262,6 +262,8 @@ Chapter 10 - Computing with Cloud Functions
 - **Function** parameters for **Cloud Pub/Sub**: Cloud function name, Memory allocated for the function, Trigger, **Topic**, Source of the function code, Runtime, Source code, Name of the function to execute
 - Parameters creating Cloud Storage function: runtime, trigger-resource, trigger-event. Trigger events are: google.storage.object.finalize, google.storage.object.delete, google.storage.object.archive, google.storage.object.metadataUpdate
 - Parameters creating Cloud Pub/Sub function: runtime, trigger-topic. Trigger event is: topic
+- gcloud functions deploy pub_sub_function_test **–runtime python37 –trigger-topic gcp-ace-exam-test-topic**
+- gcloud functions delete
 
 
 Chapter 11 - Planning Storage in the Cloud

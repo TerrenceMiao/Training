@@ -453,10 +453,15 @@ Chapter 16 - Deploying Applications with Cloud Launcher and Deployment Manager
 - Deployment Manager addresses that problem by making it relatively simple to deploy an application and resources in a repeatable process
 - Deployment Manager configuration files can be long or complicated, you can modularize them using templates. Templates define resources and can be imported into other templates. Template can be written in Python or Jinja2. Google recommends using Python for complicated templates
 - Free, Paid, and Bring You Own Licence (BYOL) are all license options used in Cloud Launcher
+- **Machine type**, **Disk type**, **Disk size**, **Firewall** rules to allow both HTTP and HTTPS traffic, **Zone** can be configuired in Cloud Launcher
+- Networking section in Cloud Launcher solution you will be able to configure IP Address, but not Access Controls
+- Launch a solution by clicking the Launch on Compute Engine link in the **Overview page of the solution**
+
 - Deployment Manager configuration files start with the word **resources**, followed by resource entities, which are defined using three fields:
 ** **name**, which is the name of the resource
 ** **type**, which is the type of the resource, such as compute.v1.instance
 ** **properties**, which are key-value pairs that specify configuration parameters for the resource. For example, a VM has properties to specify machine type, disks, and network interfaces
+- Properties **deviceName**, **boot**, **autodelete** may be set when defining a disk on a virtual machine
 - gcloud **deployment-manager** deployments create quickstart-deployment --config vm.yaml
 - gcloud **deployment-manager** deployments describe quickstart-deployment
 - gcloud **deployment-manager** deployments list

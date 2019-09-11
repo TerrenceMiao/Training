@@ -439,6 +439,7 @@ Chapter 15 - Networking in the Cloud: DNS, Load Balancing, and IP Addressing
 - Internal Load Balancer, balance traffic only from within GCP:
 ** Internal TCP/UDP
 - The prefix length specifies the length in bits of the subnet mask
+- In the GCP console there is an option between **From Internet To My VMs** and **Only Between My VMs**, this indicates public or private Load Balancer
 - gcloud compute target-pools add-instances ace-exam-pool --instances ig1,ig2
 - gcloud compute forwarding-rules create ace-exam-lb --port=80 --target-pool ace-exam-pool
 - gcloud compute networks subnets expand-ip-range ace-exam-subnet1 --prefix-length 16

@@ -326,11 +326,10 @@ Chapter 12 - Deploying Storage in Google Cloud Platform
 Chapter 13 - Loading Data into Storage
 --------------------------------------
 
-- The first step in loading data into Cloud Storage is to create a bucket
+- The first step in loading data into Cloud Storage is to create a bucket. From GCP Console, you can upload both files and folders
 - Folder can't be moved in GCP Console, under Storage menu
 - gsutil mb gs://[BUCKET_NAME]/
 - gsutil cp [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
-- gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKET_NAME]/[DESTINATION_OBJECT_NAME]
 - gsutil acl ch -u [SERVICE_ACCOUNT_ADDRESS]:W gs://[BUCKET_NAME]
 - gcloud sql instances describe [INSTANCE_NAME]
 - gcloud sql export sql|csv [INSTANCE_NAME] gs://[BUCKET_NAME]/[EXPORT_FILE_NAME] --database=[DATABASE_NAME]

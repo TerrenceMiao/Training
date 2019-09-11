@@ -355,19 +355,19 @@ Chapter 14 - Creating a Virtual Private Cloud with Subnets
 - GCP automatically creates a VPC when you create a project
 - VPCs are global resources, so they are not tied to a specific region or zone
 - VPCs are logical data centers in the cloud. VPCs are global, they have subnets in all regions. Resources in any region can be accessed through the VPC, can communicate with each other in SAME VPC
-- VPCs can have multiple subnets but each subnet has its own address range, subnets are regional resources
+- VPCs can have multiple subnets but each subnet has its own address range, **subnets are regional resources**
 - The shared VPC is hosted in a common project. Users in other projects who have sufficient permissions can create resources in the shared VPC
 - Classless Inter Domain Routing (CIDR) notation
 - Private Google Access allows VMs on the subnet to access Google services without assigning an external IP address to the VM
-- Flow Logs option turns on / off logging of network traffic and sent to Stackdriver
+- **Flow Logs** option turns on / off logging of network traffic and sent to Stackdriver
 - Regional routing will have Google Cloud Routers learn routes within the region. Global routing will enable Google Cloud Routers to learn routes on all subnetworks in the VPC
-- gcloud compute networks create ace-exam-vpc1 --subnet-mode=auto (**auto mode network** is GCP chooses a range of IP addresses for each subnet when creating subnets)
-- gcloud compute networks create ace-exam-vpc1 --subnet-mode=custom
-- gcloud beta compute networks **subnets** create ace-exam-vpc-subnet1 --network=aceexam-vpc1 --region=us-west2 --range=10.10.0.0/16 --enable-private-ip-googleaccess --enable-flow-logs
-- gcloud organizations add-iam-policy-binding [ORG_ID] --member='user:[EMAIL_ADDRESS]' --role="roles/compute.xpnAdmin" (Shared VPC Admin role to a organisation)
+- gcloud compute networks create ace-exam-vpc1 **--subnet-mode=auto** (**auto mode network** is GCP chooses a range of IP addresses for each subnet when creating subnets)
+- gcloud compute networks create ace-exam-vpc1 **--subnet-mode=custom**
+- gcloud beta compute networks **subnets** create ace-exam-vpc-subnet1 --network=aceexam-vpc1 --region=us-west2 --range=10.10.0.0/16 **--enable-private-ip-googleaccess** **--enable-flow-logs**
+- gcloud organizations **add-iam-policy-binding** [ORG_ID] --member='user:[EMAIL_ADDRESS]' --role="roles/compute.xpnAdmin" (Shared VPC Admin role to a organisation)
 - gcloud organizations list
-- gcloud beta resource-manager **folders** add-iam-policy-binding [FOLDER_ID] --member='user:[EMAIL_ADDRESS]' --role="roles/compute.xpnAdmin" (Shared VPC Admin role to a folder)
-- gcloud beta resource-manager **folders** list --organization=[ORG_ID]
+- gcloud **beta resource-manager folders** add-iam-policy-binding [FOLDER_ID] --member='user:[EMAIL_ADDRESS]' --role="roles/compute.xpnAdmin" (Shared VPC Admin role to a folder)
+- gcloud **beta resource-manager folders** list --organization=[ORG_ID]
 - Shared VPCs can be shared at the **network or folder level**. Shared VPCs need to bind identity and access management (IAM) policies at the **organizational or folder level** to enable Shared VPC Admin roles
 - gcloud compute shared-vpc enable [HOST_PROJECT_ID] (sharing VPC at the organisation level)
 - gcloud compute shared-vpc associated-projects add [SERVICE_PROJECT_ID] --host-project [HOST_PROJECT_ID] (sharing VPC at the organisation level)
@@ -377,10 +377,11 @@ Chapter 14 - Creating a Virtual Private Cloud with Subnets
 - gcloud compute networks peerings create peer-ace-exam-1 --network ace-exam-network-A --peer-project ace-exam-project-B --peer-network ace-exam-network-B --auto-create-routes (peering on network from A to B)
 - gcloud compute networks peerings create peer-ace-exam-1 --network ace-exam-network-B --peer-project ace-exam-project-A --peer-network ace-exam-network-A --auto-create-routes (peering on network from B to A)
 
+- **Hybrid Connectivity** section in Cloud Console to create a VPN
 - Firewall is stateful which means if traffic is allowed in one direction and a connection established, it is allowed in the other direction
 - An active connection is one with at least one packet exchanged every ten minutes
 - All VPCs start with two **implied rules**: One allows egress traffic to all destinations (IP address 0.0.0.0/0), and one denies all incoming traffic from any source (IP address 0.0.0.0/0). **implied rules** can't be deleted
-- Firewall rules consist of direction (incoming / outcoming), priority (which of all the matching rules is applied), action (allow / deny), target (an instance, alll instances in a network, instances with particular network tags, instances using a special service account), source (IP ranges, instances with particular network tags, instances using a special service account) / destination (IP ranges), protocols (TCP, UDP, ICMP) and port, and enforcement status (enabled / disabled)
+- Firewall rules consist of direction (incoming / outcoming), priority (which of all the matching rules is applied; the larger the number, the lower the priority), action (allow / deny), target (an instance, alll instances in a network, instances with particular network tags, instances using a special service account), source (IP ranges, instances with particular network tags, instances using a special service account) / destination (IP ranges), protocols (TCP, UDP, ICMP) and port, and enforcement status (enabled / disabled)
 - Compute and the resource used for creating, deleting, describing, updating, listing a firewall rule
 - Firewall rules are only applied to subnet level, can't to VPC level
 - gcloud compute firewall-rules create ace-exam-fwr1 –-network ace-exam-vpc1 –-allow tcp:20000-25000

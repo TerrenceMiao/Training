@@ -234,6 +234,7 @@ Chapter 9 - Computing with App Engine
 - **gcloud app logs** command
 - **gcloud app browse** command
 - **gcloud app versions stop** command
+- **gcloud components install app-engine-python** command will install or update the App Engine Python library as needed
 - App Engine applications are accessible from URLs that consist of the project name followed by appspot.com. Can also assign a custom domain rather not **appspot.com** URL. Do this from the Add New Custom domain function on the App Engine Settings page
 - Two kinds of instances available in App Engine Standard - **resident instances** are resident and running all the time, optimized for performance so users will wait less while an instance is started, used with **manual scaling**; **dynamic instances** are scaled based on load, used with **autoscaling and basic scaling**
 - Autoscaling enables: **target_cpu_utilization**, **target_throughput_utilization**, **max_concurrent_requests**, **max_instances**, **min_instances**, **max_pending_latency**, **min_pending_latency**

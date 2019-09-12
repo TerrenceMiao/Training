@@ -205,6 +205,7 @@ the maximum and minimum number of nodes
 - Deployments are listed under Workloads in Kubernetes Engine menu
 - In Create Deployment page in Cloud Console, can specify container image, cluster name, application name along with the labels, initial command, and namespace
 - Actions in Deployment details are: **Autoscale**, **Expose**, **Rolling Update**, **Scale**
+- Ensure have a properly configured **kubeconfig** file, which contains information on how to communicate with the cluster API
 - **kubectl** command is used to view, modify Kubernetes resources such as pods, deployments, services, which managed by Kubernetes
 - **kubectl run** hello-server --image=gcr.io/google/samples/hello-app:1.0 --port 8080, is the command used to start a deployment. It takes a name for the deployment, an image, and a port specification
 - **kubectl expose deployment** hello-server --type="LoadBalancer", command makes a service accessible
@@ -442,7 +443,7 @@ Chapter 15 - Networking in the Cloud: DNS, Load Balancing, and IP Addressing
 - In the GCP console there is an option between **From Internet To My VMs** and **Only Between My VMs**, this indicates public or private Load Balancer
 - gcloud compute target-pools add-instances ace-exam-pool --instances ig1,ig2
 - gcloud compute forwarding-rules create ace-exam-lb --port=80 --target-pool ace-exam-pool
-- gcloud compute networks subnets expand-ip-range ace-exam-subnet1 --prefix-length 16
+- gcloud compute networks subnets **expand-ip-range** ace-exam-subnet1 --prefix-length 16
 
 
 Chapter 16 - Deploying Applications with Cloud Launcher and Deployment Manager

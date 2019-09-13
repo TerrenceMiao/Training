@@ -122,10 +122,11 @@ Chapter 4 - Introduction to Computing in Google Cloud
 - Kubernetes administrates clusters of virtual and bare-metal machines, and is designed to support clusters that run a variety of applications.
 - A group containers in Kubernetes called pods. Containers within a single pod share storage, network resources, an IP address and port space. A **pod is a logically single unit** for providing a service. A group of running identical pods is called a deployment. The identical pods are referred to as replicas.
 - Kubernetes Engine is for large-scale applications that require high availability and high reliability. Kubernetes manage services which have different lifecycles and scalability requirements as a logical unit and at levels of abstraction
-- Kubernetes uses 25 percent of memory up to 4GB and then slightly less for the next 4GB, and it continues to reduce the percentage of additional memory down to 2 percent of memory over 128GB; takes 6 percent CPU resources of the first core, down to 0.25 percent of any cores above four cores
+- Kubernetes uses **25 percent** of memory up to 4GB and then slightly less for the next 4GB, and it continues to reduce the percentage of additional memory down to **2 percent** of memory over 128GB
+- Kubernetes takes **6 percent** CPU resources of the first core, down to **0.25 percent** of any cores above four cores
 - Kubernetes does not provide vulnerability scanning. GCP does have a Cloud Security Scanner product, but that is designed to work with App Engine to identify common application
 vulnerabilities
-- Kubernetes deployment can be in are **progressing**, **completed**, and **failed**
+- Kubernetes deployment can be in states: **progressing**, **completed**, and **failed**
 - Cloud Functions provides the “glue” between services
 - All Google regions have the same level of service level agreement, so reliability is the same
 - Preemptible VM can save a snapshot and use that to create a new regular instance
@@ -167,7 +168,7 @@ Chapter 6 - Managing Virtual Machines
 - When first create a snapshot, GCP will make a full copy of the data on the persistent disk. The next time create a snapshot from that disk, GCP will copy only the data that has changed since the last snapshot. This optimizes storage while keeping the snapshot up to date with the data that was on the disk the last time a snapshot operation occurred. Snapshots are copies of disks and are useful as backups and for copying data to other instances
 - It is a good practice to label all resources with a consistent labeling convention
 - Images are used to create VMs, can be created from the following: **Disk**, **Snapshot**, **Cloud storage file**, **Another image**. Images have an optional attribute called Family, which allows you to group images. Eventually, deprecated images will no longer be available
-- Command line options: --flatten, **--format**, --verbosity, **--async** (causes information about the start process to be displayed), **--keep-disks=all**, **--delete-disks=data**, --filter="zone:ZONE", e.g., gcloud compute instances delete ch06-instance-1 **–keep-disks=boot**
+- Command line options: --flatten, **--format** (JSON format results), --verbosity, **--async** (causes information about the start process to be displayed), **--keep-disks=[all | boot]**, **--delete-disks=data**, --filter="zone:ZONE", e.g., gcloud compute instances delete ch06-instance-1 **–keep-disks=boot**
 - Managed groups consist of groups of identical VMs. They are created using an instance template, which is a specification of a VM configuration, including machine type, boot disk image, zone, labels, and other properties of an instance. Managed instance groups can automatically scale the number of instances in a group and be used with load balancing to distribute workloads across the instance group. If an instance in a group crashes, it will be recreated automatically. Managed groups are the preferred type of instance group
 - Unmanaged groups should be used only when you need to work with different configurations within different VMs within the group
 - Instance groups are sets of instances managed as a single entity. Instance groups can contain instances in a single zone or across a region. The first is called a **zonal managed instance group**, and the second is called a **regional managed instance group**. Regional managed instance groups are recommended because that configuration spreads the workload across zones, increasing resiliency
@@ -178,6 +179,9 @@ Chapter 6 - Managing Virtual Machines
 Chapter 7 - Computing with Kubernetes
 -------------------------------------
 
+- The cluster master manages services provided by Kubernetes, such as the Kubernetes API, controllers, and schedulers. All interactions with the cluster are done through the master using the Kubernetes API. The cluster master issues the command that performs an action on a **node**. Users can also interact with a cluster using the **kubectl** command.
+- Nodes execute the workloads run on the cluster. Nodes are VMs that run containers configured to run an application. Nodes are primarily controlled by the cluster master. The nodes run an agent called **kubelet**, which is the
+service that communicates with the cluster master
 - Pods treat the multiple containers as a single entity for management purposes. Replicas are copies of pods and constitute a group of pods that are managed as a unit. Pods support autoscaling as well. Pods are considered ephemeral; that is, they are expected to terminate. Pods are single instances of a running process in a cluster. Pods run containers but are not sets of containers
 - Service is an object that provides API endpoints with a stable IP address that allow applications to discover pods running a particular application. Services update when changes are made to pods, so they maintain an up-to-date list of pods running an application. Services provide a level of indirection to accessing pods
 - ReplicaSet is a controller used by a deployment that ensures the correct number identical of pods are running
@@ -197,7 +201,7 @@ Chapter 8 - Managing Kubernetes Clusters
 
 - **gcloud ** command is used to view, modify Kubernetes resources such as clusters, nodes, Container Registry images, which managed by GCP
 - **gcloud container clusters get-credentials** command is the correct command to configure kubectl to use GCP credentials for the cluster
-- **gcloud beta container clusters create** ch07-cluster --num-nodes=3 --region=us-central1
+- **gcloud container clusters create** ch07-cluster --num-nodes=3 --region=us-central1
 - **gcloud container clusters resize** standard-cluster-1 --node-pool default-pool --size 5 --region=us-central1, command requires the name of the cluster and the node pool to modify
 - **gcloud container clusters update** standard-cluster-1 **--enable-autoscaling --min-nodes 1 --max-nodes 5** --zone us-central1-a --node-pool default-pool, to enable autoscaling, use the update command to specify
 the maximum and minimum number of nodes
@@ -244,7 +248,7 @@ Chapter 9 - Computing with App Engine
 ** **max_instances** / **min_instances** specifie the maximum / minimum number of instances that can run for this application
 ** **max_pending_latency** / **min_pending_latency** indicates the maximum and minimum time a request will wait in the queue to be processed
 - Basic scaling only allows parameters for **idle_timeout** and **max_instances**
-- Manual scaling only allows parameter for **instances**
+- Manual scaling, then instances will be resident, and only allows parameter is **instances** (number of instances to run)
 - **IP address**, **HTTP cookie** (preferred way), and **random splitting**, are allowed methods for splitting traffic
 - The cookie used for splitting in App Engine is called **GOOGAPPUID**
 - **gcloud app services set-traffic** command allocates service to some users to the new version without exposing all users to it. If no service name is specified, then all services are split; **set-traffic** command takes the following parameters: **--split** is the mandatory parameter for specifying a list of instances and the percent of traffic they should receive; **--migrate** migrate traffic from the previous version to the new version; **--split-by** values are ip, cookie, and random;
@@ -304,6 +308,9 @@ Chapter 12 - Deploying Storage in Google Cloud Platform
 - gcloud datastore import gs://[BUCKET]/[PATH]/[FILE].overall_export_metadata
 - BigQuery displays an estimate of the amount of data **scanned**. Use the scanned data estimate with the **Pricing Calculator** to get an estimate cost
 - In BigQuery console **Job History** shows active jobs, completed jobs, and jobs that generated errors
+
+image::Associate Cloud Engineer Study Guide - BigQuery.png[BigQuery - Job history]
+
 - bq --location=[LOCATION] query --use_legacy_sql=false **--dry_run [SQL_QUERY]**
 - bq --location=US show -j gcpace-project:US.bquijob_119adae7_167c373d5c3
 - Subscriptions can be pulled, in which the application reads from a topic, or pushed, in which the subscription writes messages to an endpoint
@@ -458,7 +465,7 @@ Chapter 16 - Deploying Applications with Cloud Launcher and Deployment Manager
 - Deployment Manager configuration files can be long or complicated, you can modularize them using templates. Templates define resources and can be imported into other templates. Template can be written in Python or Jinja2. Google recommends using Python for complicated templates
 - Free, Paid, and Bring You Own Licence (BYOL) are all license options used in Cloud Launcher
 - **Machine type**, **Disk type**, **Disk size**, **Firewall** rules to allow both HTTP and HTTPS traffic, **Zone** can be configuired in Cloud Launcher
-- Networking section in Cloud Launcher solution you will be able to configure IP Address, but not Access Controls
+- Networking section in Cloud Launcher solution you will be able to configure IP Address, but not Access Controls. Can choose to have an ephemeral external IP or no external IP. External IP address makes site accessible from outside. Static IP is not an option. Also can specify source IP ranges for HTTP and HTTPS traffic
 - Launch a solution by clicking the Launch on Compute Engine link in the **Overview page of the solution**
 
 - Deployment Manager configuration files start with the word **resources**, followed by resource entities, which are defined using three fields:
@@ -490,7 +497,7 @@ Chapter 17 - Configuring Access and Security
 - **Accessing scopes** options when creating an instance: **Default Access**, **Full Access to all Cloud APIs**, **Set Access for Each API**
 - View Audit Logs in Stackdriver by **resource**, **types of logs to display**, **log level**, **period of time**
 
-- gcloud projects get-iam-policy ace-exam-project
+- gcloud **projects get-iam-policy** ace-exam-project
 - gcloud **projects add-iam-policy-binding** ace-exam-project --member user:jane@aceexam.com --role roles/appengine.deployer
 - gcloud iam roles describe roles/appengine.deployer
 - gcloud iam roles create customAppEngine1 --project ace-exam-project --title='Custom Update App Engine' --description='Custom update' --permissions=appengine.applications.update --stage=alpha

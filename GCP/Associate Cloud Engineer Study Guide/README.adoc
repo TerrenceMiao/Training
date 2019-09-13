@@ -238,11 +238,11 @@ Chapter 9 - Computing with App Engine
 - App Engine applications are accessible from URLs that consist of the project name followed by appspot.com. Can also assign a custom domain rather not **appspot.com** URL. Do this from the Add New Custom domain function on the App Engine Settings page
 - Two kinds of instances available in App Engine Standard - **resident instances** are resident and running all the time, optimized for performance so users will wait less while an instance is started, used with **manual scaling**; **dynamic instances** are scaled based on load, used with **autoscaling and basic scaling**
 - Autoscaling enables: **target_cpu_utilization**, **target_throughput_utilization**, **max_concurrent_requests**, **max_instances**, **min_instances**, **max_pending_latency**, **min_pending_latency**
-- **target_cpu_utilization** specifies the maximum CPU utilization that occurs before additional instances are started
-- **target_throughput_utilization** specifies the maximum number of concurrent requests before additional instances are started, uses a 0.05 to 0.95 scale to specify maximum throughput utilization
-- **max_concurrent_requests** specifies the max concurrent requests an instance can accept before starting a new instance. The default is 10; the max is 80
-- **max_instances** / **min_instances** specifie the maximum / minimum number of instances that can run for this application
-- **max_pending_latency** / **min_pending_latency** indicates the maximum and minimum time a request will wait in the queue to be processed
+** **target_cpu_utilization** specifies the maximum CPU utilization that occurs before additional instances are started
+** **target_throughput_utilization** specifies the maximum number of concurrent requests before additional instances are started, uses a 0.05 to 0.95 scale to specify maximum throughput utilization
+** **max_concurrent_requests** specifies the max concurrent requests an instance can accept before starting a new instance. The default is 10; the max is 80
+** **max_instances** / **min_instances** specifie the maximum / minimum number of instances that can run for this application
+** **max_pending_latency** / **min_pending_latency** indicates the maximum and minimum time a request will wait in the queue to be processed
 - Basic scaling only allows parameters for **idle_timeout** and **max_instances**
 - Manual scaling only allows parameter for **instances**
 - **IP address**, **HTTP cookie** (preferred way), and **random splitting**, are allowed methods for splitting traffic
@@ -283,6 +283,7 @@ archived versions of an object)
 - There are three broad categories of data models available in GCP: object, relational, and NoSQL. Cloud Firestore and Firebase as a fourth category
 - Cloud SQL and Cloud Spanner use relational databases for transaction processing applications; BigQuery uses a relational model for data warehouse and analytic applications
 - The first task for using BigQuery is to create a data set to hold data, by clicking Create Dataset
+- BigQuery datasets are stored at the region level, not globally or at the zone level
 - Datastore and Firebase are document databases
 - Datastore has some features in common with relational databases, such as support for transactions and indexes to improve query performance. The main difference is that Datastore does not require a fixed schema or structure and does not support relational operations, such as joining tables, or computing aggregates, such as sums and counts.
 - Cloud Firestore is that it is designed for storing, synchronizing, and querying data across distributed applications, like mobile apps. Apps can be automatically updated in close to real time when data is changed on the backend. Cloud Firestore supports transactions and provides multiregional replication.
@@ -366,6 +367,7 @@ Chapter 14 - Creating a Virtual Private Cloud with Subnets
 - gcloud compute networks create ace-exam-vpc1 **--subnet-mode=auto** (**auto mode network** is GCP chooses a range of IP addresses for each subnet when creating subnets)
 - gcloud compute networks create ace-exam-vpc1 **--subnet-mode=custom**
 - gcloud beta compute networks **subnets** create ace-exam-vpc-subnet1 --network=aceexam-vpc1 --region=us-west2 --range=10.10.0.0/16 **--enable-private-ip-googleaccess** **--enable-flow-logs**
+- **add-iam-policy-binding** parameter can work in **organizations**, **folders**, **projects** level in gcloud command
 - gcloud organizations **add-iam-policy-binding** [ORG_ID] --member='user:[EMAIL_ADDRESS]' --role="roles/compute.xpnAdmin" (Shared VPC Admin role to a organisation)
 - gcloud organizations list
 - gcloud **beta resource-manager folders** add-iam-policy-binding [FOLDER_ID] --member='user:[EMAIL_ADDRESS]' --role="roles/compute.xpnAdmin" (Shared VPC Admin role to a folder)

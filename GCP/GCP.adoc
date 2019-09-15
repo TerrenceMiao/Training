@@ -11,6 +11,16 @@ GCP Network Service Tiers decision tree
 
 image::GCP - Network Service Tiers.jpeg[GCP - Network Service Tiers decision tree]
 
+GCP Hybrid Connectivity
+-----------------------
+
+image::GCP - Hybrid Connectivity.png[GCP - Hybrid Connectivity]
+
+GCP Data Transfer Chart - Bandwidth vs. Time
+--------------------------------------------
+
+image::GCP - Data Transfer Chart.png[GCP Data Transfer Chart – Bandwidth vs. Time]
+
 GCP Authentiation options decision tree
 ---------------------------------------
 
@@ -21,8 +31,8 @@ GCP Compute options decision tree
 
 image::https://miro.medium.com/max/628/1*OV12s1M9O3OcEn2cwdtmEA.png[GCP Compute options decision tree]
 
-Google Data products decision tree
-----------------------------------
+GCP Data products decision tree
+-------------------------------
 
 image::GCP - Data products decision tree.png[GCP - Data products decision tree]
 
@@ -52,3 +62,4 @@ References
 - GCP flowchart of decision tree, _https://medium.com/google-cloud/a-gcp-flowchart-a-day-2d57cc109401_
 - GCP Hosting Options, _https://cloud.google.com/hosting-options/_
 - GCP Serverless Options, _https://cloud.google.com/serverless-options/_
+- Google Cloud Hybrid Connectivity, _https://cloud.google.com/hybrid-connectivity/_

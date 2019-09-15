@@ -9,7 +9,7 @@ image::https://miro.medium.com/max/1200/1*JnDFATWt5-7DgQusex4BeQ.png[GCP Network
 GCP Network Service Tiers decision tree
 ---------------------------------------
 
-image::Associate Cloud Engineer Study Guide - Network Service Tiers.jpeg[GCP Network Service Tiers decision tree]
+image::GCP Network Service Tiers.jpeg[GCP Network Service Tiers decision tree]
 
 GCP Authentiation options decision tree
 ---------------------------------------

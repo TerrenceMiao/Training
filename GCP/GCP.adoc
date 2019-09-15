@@ -9,7 +9,7 @@ image::https://miro.medium.com/max/1200/1*JnDFATWt5-7DgQusex4BeQ.png[GCP Network
 GCP Network Service Tiers decision tree
 ---------------------------------------
 
-image::GCP Network Service Tiers.jpeg[GCP Network Service Tiers decision tree]
+image::GCP - Network Service Tiers.jpeg[GCP - Network Service Tiers decision tree]
 
 GCP Authentiation options decision tree
 ---------------------------------------
@@ -24,7 +24,7 @@ image::https://miro.medium.com/max/628/1*OV12s1M9O3OcEn2cwdtmEA.png[GCP Compute 
 Google Data products decision tree
 ----------------------------------
 
-image::Google Data products decision tree.png[Google Data products decision tree]
+image::GCP - Data products decision tree.png[GCP - Data products decision tree]
 
 Google Cloud Dataflow vs. Cloud Dataproc
 ----------------------------------------
@@ -44,7 +44,7 @@ image::https://cloud.google.com/images/serverless-options/serverless-guide.svg[S
 GCP Hosting Options
 -------------------
 
-image::GCP Hosting Options.png[GCP Hosting Options]
+image::GCP - Hosting Options.png[GCP - Hosting Options]
 
 References
 ----------

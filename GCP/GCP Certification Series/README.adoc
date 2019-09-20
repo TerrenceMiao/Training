@@ -1,0 +1,34 @@
+GCP Certification Series
+========================
+
+For Google Certified Associate Cloud Engineer.
+
+Basic Knowledge
+---------------
+
+- The project number and project ID are unique across the Google Cloud Platform
+- Name such as **Google** or **SSL** cannot be used for the project name
+- gcloud projects create [PROJECT_ID] [--organization=ORGANIZATION_ID | --folder=FOLDER_ID]. Project ID must **start with a lowercase letter**, and can contain only ASCII letters, digits, and hyphens, and must be between 6 and 30 characters.
+- Project owners can restore a deleted project within the 30-day recovery period that starts when the project is shut down. Restoring a project returns it to the state it was in before it was shut down. Cloud Storage resources are deleted before the 30-day period ends, and may not be fully recoverable.
+
+- Standard user access types or Primitive Roles:
+** Browser (Beta)
+** Editor
+** Owner
+** Viewer
+
+- To place a **lien** on a project protecting GCP project accidentally delete by any owners and administrator, untile **lien** is revoked
+- gcloud alpha resource-manager liens list
+
+- IAM policy can be set at the organization level, folder level, project level, or (in some cases) resource level
+- Permissions that were inherited from the original parent will be lost when the project is moved to a new folder. Permissions set at the destination folder will be inherited by the project as it is moved
+
+image::https://miro.medium.com/max/1202/0*oNHpRfBVe4xrGmXm[G Suite account, Cloud Identity, and the GCP resource hierarchy]
+
+- To use any API need to have valid credentials. To find the keys for authenticating uses of API you can add and remove credentials from the list.
+
+
+References
+----------
+
+- GCP Certification Series, 1.1, _https://medium.com/@prashantapaudel/gcp-certification-series-1-1-15cf8117f610_

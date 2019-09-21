@@ -43,3 +43,5 @@ References
 ----------
 
 - GCP Certification Series, 1.1, _https://medium.com/@prashantapaudel/gcp-certification-series-1-1-15cf8117f610_
+- GCP Certification Series: 1.2, Managing billing configuration, _https://medium.com/@prashantapaudel/gcp-certification-series-1-2-managing-billing-configuration-5d33de697ca3_
+- Google Cloud Platform(GCP) Certification Series: 1.3 Installing and configuring the command line interface (CLI), specifically the Cloud SDK, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-certification-series-1-3-6cdc9358672d_

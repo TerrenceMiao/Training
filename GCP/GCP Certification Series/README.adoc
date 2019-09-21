@@ -31,6 +31,14 @@ image::https://miro.medium.com/max/1202/0*oNHpRfBVe4xrGmXm[G Suite account, Clou
 - To use any API need to have valid credentials. To find the keys for authenticating uses of API you can add and remove credentials from the list
 
 
+Cloud SDK and CLI
+-----------------
+
+Managing SDK Components - **General Availability**, **Preview** release, **Alpha**, **Beta** components, _https://cloud.google.com/sdk/docs/components_
+
+image::https://miro.medium.com/max/1540/1*OA7SspVtgjxSZX6z73jB_A.png[Cloud SDK Additional components]
+
+
 References
 ----------
 

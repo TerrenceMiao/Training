@@ -58,6 +58,28 @@ Google Cloud Platform Pricing Calculator, _https://cloud.google.com/products/cal
 image::GCP Certification Series - Pricing Calculator.png[Google Cloud Platform Pricing Calculator]
 
 
+Compute Resources
+-----------------
+
+- Up to 5 VPC can be added to the project
+- Instances in the same VPC communicate in local area network
+- Public IP is only used when it has to communicate outside the project
+- Compute Engine can automatically generate SSH keys for you and apply them to your Google account, or G Suite account, or **project metadata**
+- Shared-core machine types provide one vCPU that is allowed to run for a portion of the time on a single hardware hyper-thread on the host CPU running your instance. Shared-core instances can be more cost-effective for running small, non-resource intensive applications than standard, high-memory or high-CPU machine types
+- Bursting happens automatically when your instance requires more physical CPU than originally allocated. During these spikes, your instance will opportunistically take advantage of available physical CPU in bursts. Note that bursts are not permanent and are only possible periodically
+- Attach GPUs only to instances with a predefined machine type or custom machine type are able to create in a zone. GPUs are not supported on shared-core machine types or memory-optimized machine types
+- Preemption process:
+** Compute Engine sends a preemption notice to the instance in the form of **an ACPI G2 Soft Off signal**. You can use a shutdown script to handle the preemption notice and complete cleanup actions before the instance stops
+** If the instance does not stop after 30 seconds, Compute Engine sends **an ACPI G3 Mechanical Off signal** to the operating system
+** Compute Engine transitions the instance to a **TERMINATED** state
+
+image::GCP Certification Series - Computing options comparing.png[Computing options comparing]
+
+App Hosting on Google Cloud, _https://cloud.google.com/hosting-options/_
+
+image::GCP Certification Series - Hosting options.png[Hosting options]
+
+
 References
 ----------
 
@@ -65,3 +87,4 @@ References
 - GCP Certification Series: 1.2, Managing billing configuration, _https://medium.com/@prashantapaudel/gcp-certification-series-1-2-managing-billing-configuration-5d33de697ca3_
 - Google Cloud Platform(GCP) Certification Series: 1.3 Installing and configuring the command line interface (CLI), specifically the Cloud SDK, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-certification-series-1-3-6cdc9358672d_
 - GCP Certification Series: Section 2: Planning and configuring a Cloud solution, 2.1 Planning and estimating GCP product use using the Pricing Calculator, _https://medium.com/@prashantapaudel/gcp-certification-series-section-2-planning-and-configuring-a-cloud-solution-2-1-580eb601f62f_
+- Google Cloud Platform(GCP): 2.2 Planning and configuring compute resources, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-2-2-planning-and-configuring-compute-resources-47332d8309a5_

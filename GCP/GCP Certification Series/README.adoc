@@ -51,7 +51,7 @@ image::https://cloud.google.com/images/pricing/pricing-hero.png[GCP compared to 
 
 Do More For Less, _https://cloud.google.com/pricing/_
 
-image::https://storage.googleapis.com/gweb-cloudblog-publish/images/new-storage-classes-5ybb1.max-600x600.PNG[Google Cloud Storage Classes]
+image::GCP Certification Series - Google Cloud Storage Classes.png[Google Cloud Storage Classes]
 
 Google Cloud Platform Pricing Calculator, _https://cloud.google.com/products/calculator/_
 

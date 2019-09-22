@@ -39,9 +39,29 @@ Managing SDK Components - **General Availability**, **Preview** release, **Alpha
 image::https://miro.medium.com/max/1540/1*OA7SspVtgjxSZX6z73jB_A.png[Cloud SDK Additional components]
 
 
+Pricing
+-------
+
+- These savings are achieved by:
+** **Sustained use discount**: _**More your instances are running bigger discount you will get.**_
+** **List price differences**: Google is reducing the price of services and instances according to **Moore’s law** and immediately after the price of any instance or services are reduced they are applied in your monthly billing.
+** **Rightsizing recommendations**: Google cloud provides recommendations for compute engine based on the 8 days stack driver monitoring to resize the VM.
+
+image::https://cloud.google.com/images/pricing/pricing-hero.png[GCP compared to other Cloud vendors]
+
+Do More For Less, _https://cloud.google.com/pricing/_
+
+image::https://storage.googleapis.com/gweb-cloudblog-publish/images/new-storage-classes-5ybb1.max-600x600.PNG[Google Cloud Storage Classes]
+
+Google Cloud Platform Pricing Calculator, _https://cloud.google.com/products/calculator/_
+
+image::GCP Certification Series - Pricing Calculator.png[Google Cloud Platform Pricing Calculator]
+
+
 References
 ----------
 
 - GCP Certification Series, 1.1, _https://medium.com/@prashantapaudel/gcp-certification-series-1-1-15cf8117f610_
 - GCP Certification Series: 1.2, Managing billing configuration, _https://medium.com/@prashantapaudel/gcp-certification-series-1-2-managing-billing-configuration-5d33de697ca3_
 - Google Cloud Platform(GCP) Certification Series: 1.3 Installing and configuring the command line interface (CLI), specifically the Cloud SDK, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-certification-series-1-3-6cdc9358672d_
+- GCP Certification Series: Section 2: Planning and configuring a Cloud solution, 2.1 Planning and estimating GCP product use using the Pricing Calculator, _https://medium.com/@prashantapaudel/gcp-certification-series-section-2-planning-and-configuring-a-cloud-solution-2-1-580eb601f62f_

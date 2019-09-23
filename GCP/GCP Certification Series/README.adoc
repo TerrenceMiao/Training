@@ -105,10 +105,7 @@ image::https://www.caringo.com/wp-content/uploads/2017/01/File-Object-Storage.sv
 
 [cols="1a,3,3a,3a"]
 |===
-|Product
-|Description
-|Good For
-|Common Workloads
+|Product |Description |Good For |Common Workloads
 
 |
 image:../icons/Storage & Databases/Persistent Disk.svg[] https://cloud.google.com/persistent-disk/[Persistent Disk]

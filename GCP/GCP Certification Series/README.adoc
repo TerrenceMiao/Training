@@ -105,7 +105,14 @@ image::https://www.caringo.com/wp-content/uploads/2017/01/File-Object-Storage.sv
 
 [cols="1a,3,3a,3a"]
 |===
-|Product |Description |Good For |Common Workloads
+|Product
+{set:cellbgcolor:#4885ed}
+|Description
+{set:cellbgcolor:#4885ed}
+|Good For
+{set:cellbgcolor:#4885ed}
+|Common Workloads
+{set:cellbgcolor:#4885ed}
 
 |
 image:../icons/Storage & Databases/Persistent Disk.svg[] https://cloud.google.com/persistent-disk/[Persistent Disk]

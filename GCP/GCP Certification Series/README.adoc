@@ -194,9 +194,56 @@ image:../icons/Big Data/BigQuery.svg[] https://cloud.google.com/bigquery/[Google
 * Analytical reporting on large data
 * Data Science and advanced analyses
 * Big Data processing using SQL
+
+|
+image:../icons/Storage & Databases/Cloud Filestore.svg[] https://cloud.google.com/filestore/[Google Cloud Filestore]
+|A managed file storage service for applications that require a filesystem interface and a shared filesystem for data. Filestore gives users a simple, native experience for standing up managed Network Attached Storage (NAS) with their Google Compute Engine and Kubernetes Engine instances. The ability to fine-tune Filestore’s performance and capacity independently leads to predictably fast performance for your file-based workloads
+|
+* Fast
+* Consistent
+* Simple
+|
+* Rendering
+* Application migrations
+* Web content management
+* Media processing
+* Home directories
+
+|
+image:../icons/Storage & Databases/Cloud Memorystore.svg[] https://cloud.google.com/memorystore/[Google Cloud Memorystore]
+|A fully managed in-memory data store service built on scalable, secure, and highly available infrastructure managed by Google. Use Cloud Memorystore to build application caches that provides sub-millisecond data access. Cloud Memorystore is compatible with the Redis protocol, allowing easy migration with zero code changes
+|
+* Focus on Building Great Apps
+* Scale as Needed
+* Highly Available
+* Google Grade Security
+* Easy Lift and Shift
+|
+
+|
+image:https://cloud.google.com/images/products/logos/svg/firebase-firestore.svg[] https://cloud.google.com/filestore/[Google Cloud Firestore]
+|A fast, fully managed, serverless, cloud-native NoSQL document database that simplifies storing, syncing, and querying data for your mobile, web, and IoT apps at global scale. Its client libraries provide live synchronization and offline support, while its security features and integrations with Firebase and Google Cloud Platform (GCP) accelerate building truly serverless apps
+|
+* Accelerate development velocity with serverless
+* Sync data across devices, on or offline
+* Simple and effortless
+* Enterprise-grade, scalable NoSQL
+|
+* Mobile applications
 |===
 
 image::GCP Certification Series - Storage Options Flowchart.jpg_large[Google Cloud Storage Options Flowchart]
+
+- Google Cloud Storage, Standard (Multi-Regional, Regional)
+
+image::https://cloud.google.com/images/storage/storage-classes-desktop.svg[Google Cloud Storage]
+
+- Google Cloud Spanner
+
+The best of the relational and non-relational worlds:
+
+image::GCP Certification Series - Spanner.png[Google Cloud Spanner]
+
 
 References
 ----------

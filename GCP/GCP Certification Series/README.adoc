@@ -80,6 +80,123 @@ App Hosting on Google Cloud, _https://cloud.google.com/hosting-options/_
 image::GCP Certification Series - Hosting options.png[Hosting options]
 
 
+Storage
+-------
+
+image::https://miro.medium.com/max/2470/0*-J9gAHSRqWQsDeoo.png[File Storage vs. Block Storage vs. Object Storage]
+
+- Storage Systems:
+** **File storage** — files and folders. Performance suffers of certain capacity, like processing power and growth
+** **Block storage** — Databases, OS. Using traditional file systems on block storage places explicit or practical operational limits on scaling beyond the petabyte range
+** **Object storage** - buckets, multimedia, designed for unstructured data such as media, documents, logs, backups, application binaries, and VM images:
+*** Data are stored along with its metadata (**objects in object**) and unique identifier
+*** Conceptually they are like a persistent key/value store
+*** Perfect solution for backup or archive
+*** Real file system layer is obsolete
+*** Can be scaled up much easier
+
+image::https://miro.medium.com/max/2132/1*Xjo8kkkZ7LwM93jY-tw3AQ.png[Storage System]
+
+- Network Storage Options:
+
+image::https://www.caringo.com/wp-content/uploads/2017/01/File-Object-Storage.svg[Network Storage Options]
+
+- Different Storage products from Google
+
+[cols="1a,3,3a,3a"]
+|===
+|Product |Description |Good For |Common Workloads
+
+|
+image:../icons/Storage & Databases/Persistent Disk.svg[] https://cloud.google.com/persistent-disk/[Persistent Disk]
+|Fully-managed, price-performant block storage that is suitable for virtual machines and containers
+|
+* Block storage for Google Compute Engine and Google Kubernetes Engine
+* Snapshots for data backup
+|
+* Disks for virtual machines
+* Sharing read-only data across multiple virtual machines
+* Rapid, durable backups of running virtual machines
+
+|
+image:../icons/Storage & Databases/Cloud Storage.svg[] https://cloud.google.com/storage/[Google Cloud Storage]
+|A scalable, fully-managed, highly reliable, and cost-efficient object / blob store
+|
+* Images, pictures, and videos
+* Objects and blobs
+* Unstructured data
+|
+* Storing and streaming multimedia
+* Storage for custom data analytics pipelines
+* Archive, backup, and disaster recovery
+
+|
+image:../icons/Storage & Databases/Cloud Bigtable.svg[] https://cloud.google.com/bitable/[Google Cloud Bigtable]
+|A scalable, fully-managed NoSQL wide-column database that is suitable for both real-time access and analytics workloads
+|
+* Low-latency read/write access
+* High-throughput analytics
+* Native time series support
+|
+* IoT, finance, adtech
+* Personalization, recommendations
+* Monitoring
+* Geospatial datasets
+* Graphs
+
+|
+image:../icons/Storage & Databases/Cloud Datastore.svg[] https://cloud.google.com/datastore/[Google Cloud Datastore]
+|A scalable, fully-managed NoSQL document database for your web and mobile applications
+|
+* Semi-structured application data
+* Hierarchical data
+* Durable key-value data
+|
+* User profiles
+* Product catalogs
+* Game state
+
+|
+image:../icons/Storage & Databases/Cloud SQL.svg[] https://cloud.google.com/sql/[Google Cloud SQL]
+|A fully-managed MySQL and PostgreSQL database service that is built on the strength and reliability of Google’s infrastructure
+|
+* Web frameworks
+* Structured data
+* OLTP workloads
+|
+* Websites, blogs, and content management systems (CMS)
+* Business Intelligence (BI) applications
+* ERP, CRM, and eCommerce applications
+* Geospatial applications
+
+|
+image:../icons/Storage & Databases/Cloud Spanner.svg[] https://cloud.google.com/spanner/[Google Cloud Spanner]
+|Mission-critical, relational database service with transactional consistency, global scale and high availability
+|
+* Mission-critical applications
+* High transactions
+* Scale + Consistency requirements
+|
+* Adtech
+* Financial services
+* Global supply chain
+* Retail
+
+|
+image:../icons/Big Data/BigQuery.svg[] https://cloud.google.com/bigquery/[Google BigQuery]
+|A scalable, fully-managed Enterprise Data Warehouse (EDW) with SQL and fast response times
+|
+* OLAP workloads up to petabyte-scale
+* Big Data exploration and processing
+* Reporting via Business Intelligence (BI) tools
+|
+* Analytical reporting on large data
+* Data Science and advanced analyses
+* Big Data processing using SQL
+|===
+
+image::GCP Certification Series - Storage Options Flowchart.jpg_large[Google Cloud Storage Options Flowchart]
+
 References
 ----------
 
@@ -88,3 +205,4 @@ References
 - Google Cloud Platform(GCP) Certification Series: 1.3 Installing and configuring the command line interface (CLI), specifically the Cloud SDK, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-certification-series-1-3-6cdc9358672d_
 - GCP Certification Series: Section 2: Planning and configuring a Cloud solution, 2.1 Planning and estimating GCP product use using the Pricing Calculator, _https://medium.com/@prashantapaudel/gcp-certification-series-section-2-planning-and-configuring-a-cloud-solution-2-1-580eb601f62f_
 - Google Cloud Platform(GCP): 2.2 Planning and configuring compute resources, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-2-2-planning-and-configuring-compute-resources-47332d8309a5_
+- GCP Certification Series: 2.3 Planning and configuring data storage options, _https://medium.com/@prashantapaudel/gcp-certification-series-2-3-planning-and-configuring-data-storage-options-5a6bfbca8601_

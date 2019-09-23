@@ -103,19 +103,17 @@ image::https://www.caringo.com/wp-content/uploads/2017/01/File-Object-Storage.sv
 
 - Different Storage products from Google
 
-[cols="1a,3,3a,3a"]
+[cols="1,3,3a,3a"]
 |===
 |Product
 {set:cellbgcolor:#4885ed}
 |Description
-{set:cellbgcolor:#4885ed}
 |Good For
-{set:cellbgcolor:#4885ed}
 |Common Workloads
-{set:cellbgcolor:#4885ed}
 
 |
 image:../icons/Storage & Databases/Persistent Disk.svg[] https://cloud.google.com/persistent-disk/[Persistent Disk]
+{set:cellbgcolor!}
 |Fully-managed, price-performant block storage that is suitable for virtual machines and containers
 |
 * Block storage for Google Compute Engine and Google Kubernetes Engine

@@ -232,7 +232,7 @@ image:https://cloud.google.com/images/products/logos/svg/firebase-firestore.svg[
 * Mobile applications
 |===
 
-image::GCP Certification Series - Storage Options Flowchart.jpg_large[Google Cloud Storage Options Flowchart]
+image::GCP Certification Series - Storage Options Flowchart.jpg[Google Cloud Storage Options Flowchart]
 
 - Google Cloud Storage, Standard (Multi-Regional, Regional)
 

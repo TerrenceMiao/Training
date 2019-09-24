@@ -245,6 +245,82 @@ The best of the relational and non-relational worlds:
 image::GCP Certification Series - Spanner.png[Google Cloud Spanner]
 
 
+Network
+-------
+
+image::GCP Certification Series - Internet Provider.png[3 tiers Internet Providers]
+
+- 3 tiers Internet Providers:
+** Tier 1 carriers are the movers and shakers of the industry, called as backbone Internet providers
+** Tier 2 carriers peer with other networks, but also purchase IP transit for full access to the internet
+** Tier 3 carriers strictly purchase IP transit, usually are last mile providers
+
+- **BGP Peering** is an agreement between different Service Providers. It is an EBGP neighborship between different Service Providers to send BGP traffic between them without paying upstream Service Provider
+
+- How internet works
+
+image::https://cdn3.vox-cdn.com/assets/4463779/nRzfTEu.gif[The internet conquers the world]
+
+40 maps that explain the internet, _https://www.vox.com/a/internet-maps_
+
+- Internet Exchange Directory
+
+image::GCP Certification Series - Internet Exchange Directory.svg[Internet Exchange Directory]
+
+PCH (Packet Clearing House) Internet Exchange Directory, _https://www.pch.net/ixp/dir_
+
+- Explore Google's Data Analytics, Data Encryption, Container Operations on Google Cloud Infrastructure and Global Network via virsualisation, _https://cloud.withgoogle.com/infrastructure_
+
+- Few of the resources in GCP are global, others may be restricted by region or zone
+** Global Resources:
+*** Images
+*** Snapshots
+*** VPC Network
+*** Firewalls
+*** Routes
+** Regional Resources:
+*** Static external IP addresses
+*** Subnets
+** Zonal Resources:
+*** Instances (VMs)
+*** Persistent Disks
+
+image::https://www.networkmanagementsoftware.com/wp-content/uploads/disks-images-1024x407.png[]
+
+_Can attach a disk from one instance to another within the same zone, but cannot do this across zones. Since images and snapshots are Global Resources, can use these across zones in the same region._
+
+- Addressing Methods
+** Unicast
+** Multicast
+** Broadcast
+** Geocast
+** Anycast
+
+- Load Balancer
+** Distribute load-balanced resources in single or multiple regions
+** Meet your high availability requirements
+** Put your resources behind a single anycast IP address
+** Scale your resources up or down with intelligent Autoscaling
+** Use Cloud CDN for optimal content delivery
+
+image::GCP Certification Series - Load Balancer.png[Google Cloud Load Balancer]
+
+image::https://cloud.google.com/load-balancing/images/choose-lb.svg[Load Balancer Decision Tree]
+
+- Connection
+** Interconnect
+
+image::GCP Certification Series - Interconnect.png[Interconnect]
+
+** Peering
+
+image::GCP Certification Series - Peering.png[Peering]
+
+** Options
+
+image::GCP Certification Series - Connection.png[Google Cloud Connection]
+
+
 References
 ----------
 

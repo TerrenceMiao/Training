@@ -245,8 +245,8 @@ The best of the relational and non-relational worlds:
 image::GCP Certification Series - Spanner.png[Google Cloud Spanner]
 
 
-Network
--------
+Networking
+----------
 
 image::GCP Certification Series - Internet Provider.png[3 tiers Internet Providers]
 
@@ -289,6 +289,10 @@ image::https://www.networkmanagementsoftware.com/wp-content/uploads/disks-images
 
 _Can attach a disk from one instance to another within the same zone, but cannot do this across zones. Since images and snapshots are Global Resources, can use these across zones in the same region._
 
+- Network Traffic
+** Ingress is free
+** Egress is charged. Egress to some GCP services sometimes free
+
 - Addressing Methods
 ** Unicast
 ** Multicast
@@ -306,6 +310,10 @@ _Can attach a disk from one instance to another within the same zone, but cannot
 image::GCP Certification Series - Load Balancer.png[Google Cloud Load Balancer]
 
 image::https://cloud.google.com/load-balancing/images/choose-lb.svg[Load Balancer Decision Tree]
+
+- Cloud IAP (Identity Aware Proxy)
+
+image::https://cloud.google.com/images/products/iap/cloud-iap.png[IAP - Identity Aware Proxy]
 
 - Connection
 ** Interconnect
@@ -347,6 +355,77 @@ Includes:
 |===
 
 image::GCP Certification Series - Connection.png[Google Cloud Connection]
+
+
+Global / Regional / Multi-regional / Zonal
+------------------------------------------
+
+[cols="6,^1,^1,^2,^1"]
+|===
+|Resource {set:cellbgcolor:#4885ed} |Global  |Regional |Multi-regional |Zonal
+
+|Images
+{set:cellbgcolor!}
+|X | | |
+
+|Service Accounts |X | | |
+|Snapshots |X | | |
+|Instance Templates |X | | |
+|VPC Network |X | | |
+|Firewalls |X | | |
+|Routes |X | | |
+|Project ID (global unique) |X | | |
+|Cloud Identity |X | | |
+|Cloud Resource Manager |X | | |
+|Cloud Audit Logging |X | | |
+|Security Scanner |X | | |
+|Storage Transfer Service |X | | |
+|Google Domains |X | | |
+|Cloud DNS |X | | |
+|Cloud CDN |X | | |
+|Cloud IoT Core |X | | |
+|Cloud Pub/Sub |X | | |
+|Cloud Dataprep |X | | |
+|Cloud Data Studio |X | | |
+|Stackdriver |X | | |
+|Cloud Deployment Manager |X | | |
+|Cloud Endpoints |X | | |
+
+|Cloud KMS |X |X | |
+|Cloud Storage |X |X | |
+|Static IP |X |X | |
+|Cloud Load Balancer |X |X | |
+
+|Cloud Spanner |X |X |X |
+
+|Dedicated Interconnect | |X |X |
+|Carrier Interconnect | |X |X |
+|CDN Interconnect | |X |X |
+
+|Addresses | |X | |
+|Subnets | |X | |
+|Regional Managed Instance Groups | |X | |
+|Google Kubernetes Engine | |X | |
+|App Engine | |X | |
+|Cloud Functions | |X | |
+|Cloud SQL | |X | |
+|BigTable | |X | |
+|Cloud VPN | |X | |
+|Cloud Router | |X | |
+|Cloud Datalab | |X | |
+
+|Cloud Datastore | |X |X |
+
+|BigQuery | | |X |
+
+|Instances | | | |X
+|Disks (Local SSD, Persistent Disk) | | | |X
+|Machine Types | | | |X
+|Zonal Managed Instance Groups | | | |X
+|Google Compute Engine | | | |X
+|Cloud Dataproc | | | |X
+|Cloud Dataflow | | | |X
+|===
 
 
 References

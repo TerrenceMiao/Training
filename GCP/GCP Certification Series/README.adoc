@@ -25,7 +25,7 @@ Basic Knowledge
 
 - IAM policy can be set at the organization level, folder level, project level, or (in some cases) resource level
 - Permissions that were inherited from the original parent will be lost when the project is moved to a new folder. Permissions set at the destination folder will be inherited by the project as it is moved
-
++
 image::https://miro.medium.com/max/1202/0*oNHpRfBVe4xrGmXm[G Suite account, Cloud Identity, and the GCP resource hierarchy]
 
 - To use any API need to have valid credentials. To find the keys for authenticating uses of API you can add and remove credentials from the list
@@ -51,13 +51,12 @@ Pricing
 ** Ingress is free
 ** Egress is charged. Egress to some GCP services sometimes free
 - Committed-use discounts
-
++
 image::https://cloud.google.com/images/pricing/pricing-hero.png[GCP compared to other Cloud vendors]
 
 - Do More For Less, _https://cloud.google.com/pricing/_
-
 - Google Cloud Platform Pricing Calculator, _https://cloud.google.com/products/calculator/_
-
++
 image::GCP Certification Series - Pricing Calculator.png[Google Cloud Platform Pricing Calculator]
 
 
@@ -66,7 +65,7 @@ Security
 
 - Always "**distrust the network**"
 - **BeyondCorp**, the implementation of the **zero trust security model**, allows any users to work more securely from virtually any location without the need for a traditional VPN. **BeyondCorp** can be enabled at virtually any organization with Google Cloud's Context-aware access (user's indentity and context) solution, powered by Cloud Identity, Cloud Identity-Aware Proxy, Cloud IAM, and VPC Service Controls (allow users to define a security perimeter around GCP resources), and can enforce granular access controls to web apps, VMs, APIs, and G Suite apps based on attributes like user identity, device security status, IP address, and more.
-
++
 image::https://cloud.google.com/images/products/beyondcorp/gcp_beyondcorp_hero.png[]
 
 - Service Account Keys
@@ -87,11 +86,12 @@ Computing
 ** Compute Engine sends a preemption notice to the instance in the form of **an ACPI G2 Soft Off signal**. You can use a shutdown script to handle the preemption notice and complete cleanup actions before the instance stops
 ** If the instance does not stop after 30 seconds, Compute Engine sends **an ACPI G3 Mechanical Off signal** to the operating system
 ** Compute Engine transitions the instance to a **TERMINATED** state
-
+- Computing Options
++
 image::GCP Certification Series - Computing options comparing.png[Computing options comparing]
-
++
 App Hosting on Google Cloud, _https://cloud.google.com/hosting-options/_
-
++
 image::GCP Certification Series - Hosting options.png[Hosting options]
 
 
@@ -109,15 +109,15 @@ image::https://miro.medium.com/max/2470/0*-J9gAHSRqWQsDeoo.png[File Storage vs. 
 *** Perfect solution for backup or archive
 *** Real file system layer is obsolete
 *** Can be scaled up much easier
-
++
 image::https://miro.medium.com/max/2132/1*Xjo8kkkZ7LwM93jY-tw3AQ.png[Storage System]
 
 - Network Storage Options:
-
++
 image::https://www.caringo.com/wp-content/uploads/2017/01/File-Object-Storage.svg[Network Storage Options]
 
 - Different Storage products from Google
-
++
 [cols="1,3,4a,4a"]
 |===
 |Product {set:cellbgcolor:#4885ed} |Description |Good For |Common Workloads
@@ -246,19 +246,19 @@ image:https://cloud.google.com/images/products/logos/svg/firebase-firestore.svg[
 |
 * Mobile applications
 |===
-
++
 image::GCP Certification Series - Storage Options Flowchart.jpg[Google Cloud Storage Options Flowchart]
 
 - Google Cloud Storage, **Standard** (Multi-Regional, Regional), Nearline, Coldline, **Ice Cold** storage classes
-
++
 image::https://cloud.google.com/images/storage/storage-classes-desktop.svg[Google Cloud Storage]
-
++
 image::GCP Certification Series - Google Cloud Storage Classes.png[Google Cloud Storage Classes]
 
 - Google Cloud Spanner
-
++
 The best of the relational and non-relational worlds:
-
++
 image::GCP Certification Series - Spanner.png[Google Cloud Spanner]
 
 - Cloud Data Transfer
@@ -281,15 +281,15 @@ image::GCP Certification Series - Internet Provider.png[3 tiers Internet Provide
 - **BGP Peering** is an agreement between different Service Providers. It is an EBGP neighborship between different Service Providers to send BGP traffic between them without paying upstream Service Provider
 
 - How internet works
-
++
 image::https://cdn3.vox-cdn.com/assets/4463779/nRzfTEu.gif[The internet conquers the world]
-
++
 40 maps that explain the internet, _https://www.vox.com/a/internet-maps_
 
 - Internet Exchange Directory
-
++
 image::GCP Certification Series - Internet Exchange Directory.svg[Internet Exchange Directory]
-
++
 PCH (Packet Clearing House) Internet Exchange Directory, _https://www.pch.net/ixp/dir_
 
 - Explore Google's Data Analytics, Data Encryption, Container Operations on Google Cloud Infrastructure and Global Network via virsualisation, _https://cloud.withgoogle.com/infrastructure_
@@ -297,7 +297,7 @@ PCH (Packet Clearing House) Internet Exchange Directory, _https://www.pch.net/ix
 - **Edge Cacching**, caching platform that sits on top of their infrastructure network. Edge locations can be found in virtually every country
 
 - Few of the resources in GCP are global, others may be restricted by region or zone
-
++
 [cols="6,^1,^1,^2,^1"]
 |===
 |Resource {set:cellbgcolor:#4885ed} |Global  |Regional |Multi-regional |Zonal
@@ -364,9 +364,9 @@ PCH (Packet Clearing House) Internet Exchange Directory, _https://www.pch.net/ix
 |Cloud Dataproc | | | |X
 |Cloud Dataflow | | | |X
 |===
-
++
 For example, can attach a disk from one instance to another within the same zone, but cannot do this across zones. Since images and snapshots are Global Resources, can use these across zones in the same region.
-
++
 image::https://www.networkmanagementsoftware.com/wp-content/uploads/disks-images-1024x407.png[]
 
 - Addressing Methods
@@ -382,13 +382,13 @@ image::https://www.networkmanagementsoftware.com/wp-content/uploads/disks-images
 ** Put your resources behind a single anycast IP address
 ** Scale your resources up or down with intelligent Autoscaling
 ** Use Cloud CDN for optimal content delivery
-
++
 image::GCP Certification Series - Load Balancer.png[Google Cloud Load Balancer]
-
++
 image::https://cloud.google.com/load-balancing/images/choose-lb.svg[Load Balancer Decision Tree]
 
 - Cloud IAP (Identity Aware Proxy)
-
++
 image::https://cloud.google.com/images/products/iap/cloud-iap.png[IAP - Identity Aware Proxy]
 
 - Cloud DNS

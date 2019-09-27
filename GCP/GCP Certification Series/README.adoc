@@ -374,7 +374,7 @@ image::https://www.networkmanagementsoftware.com/wp-content/uploads/disks-images
 ** Multicast
 ** Broadcast
 ** Geocast
-** Anycast
+** **Anycast**
 
 - Load Balancer
 ** Distribute load-balanced resources in single or multiple regions
@@ -391,17 +391,26 @@ image::https://cloud.google.com/load-balancing/images/choose-lb.svg[Load Balance
 
 image::https://cloud.google.com/images/products/iap/cloud-iap.png[IAP - Identity Aware Proxy]
 
+- Cloud DNS
+** Supports DNS record types:
++
+image::GCP Certification Series - Cloud DNS record types.png[Cloud DNS supported DNS record types]
++
+** DNS Forwarding
++
+image::https://cloud.google.com/dns/images/dns-forwarding-1.svg[DNS Forwarding]
+
 - Connection
 ** Interconnect
-
++
 image::GCP Certification Series - Interconnect.png[Interconnect]
-
++
 ** Peering
-
++
 image::GCP Certification Series - Peering.png[Peering]
-
++
 ** Choosing a network connection
-
++
 [cols="3,4a,4a"]
 |===
 | {set:cellbgcolor:#4885ed} |Interconnect  |Peering
@@ -429,7 +438,7 @@ Includes:
 * Direct Peering
 * Carrier Peering
 |===
-
++
 image::GCP Certification Series - Connection.png[Google Cloud Connection]
 
 

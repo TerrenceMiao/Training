@@ -94,6 +94,19 @@ App Hosting on Google Cloud, _https://cloud.google.com/hosting-options/_
 +
 image::GCP Certification Series - Hosting options.png[Hosting options]
 
+- Resource Quotas
++
+image::GCP Certification Series - Resource Quotas.png[Resource Quotas]
+
+- Metadata
++
+Project wide SSH key (key-value pairs) in Metadata, available to all VM instances in the project. Format is:
++
+ssh-rsa [KEY_VALUE] google-ssh {“userName”:”[USERNAME]”,”expireOn”:”[EXPIRE_TIME]”}
++
+[EXPIRE_TIME] is a value in ISO 8601 format, e.g. **2018-12-04T20:12:00+0000**
++
+image::GCP Certification Series - SSH key Metadata.png[Project wide SSH key Metadata]
 
 Storage
 -------
@@ -453,6 +466,7 @@ References
 - Google Cloud Platform(GCP): 2.2 Planning and configuring compute resources, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-2-2-planning-and-configuring-compute-resources-47332d8309a5_
 - GCP Certification Series: 2.3 Planning and configuring data storage options, _https://medium.com/@prashantapaudel/gcp-certification-series-2-3-planning-and-configuring-data-storage-options-5a6bfbca8601_
 - GCP Certification Series: 2.4 Planning and configuring network resources, _https://medium.com/@prashantapaudel/gcp-certification-series-2-4-planning-and-configuring-network-resources-8045ac2cc2ac_
+- GCP Certification Series: Section 3: Deploying and implementing a cloud solution: 3.1 Deploying and implementing Compute Engine resources, _https://medium.com/@prashantapaudel/cp-certification-series-section-3-deploying-and-implementing-a-cloud-solution-3-1-929e5ce89a27_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

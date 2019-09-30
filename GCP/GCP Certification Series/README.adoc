@@ -455,6 +455,27 @@ Includes:
 image::GCP Certification Series - Connection.png[Google Cloud Connection]
 
 
+Containers
+----------
+
+- A container is a packaged software into standardized Units for Development, Shipment and Deployment
+- A container is a standard unit of software that packages up the code and all its dependencies so that application runs quickly and reliably from single computing environment
+- A container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings
+- In conclusion, **Consistent Environment**, **Run Anywhere**, **Isolation**, and work best for **Service based Architecture** (opposed to Monolithic Architecture where every pieces of the application interwined). It's **Divide** and **Rule** strategy (Latin: divide et impera)
++
+image::https://cloud.google.com/images/containers-landing/containers-101.png[Containers vs. Virtual Machine]
++
+Containers (abstraction at the app layer) vs. Virtual Machine (abstraction of physical hardware)
++
+image::https://cloud.google.com/images/containers-landing/complete-container-solution.png[Complete Container Solution]
++
+Complete Container Solution
+
+- Pod lifecycle
+** **Pending**: Pod has been created and accepted by the cluster, but one or more of its containers are not yet running. This phase includes time spent being scheduled on a node and downloading images ** **Running**: Pod has been bound to a node, and all of the containers have been created. At least one container is running, is in the process of starting, or is restarting
+** **Succeeded**: All containers in the Pod have terminated successfully. Terminated Pods do not restart
+** **Failed**: All containers in the Pod have terminated, and at least one container has terminated in failure. A container “fails” if it exits with a non-zero status
+** **Unknown**: The state of the Pod cannot be determined
 
 References
 ----------
@@ -467,6 +488,7 @@ References
 - GCP Certification Series: 2.3 Planning and configuring data storage options, _https://medium.com/@prashantapaudel/gcp-certification-series-2-3-planning-and-configuring-data-storage-options-5a6bfbca8601_
 - GCP Certification Series: 2.4 Planning and configuring network resources, _https://medium.com/@prashantapaudel/gcp-certification-series-2-4-planning-and-configuring-network-resources-8045ac2cc2ac_
 - GCP Certification Series: Section 3: Deploying and implementing a cloud solution: 3.1 Deploying and implementing Compute Engine resources, _https://medium.com/@prashantapaudel/cp-certification-series-section-3-deploying-and-implementing-a-cloud-solution-3-1-929e5ce89a27_
+- GCP Certification Series: 3.2 Deploying and implementing Kubernetes Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-2-deploying-and-implementing-kubernetes-engine-resources-b8f0778c4a19_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

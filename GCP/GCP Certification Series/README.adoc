@@ -496,6 +496,33 @@ image::GCP Certification Series - Instance Class.png[App Engine's Instance Class
 +
 image::GCP Certification Series - Split traffic.png[Split traffic in App Engine]
 
+- To stream App Engine's logs from the command line by running: `$ gcloud app logs tail -s default`
+- To view App Engine's application in the web browser run: `$ gcloud app browse`
+
+
+Data
+----
+
+- Data warehousing solution architecture
++
+image::https://cloud.google.com/images/products/bigquery/data-warehousing-solution-architecture.svg[Data warehousing solution architecture]
+
+- Cloud Spanner
++
+image::GCP Certification Series - Cloud Spanner.png[Cloud Spanner]
+
+- Cloud Pub/Sub for global messaging and event ingestion
++
+image:https://cloud.google.com/images/pubsub/global-messaging-and-event-ingestion.png[Cloud Pub/Sub for global messaging and event ingestion]
+
+- Publish a message to your Cloud Pub/Sub topic: `$ gcloud pubsub topics publish TOPIC_NAME --message MESSAGE_BODY`
+- Check the logs to be sure the executions have completed: `$ gcloud functions logs read — limit 50`
+
+- Bigtable's **~/.cbtrc** file
++
+image::https://cloud.google.com/images/products/bigtable/iot.svg[GCP iot solution]
++
+image::https://cloud.google.com/images/products/bigtable/financial-analysis.svg[GCP Financial Analysis solution]
 
 References
 ----------
@@ -510,6 +537,7 @@ References
 - GCP Certification Series: Section 3: Deploying and implementing a cloud solution: 3.1 Deploying and implementing Compute Engine resources, _https://medium.com/@prashantapaudel/cp-certification-series-section-3-deploying-and-implementing-a-cloud-solution-3-1-929e5ce89a27_
 - GCP Certification Series: 3.2 Deploying and implementing Kubernetes Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-2-deploying-and-implementing-kubernetes-engine-resources-b8f0778c4a19_
 - GCP Certification series: 3.3 Deploying and implementing App Engine and Cloud Functions resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-3-deploying-and-implementing-app-engine-and-cloud-functions-resources-23cab2a02235_
+- GCP Certification Series: 3.4 Deploying and implementing data solutions, _https://medium.com/@prashantapaudel/gcp-certification-series-3-4-deploying-and-implementing-data-solutions-a3c0fb2683fd_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

@@ -483,6 +483,20 @@ Complete Container Solution
 ** A **failed** state indicates that the Deployment has encountered one or more issues that prevent it from completing its tasks
 
 
+App Engine
+----------
+
+- Instance classes, each application runs in the standard environment has an instance class
++
+image::GCP Certification Series - Instance Class.png[App Engine's Instance Classes]
++
+- All App Engine's flexible instances are restarted on a weekly basis. During restarts, critical, backwards-compatible updates are automatically rolled out to the underlying operating system. Application's image will remain the same across restarts
+- Files listed in **.gcloudignore** file are not uploaded to App Engine during deployment
+- Split traffic
++
+image::GCP Certification Series - Split traffic.png[Split traffic in App Engine]
+
+
 References
 ----------
 
@@ -495,6 +509,7 @@ References
 - GCP Certification Series: 2.4 Planning and configuring network resources, _https://medium.com/@prashantapaudel/gcp-certification-series-2-4-planning-and-configuring-network-resources-8045ac2cc2ac_
 - GCP Certification Series: Section 3: Deploying and implementing a cloud solution: 3.1 Deploying and implementing Compute Engine resources, _https://medium.com/@prashantapaudel/cp-certification-series-section-3-deploying-and-implementing-a-cloud-solution-3-1-929e5ce89a27_
 - GCP Certification Series: 3.2 Deploying and implementing Kubernetes Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-2-deploying-and-implementing-kubernetes-engine-resources-b8f0778c4a19_
+- GCP Certification series: 3.3 Deploying and implementing App Engine and Cloud Functions resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-3-deploying-and-implementing-app-engine-and-cloud-functions-resources-23cab2a02235_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

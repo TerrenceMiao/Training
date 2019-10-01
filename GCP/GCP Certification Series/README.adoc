@@ -477,6 +477,12 @@ Complete Container Solution
 ** **Failed**: All containers in the Pod have terminated, and at least one container has terminated in failure. A container “fails” if it exits with a non-zero status
 ** **Unknown**: The state of the Pod cannot be determined
 
+- Kubernetes Deployment Status and Lifecycle
+** A **progressing** state indicates that the Deployment is in process of performing its tasks, like bringing up or scaling its Pods
+** A **completed** state indicates that the Deployment has successfully completed its tasks, all of its Pods are running with the latest specification and are available, and no old Pods are still running
+** A **failed** state indicates that the Deployment has encountered one or more issues that prevent it from completing its tasks
+
+
 References
 ----------
 

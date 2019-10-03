@@ -284,6 +284,29 @@ image::GCP Certification Series - Spanner.png[Google Cloud Spanner]
 Networking
 ----------
 
+If you look closely the most important part of GCP is its network infrastructure as all of the things from instances to API because there is a network between them.
+
+image::https://www.telegeography.com/assets/website/images/maps/submarine-cable-map-2011/submarine-cable-map-2011-x.jpg[Submarine Cable Map 2011]
+
+image::GCP Certification Series - Submarine Cable Map.png[Submarine Cable Map today]
+
+- Submarine Cable Map, _https://www.submarinecablemap.com/_
+- Worldwide Submarine Map, _https://studyandreference.weebly.com/worldwide-submarine-map.html_
+
+Google’s global network is one of the strongest features for choosing Google Cloud Platform.
+
+image::https://cloud.google.com/images/locations/edgepoint.png[Google Cloud Network]
+
+- Google Cloud Network, _https://cloud.google.com/about/locations_
+
+image::https://cloud.google.com/images/network-tiers/premium-tier-fig.svg[Premium Tier]
+
+image::https://cloud.google.com/images/network-tiers/standard-tier-fig.svg[Standard Tier]
+
+- Delivering choice with Network Service Tiers, _https://cloud.google.com/network-tiers/_
+** Premium Tier
+** Standard Tier
+
 image::GCP Certification Series - Internet Provider.png[3 tiers Internet Providers]
 
 - 3 tiers Internet Providers:
@@ -309,7 +332,7 @@ PCH (Packet Clearing House) Internet Exchange Directory, _https://www.pch.net/ix
 - **Edge Points of Presence** (POPs), 70+ Edge Points of Presence in 33 countries interconnected via the Backbone network
 - **Edge Cacching**, caching platform that sits on top of their infrastructure network. Edge locations can be found in virtually every country
 
-- Few of the resources in GCP are global, others may be restricted by region or zone
+- Few of the resources in GCP are global, others may be restricted by region or zone. Regional resources can be used anywhere within the same region; zonal resources can be used anywhere within the same zone
 +
 [cols="6,^1,^1,^2,^1"]
 |===
@@ -388,6 +411,69 @@ image::https://www.networkmanagementsoftware.com/wp-content/uploads/disks-images
 ** Broadcast
 ** Geocast
 ** **Anycast**
+- VPC networks only support IPv4 Unicast traffic, do not support Broadcast, Multicast, or IPv6 traffic within the network. However, IPv6 can be used to reach resources in the network. For example, IPv6 addresses can be assigned to a Global Load Balancer, and the App Engine standard environment supports IPv6.
+
+- VPC (Virtual Private Cloud) is a private space within GCP, a virtual version of a physical network, gives you the flexibility to scale and control how workloads connect regionally and globally, consists of:
+** IP Address
+** Firewall
+** VPN
+** Cloud Router
+
+- **Global**, VPC can span multiple regions without communicating across the public Internet
++
+image::https://cloud.google.com/images/products/virtual-network/global.svg[VPC Global]
++
+- **Shareable**, with a single VPC for an entire organization, teams can be isolated within projects, with separate billing and quotas, yet still maintain a shared private IP space and access to commonly used services
++
+image::https://cloud.google.com/images/products/virtual-network/shareable.svg[VPC Shareable]
++
+- **Expandable**, VPCs let you increase the IP space of any subnets without any workload shutdown or downtime. This gives you flexibility and growth options to meet your needs
++
+image::https://cloud.google.com/images/products/virtual-network/expandable.gif[VPC Expandable]
++
+- **Private**, get private access to Google services, such as storage, big data, analytics, or machine learning, without having to give your service a public IP address. Configure your application’s front end to receive Internet requests and shield your back-end services from public endpoints, all while being able to access Google Cloud services
++
+image::https://cloud.google.com/images/products/virtual-network/private.svg[VPC Private]
++
+- **Transparent**, use VPC flow logs for near real-time (5-second interval) logging to monitor your deployment for both performance analysis and network forensics. This allows you to keep your deployment running securely and at peak efficiency
++
+image::https://cloud.google.com/images/products/virtual-network/flow-logs.svg[VPC Transparent]
+
+- VPC IP address range:
+** **Primary range**, subnet can be within a predefined auto mode IP range:
++
+image::GCP Certification Series - VPC predefined IP range.png[VPC predefined auto mode IP range]
++
+** **Secondary range**, for use with **IP aliasing**
++
+image::https://cloud.google.com/vpc/images/alias-ip/alias-ip-2.svg[IP aliasing]
++
+- VPC resource quotas, _https://cloud.google.com/vpc/docs/quota_
+
+- VPC has TWO types of networks: **auto mode** network, **custom mode** network. You can switch a network from auto mode to custom mode. But custom mode network cannot be changed to auto mode network
+- When creating additional subnets in an auto mode network, your manually created subnets must use an IP range outside of the **10.128.0.0/9 CIDR block**. That block is reserved for the primary IP ranges of automatically created subnets
+- The minimum CIDR size for a subnet is /29
+- Every subnet has four **Reserved IP addresses** in its primary IP range. There are no reserved IP addresses in the secondary IP ranges
++
+image::GCP Certification Series - Reserved IPs.png[Reserved IPs in primary IP range]
+
+- **Cloud Router** for VPNs with VPC network
++
+image::https://cloud.google.com/router/images/cloud-router-for-vpns-with-vpc-network.svg[Cloud Router for VPNs with VPC network]
++
+- **Cloud Router** regional dynamic routing. VM instances in other regions, such as us-central1, can't reach the Cloud VPN tunnel
++
+image::https://cloud.google.com/router/images/regional-routing-basic.svg[Cloud Router regional dynamic routing]
++
+- **Cloud Router** global dynamic routing. VMs instances in both regions dynamically learn about on-premises hosts
++
+image::https://cloud.google.com/router/images/global-routing-basic.svg[Cloud Router global dynamic routing]
++
+- With **Custom Route Advertisements**, you choose which routes Cloud Router advertises to your on-premises router through the Border Gateway Protocol (BGP)
+
+- Firewall always blocked traffic
++
+image::GCP Certification Series - Firewall always blocked traffic.png[Firewall always blocked traffic]
 
 - Load Balancer
 ** Distribute load-balanced resources in single or multiple regions
@@ -538,6 +624,7 @@ References
 - GCP Certification Series: 3.2 Deploying and implementing Kubernetes Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-2-deploying-and-implementing-kubernetes-engine-resources-b8f0778c4a19_
 - GCP Certification series: 3.3 Deploying and implementing App Engine and Cloud Functions resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-3-deploying-and-implementing-app-engine-and-cloud-functions-resources-23cab2a02235_
 - GCP Certification Series: 3.4 Deploying and implementing data solutions, _https://medium.com/@prashantapaudel/gcp-certification-series-3-4-deploying-and-implementing-data-solutions-a3c0fb2683fd_
+- GCP Certification Series: 3.5 Deploying and implementing networking resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-5-deploying-and-implementing-networking-resources-6514eca99752_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

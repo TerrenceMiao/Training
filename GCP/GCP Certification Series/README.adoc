@@ -403,7 +403,7 @@ PCH (Packet Clearing House) Internet Exchange Directory, _https://www.pch.net/ix
 +
 For example, can attach a disk from one instance to another within the same zone, but cannot do this across zones. Since images and snapshots are Global Resources, can use these across zones in the same region.
 +
-image::https://www.networkmanagementsoftware.com/wp-content/uploads/disks-images-1024x407.png[]
+image::https://www.networkmanagementsoftware.com/wp-content/uploads/disks-images-1024x407.png[Disk and Image in GCP]
 
 - Addressing Methods
 ** Unicast
@@ -491,6 +491,22 @@ image::https://cloud.google.com/router/images/regional-routing-basic.svg[Cloud R
 image::https://cloud.google.com/router/images/global-routing-basic.svg[Cloud Router global dynamic routing]
 +
 - With **Custom Route Advertisements**, you choose which routes Cloud Router advertises to your on-premises router through the Border Gateway Protocol (BGP)
+
+- Cloud VPN routing
+** Dynamic routing based on Border Gateway Protocol (BGP)
+** Policy based routing
+- Cloud VPN specifications
+** Cloud VPN can be used with VPC networks and legacy networks. For VPC, a custom mode is recommended so you have full control over the ranges of IP addresses used by the subnets in the network
+** If IP address ranges for on-premise subnets overlap with IP addresses used by subnets in your VPC network, refer to **Order of routes** to determine how routing conflicts are resolved
+** Each Cloud VPN gateway must be connected to another Cloud VPN gateway or an on-premisesVPN gateway
+** The on-premises VPN gateway must have a static external IP address. You’ll need to know its IP address in order to configure Cloud VPN
+** If your on-premises VPN gateway is behind a firewall, you must configure the firewall to pass ESP (IPSec) protocol and IKE (UDP 500 and UDP 4500) traffic to it. If the firewall provides Network Address Translation (NAT), refer to UDP encapsulation and NAT-T
+** Cloud VPN only supports a pre-shared key (shared secret) for authentication. You must specify a shared secret when you create the Cloud VPN tunnel. This same secret must be specified when creating the tunnel at the on-premises gateway. Refer to these guidelines for creating a strong shared secret
+** Cloud VPN uses a Maximum Transmission Unit (MTU) of 1460 bytes. On-premises VPN gateways must be configured to use an MTU of no greater than 1460 bytes
+** To account for ESP overhead, you may need to set the MTU values for systems sending traffic through the tunnel to lower values. Refer to MTU Considerations for a detailed discussion and recommendations
+** Cloud VPN requires that the on-premises VPN gateway is configured to support fragmentation. Packets must be fragmented before being encapsulated
+** Cloud VPN uses replay detection with a window of 4096 packets. You cannot turn this off
+** Refer to Supported IKE Ciphers for ciphers and configuration parameters supported by Cloud VPN
 
 - Firewall always blocked traffic
 +

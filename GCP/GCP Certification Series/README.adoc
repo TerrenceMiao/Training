@@ -669,6 +669,8 @@ References
 - GCP Certification series: 3.3 Deploying and implementing App Engine and Cloud Functions resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-3-deploying-and-implementing-app-engine-and-cloud-functions-resources-23cab2a02235_
 - GCP Certification Series: 3.4 Deploying and implementing data solutions, _https://medium.com/@prashantapaudel/gcp-certification-series-3-4-deploying-and-implementing-data-solutions-a3c0fb2683fd_
 - GCP Certification Series: 3.5 Deploying and implementing networking resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-5-deploying-and-implementing-networking-resources-6514eca99752_
+- GCP Certification Series: 3.6 Deploying a Solution using Cloud Launcher, _https://medium.com/@prashantapaudel/gcp-certification-series-3-6-deploying-a-solution-using-cloud-launcher-15ec05141a64_
+- GCP Certification Series: 3.7 Deploying an Application using Deployment Manager, _https://medium.com/@prashantapaudel/gcp-certification-series-3-7-deploying-an-application-using-deployment-manager-bbf2417ccfb1_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

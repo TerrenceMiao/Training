@@ -450,7 +450,28 @@ image::https://cloud.google.com/vpc/images/alias-ip/alias-ip-2.svg[IP aliasing]
 +
 - VPC resource quotas, _https://cloud.google.com/vpc/docs/quota_
 
-- VPC has TWO types of networks: **auto mode** network, **custom mode** network. You can switch a network from auto mode to custom mode. But custom mode network cannot be changed to auto mode network
+- VPC has TWO types of networks: **auto mode** network, **custom mode** network. You can switch a network from auto mode to custom mode. But custom mode network canno- t be changed to auto mode network
+
+- **Shared VPC** connects projects within the **SAME** organisation. Project participates in **Shared VPC** is:
+** **host project**, must be first enabled project by Shared VPC Admin
+** **service project**, any project that has been attached to a host project by a Shared VPC Admin
+** A project cannot be both a host and a service project simultaneously. Thus, a service project cannot be a host project to further service projects
+** Can create and use multiple host projects; however, each service project can only be attached to a single host project
++
+image::https://cloud.google.com/vpc/images/shared-vpc/shared-vpc-example-hybrid-cloud.svg[Shared VPC Hybrid Cloud]
++
+image::https://cloud.google.com/vpc/images/shared-vpc/shared-vpc-example-two-tier.svg[Shared VPC Two Tier]
++
+image::https://cloud.google.com/vpc/images/shared-vpc/shared-vpc-example-concepts.svg[Shared VPC]
++
+image::https://cloud.google.com/vpc/images/shared-vpc/shared-vpc-example-multiple-host-projects.svg[Host / Service projects on Shared VPC]
++
+** **standard project** does not participate in **Shared VPC**
+** A **Shared VPC Network** is a VPC network defined in a host project and made available as a centrally shared network for eligible resources in service projects
+** In a **Legacy Network**, not VPC Network, instance IP addresses are not grouped by region or zone. One IP address can appear in one region, and the following IP address can be in a different region
++
+image::https://cloud.google.com/vpc/images/no_subnetworks_1.svg[Legacy Network]
+
 - When creating additional subnets in an auto mode network, your manually created subnets must use an IP range outside of the **10.128.0.0/9 CIDR block**. That block is reserved for the primary IP ranges of automatically created subnets
 - The minimum CIDR size for a subnet is /29
 - Every subnet has four **Reserved IP addresses** in its primary IP range. There are no reserved IP addresses in the secondary IP ranges
@@ -474,6 +495,14 @@ image::https://cloud.google.com/router/images/global-routing-basic.svg[Cloud Rou
 - Firewall always blocked traffic
 +
 image::GCP Certification Series - Firewall always blocked traffic.png[Firewall always blocked traffic]
++
+- Firewall rules are defined at the VPC network level and are specific to the network in which they are defined. The rules themselves cannot be shared among networks
+- Firewall rules only support IPv4 traffic
+- GCP firewall rules do not reassemble fragmented TCP packets. A firewall rule applies to the TCP protocol can only apply to the first fragment because it contains the TCP header. Firewall rules applicable to the TCP protocol do not apply to the subsequent TCP fragments
+- Direction of traffic:
+** In **ingress**, the destination of the packet is the target
+** In **egress**, the source of the packet is the target
+** If don’t specify a direction, GCP uses ingress
 
 - Load Balancer
 ** Distribute load-balanced resources in single or multiple regions

@@ -108,6 +108,16 @@ ssh-rsa [KEY_VALUE] google-ssh {“userName”:”[USERNAME]”,”expireOn”:�
 +
 image::GCP Certification Series - SSH key Metadata.png[Project wide SSH key Metadata]
 
+- Instance Status
++
+image::https://miro.medium.com/max/228/0*NWlURWbafjSv2-xl.png[Instance Status]
++
+** **Provisioning** - Resources are being reserved for the instance. The instance isn't running yet
+** **Staging** - Resources have been acquired and the instance is being prepared for launch
+** **Running** - The instance is booting up or running. You should be able to ssh into the instance soon, though not immediately after it enters this state
+** **Stopping** - The instance is being stopped either due to a failure, or the instance is shut down. This is a temporary status and the instance will move to **Terminated**
+** **Terminated** - The instance was shut down or encountered a failure, either through the API or from inside the guest. You can choose to restart the instance or delete it. **Terminated** instances with local SSDs attached cannot be restarted at this time. We plan to support this functionality in the future.
+
 Storage
 -------
 
@@ -657,20 +667,21 @@ image::https://cloud.google.com/images/products/bigtable/financial-analysis.svg[
 References
 ----------
 
-- GCP Certification Series, 1.1, _https://medium.com/@prashantapaudel/gcp-certification-series-1-1-15cf8117f610_
-- GCP Certification Series: 1.2, Managing billing configuration, _https://medium.com/@prashantapaudel/gcp-certification-series-1-2-managing-billing-configuration-5d33de697ca3_
-- Google Cloud Platform(GCP) Certification Series: 1.3 Installing and configuring the command line interface (CLI), specifically the Cloud SDK, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-certification-series-1-3-6cdc9358672d_
-- GCP Certification Series: Section 2: Planning and configuring a Cloud solution, 2.1 Planning and estimating GCP product use using the Pricing Calculator, _https://medium.com/@prashantapaudel/gcp-certification-series-section-2-planning-and-configuring-a-cloud-solution-2-1-580eb601f62f_
-- Google Cloud Platform(GCP): 2.2 Planning and configuring compute resources, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-2-2-planning-and-configuring-compute-resources-47332d8309a5_
+- GCP Certification Series, 1.1 Start, _https://medium.com/@prashantapaudel/gcp-certification-series-1-1-15cf8117f610_
+- GCP Certification Series: 1.2 Managing billing configuration, _https://medium.com/@prashantapaudel/gcp-certification-series-1-2-managing-billing-configuration-5d33de697ca3_
+- GCP Certification Series: 1.3 Installing and configuring the command line interface (CLI), specifically the Cloud SDK, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-certification-series-1-3-6cdc9358672d_
+- GCP Certification Series: 2.1 Planning and estimating GCP product use using the Pricing Calculator, _https://medium.com/@prashantapaudel/gcp-certification-series-section-2-planning-and-configuring-a-cloud-solution-2-1-580eb601f62f_
+- GCP Certification Series: 2.2 Planning and configuring compute resources, _https://medium.com/@prashantapaudel/google-cloud-platform-gcp-2-2-planning-and-configuring-compute-resources-47332d8309a5_
 - GCP Certification Series: 2.3 Planning and configuring data storage options, _https://medium.com/@prashantapaudel/gcp-certification-series-2-3-planning-and-configuring-data-storage-options-5a6bfbca8601_
 - GCP Certification Series: 2.4 Planning and configuring network resources, _https://medium.com/@prashantapaudel/gcp-certification-series-2-4-planning-and-configuring-network-resources-8045ac2cc2ac_
-- GCP Certification Series: Section 3: Deploying and implementing a cloud solution: 3.1 Deploying and implementing Compute Engine resources, _https://medium.com/@prashantapaudel/cp-certification-series-section-3-deploying-and-implementing-a-cloud-solution-3-1-929e5ce89a27_
+- GCP Certification Series: 3.1 Deploying and implementing Compute Engine resources, _https://medium.com/@prashantapaudel/cp-certification-series-section-3-deploying-and-implementing-a-cloud-solution-3-1-929e5ce89a27_
 - GCP Certification Series: 3.2 Deploying and implementing Kubernetes Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-2-deploying-and-implementing-kubernetes-engine-resources-b8f0778c4a19_
 - GCP Certification series: 3.3 Deploying and implementing App Engine and Cloud Functions resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-3-deploying-and-implementing-app-engine-and-cloud-functions-resources-23cab2a02235_
 - GCP Certification Series: 3.4 Deploying and implementing data solutions, _https://medium.com/@prashantapaudel/gcp-certification-series-3-4-deploying-and-implementing-data-solutions-a3c0fb2683fd_
 - GCP Certification Series: 3.5 Deploying and implementing networking resources, _https://medium.com/@prashantapaudel/gcp-certification-series-3-5-deploying-and-implementing-networking-resources-6514eca99752_
 - GCP Certification Series: 3.6 Deploying a Solution using Cloud Launcher, _https://medium.com/@prashantapaudel/gcp-certification-series-3-6-deploying-a-solution-using-cloud-launcher-15ec05141a64_
 - GCP Certification Series: 3.7 Deploying an Application using Deployment Manager, _https://medium.com/@prashantapaudel/gcp-certification-series-3-7-deploying-an-application-using-deployment-manager-bbf2417ccfb1_
+- GCP Certification Series: 4.1 Managing Compute Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-section-4-ensuring-the-successful-operation-of-a-cloud-solution-4-1-94211b6a5bb5_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

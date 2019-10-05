@@ -682,6 +682,7 @@ References
 - GCP Certification Series: 3.6 Deploying a Solution using Cloud Launcher, _https://medium.com/@prashantapaudel/gcp-certification-series-3-6-deploying-a-solution-using-cloud-launcher-15ec05141a64_
 - GCP Certification Series: 3.7 Deploying an Application using Deployment Manager, _https://medium.com/@prashantapaudel/gcp-certification-series-3-7-deploying-an-application-using-deployment-manager-bbf2417ccfb1_
 - GCP Certification Series: 4.1 Managing Compute Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-section-4-ensuring-the-successful-operation-of-a-cloud-solution-4-1-94211b6a5bb5_
+- GCP Certification Series: 4.2 Managing Kubernetes Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-4-2-managing-kubernetes-engine-resources-41c582494efd_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

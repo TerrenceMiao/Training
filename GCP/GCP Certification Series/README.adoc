@@ -278,11 +278,27 @@ image::https://cloud.google.com/images/storage/storage-classes-desktop.svg[Googl
 +
 image::GCP Certification Series - Google Cloud Storage Classes.png[Google Cloud Storage Classes]
 
-- Google Cloud Spanner
+- Cloud Spanner
 +
 The best of the relational and non-relational worlds:
 +
-image::GCP Certification Series - Spanner.png[Google Cloud Spanner]
+image::GCP Certification Series - Spanner.png[Cloud Spanner]
++
+image::https://miro.medium.com/max/1267/1*RCkvc1HU915MlRY0wV9Jeg.png[Cloud Spanner]
+
+- Cloud SQL
+** Second Generation instance machine type e.g. `db-n1-standard-2`
+
+- BigQuery
+** Run BigQuery Shell like: `$ bq shell`
+
+- Bigtable
++
+image::https://miro.medium.com/max/1232/1*TFuSLo5oe5cTJEPNLnVFAA.png[Bigtable]
+
+- Dataproc
++
+image::https://miro.medium.com/max/1597/1*bbiANoXkac8Eopdg9aoXCA.png[Dataproc]
 
 - Cloud Data Transfer
 ** Online Transfer
@@ -694,6 +710,7 @@ References
 - GCP Certification Series: 4.1 Managing Compute Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-section-4-ensuring-the-successful-operation-of-a-cloud-solution-4-1-94211b6a5bb5_
 - GCP Certification Series: 4.2 Managing Kubernetes Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-4-2-managing-kubernetes-engine-resources-41c582494efd_
 - GCP Certification Series: 4.3 Managing App Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-4-3-managing-app-engine-resources-aa3c9838572a_
+- GCP Certification Series: 4.4 Managing data solutions, _https://medium.com/@prashantapaudel/gcp-certification-series-4-4-managing-data-solutions-250a6efc787e_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

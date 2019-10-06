@@ -543,12 +543,12 @@ Chapter 17 - Configuring Access and Security
 - **Accessing scopes** options when creating an instance: **Default Access**, **Full Access to all Cloud APIs**, **Set Access for Each API**
 - View Audit Logs in Stackdriver by **resource**, **types of logs to display**, **log level**, **period of time**
 
-- gcloud **projects get-iam-policy** ace-exam-project
-- gcloud **projects add-iam-policy-binding** ace-exam-project --member user:jane@aceexam.com --role roles/appengine.deployer
-- gcloud iam roles describe roles/appengine.deployer
-- gcloud iam roles create customAppEngine1 --project ace-exam-project --title='Custom Update App Engine' --description='Custom update' --permissions=appengine.applications.update --stage=alpha
-- gcloud compute instances **set-service-account** ace-instance **--service-account** examadmin@ace-exam-project.iam.gserviceaccount.com --scopes compute-rw,storage-ro
-- gcloud compute instances create [INSTANCE_NAME] **--service-account** [SERVICE_ACCOUNT_EMAIL]
+- `gcloud projects get-iam-policy ace-exam-project`
+- `gcloud projects add-iam-policy-binding ace-exam-project --member user:jane@aceexam.com --role roles/appengine.deployer`
+- `gcloud iam roles describe roles/appengine.deployer`
+- `gcloud iam roles create customAppEngine1 --project ace-exam-project --title='Custom Update App Engine' --description='Custom update' --permissions=appengine.applications.update --stage=alpha`
+- `gcloud compute instances set-service-account ace-instance --service-account examadmin@ace-exam-project.iam.gserviceaccount.com --scopes compute-rw,storage-ro`
+- `gcloud compute instances create [INSTANCE_NAME] --service-account [SERVICE_ACCOUNT_EMAIL]`
 
 
 Chapter 18 - Monitoring, Logging, and Cost Estimating

@@ -280,10 +280,55 @@ Chapter 11 - Planning Storage in the Cloud
 - Persistent disks, both SSD and HDD can be up to 64TB. Persistent disks automatically encrypt data on the disk
 - Four storage classes in **Cloud Storage**: Regional, multiregional, nearline, and coldline
 - Cloud Storage uses an object data model
-- Lifecycle rule can be  specified on objects in Cloud Storage. Condition options: Age, Creation Data, Storage Class, Newer Versions, and Live State (live or
-archived versions of an object)
+- Lifecycle rule can be specified on objects in Cloud Storage. Condition options: Age, Creation Data, Storage Class, Newer Versions, and Live State (live or archived versions of an object)
 - Lifecycle on Cloud Storage: Regional and multiregional class can be changed to nearline or coldline; Nearline storage class can change to coldline. Regional class storage cannot be changed to multiregional. Multiregional class cannot be changed to regional
+- A `Delete` action takes precedence over a `SetStorageClass` action. If multiple SetStorageClass actions are specified, the action switching to the storage class with the lowest at-rest storage pricing is chosen
 - When versioning is enabled on a bucket, a copy of an object is archived each time the object is overwritten or when it is deleted. The most recent version of an object on bucket is called the **Live version**
+- Nearline Storage or Coldline Storage objects have early deletion charges if they are overwritten less than 30 or 90 days from their creation time, respectively. If Object Versioning enabled for bucket, the original object remains in your bucket until it is explicitly deleted
+- In a bucket with versioning enabled, deleting a live object will archive the object, while deleting an archived object will deletes the object permanently
+- The **SetStorageClass** action incurs charges are determined by the original class of the object
+- Early deletion and associated charges are based on the original creation time of the object, regardless of when the storage class changed. Rewriting time when Storage Class changed becomes the new creation time
+- Once an object is deleted, it cannot be undeleted
+- Cloud Storage performs an action asynchronously, so there can be a lag between when the conditions are satisfied and when the action is taken
+- Updates to Cloud Storage Object lifecycle configuration may take up to 24 hours to go into effect
+- The REST API returns the object’s expiration time in the `x-goog-expiration` response header
+- If the bucket has a retention policy, the expiration time is the **later** of the Object Lifecycle Management age condition and the time the object satisfies the retention period specified by the retention policy
+- If there are multiple conflicting expiration times applicable to an object due to different lifecycle management rules, then the **earliest** applicable expiration time is used
+- By default buckets do not have lifecycle management enabled. To set or modify lifecycle configuration **ONLY** for an **existing bucket** must include an XML document in the request body that contains the lifecycle configuration
++
+**Request**
++
+[source.console]
+----
+PUT /example.com?lifecycle HTTP/1.1
+Host: storage.googleapis.com
+Content-Length: 220
+Authorization: Bearer ya29.AHES6ZRVmB7fkLtd1XTmq6mo0S1wqZZi3-Lh_s-6Uw7p8vtgSwg
+<?xml version="1.0" ?>
+<LifecycleConfiguration>
+    <Rule>
+        <Action>
+            <Delete/>
+        </Action>
+        <Condition>
+            <Age>30</Age>
+        </Condition>
+    </Rule>
+</LifecycleConfiguration>
+----
++
+**Response**
++
+[source.console]
+----
+HTTP/1.1 200 OK
+Date: Thu, 12 Mar 2012 03:38:42 GMT
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, no-store, must-revalidate
+Content-Length: 0
+Content-Type: text/html
+----
+
 - There are three broad categories of data models available in GCP: object, relational, and NoSQL. Cloud Firestore and Firebase as a fourth category
 - Cloud SQL and Cloud Spanner use relational databases for transaction processing applications; BigQuery uses a relational model for data warehouse and analytic applications
 - The first task for using BigQuery is to create a data set to hold data, by clicking Create Dataset
@@ -327,9 +372,10 @@ image::Associate Cloud Engineer Study Guide - BigQuery.png[BigQuery - Job histor
 - cbt read ace-exam-bt-table
 - **gcloud dataproc clusters create** cluster-bc3d --zone us-west2-a
 - **gcloud dataproc jobs submit** spark --cluster cluster-bc3d --jar ace_exam_jar.jar
-- **gsutil rewrite -s [STORAGE_CLASS] gs://[PATH_TO_OBJECT]**
-- gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKET_NAME]/[DESTINATION_OBJECT_NAME]
-- gsutil mv gs://[BUCKET_NAME]/[OLD_OBJECT_NAME] gs://[BUCKET_NAME]/[NEW_OBJECT_NAME]
+- `gsutil defstorageclass set [STORAGE_CLASS] gs://[BUCKET_NAME]` to set default storage class of an existing bucket
+- `gsutil rewrite -s [STORAGE_CLASS] gs://[PATH_TO_OBJECT]` to change object Storage Class
+- `gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKET_NAME]/[DESTINATION_OBJECT_NAME]`
+- `gsutil mv gs://[BUCKET_NAME]/[OLD_OBJECT_NAME] gs://[BUCKET_NAME]/[NEW_OBJECT_NAME]`
 - After created a Cloud Spanner instance, the next step is to create a database within the instance
 
 
@@ -338,12 +384,12 @@ Chapter 13 - Loading Data into Storage
 
 - The first step in loading data into Cloud Storage is to create a bucket. From GCP Console, you can upload both files and folders
 - Folder can't be moved in GCP Console, under Storage menu
-- gsutil mb gs://[BUCKET_NAME]/
-- gsutil cp [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
-- gsutil acl ch -u [SERVICE_ACCOUNT_ADDRESS]:W gs://[BUCKET_NAME]
-- gcloud sql instances describe [INSTANCE_NAME]
-- gcloud sql export sql|csv [INSTANCE_NAME] gs://[BUCKET_NAME]/[EXPORT_FILE_NAME] --database=[DATABASE_NAME]
-- gcloud sql import sql|csv [INSTANCE_NAME] gs://[BUCKET_NAME]/[IMPORT_FILE_NAME] --database=[DATABASE_NAME]
+- `gsutil mb gs://[BUCKET_NAME]/`
+- `gsutil cp [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/`
+- `gsutil acl ch -u [SERVICE_ACCOUNT_ADDRESS]:W gs://[BUCKET_NAME]`
+- `gcloud sql instances describe [INSTANCE_NAME]`
+- `gcloud sql export sql|csv [INSTANCE_NAME] gs://[BUCKET_NAME]/[EXPORT_FILE_NAME] --database=[DATABASE_NAME]`
+- `gcloud sql import sql|csv [INSTANCE_NAME] gs://[BUCKET_NAME]/[IMPORT_FILE_NAME] --database=[DATABASE_NAME]`
 - Exports and imports of Cloud Datastore are done at the level of **namespaces**. The default namespace for Cloud Datastore is **default**
 - Cloud Datastore export process creates a metadata file with information about the data exported and a folder that has the data itself. Export folder name is using the data and time of the export, e.g., **gcloud datastore export --namespaces="(default)" gs://ace-exam-bucket1**; when import, e.g., **gcloud datastore import gs://ace-exam-datastore1/2018-12-20T19:13:55_64324/2018-12-20T19:13:55_64324.overall_export_metadata**
 - BigQuery export format options are CSV, Avro, and JSON. Choose a compression type. The options are None or Gzip for CSV and “**deflate**” and “**snappy**” for Avro
@@ -355,8 +401,8 @@ Chapter 13 - Loading Data into Storage
 - Export from Cloud Spanner will be charges for running **Cloud Dataflow**, a pipeline service for processing streaming and batch data that implements workflows, because there is no gcloud command to export data, and there may be data egress charges for data sent between regions
 - Cloud Bigtable does not have an Export and Import option in the Cloud Console or in gcloud. Two other options: using a Java application for importing and exporting or using the HBase interface to execute HBase commands
 - Cloud Dataproc is a data analysis platform. These platforms are designed more for data manipulation, statistical analysis, machine learning, and other complex operations than for data storage and retrieval. When you export from Dataproc, you are exporting the cluster configuration, not data in the cluster
-- gcloud beta dataproc clusters export [CLUSTER_NAME] --destination=[PATH_TO_EXPORT_FILE]
-- gcloud beta dataproc clusters import [SOURCE_FILE]
+- `gcloud beta dataproc clusters export [CLUSTER_NAME] --destination=[PATH_TO_EXPORT_FILE]`
+- `gcloud beta dataproc clusters import [SOURCE_FILE]`
 
 
 Chapter 14 - Creating a Virtual Private Cloud with Subnets

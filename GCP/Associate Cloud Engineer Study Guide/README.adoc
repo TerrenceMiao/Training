@@ -449,9 +449,9 @@ Chapter 14 - Creating a Virtual Private Cloud with Subnets
 - Dynamic (routes are learned regionally or globally), Route-Based (IP ranges of the remote network), or Policy-Based Routing (remote IP ranges, local subnet, local IP ranges)
 - Dynamic routing uses the Board Gateway Protocol (**BGP protocol**) to learn routes in your networks. Private **Autonomous System Number (ASN)** used by the BGP protocol. The ASN is a number in the range 64512–65534 or 4000000000–4294967294. Each cloud router you create will need a **unique ASN**
 - Internet Key Exchange (IKE) protocol
-- gcloud compute target-vpn-gateways create NAME --network [VPN_NETWORK] --region [REGION]
-- gcloud compute forwarding-rules create NAME --TARGET_SPECIFICATION (--target-instance, --target-http-proxy, --target-vpn-gateway) [VPN_GATEWAY]
-- gcloud compute vpn-tunnels create NAME --peer-address [PEER_ADDRESS] (IPv4 address of the remote tunnel endpoint) --sharedsecret [SHARED_SECRET] --target-vpn-gateway [TARGET_VPN_GATEWAY] (target VPN gateway IP)
+- `gcloud compute target-vpn-gateways create NAME --network [VPN_NETWORK] --region [REGION]`
+- `gcloud compute forwarding-rules create NAME --TARGET_SPECIFICATION (--target-instance, --target-http-proxy, --target-vpn-gateway) [VPN_GATEWAY]`
+- `gcloud compute vpn-tunnels create NAME --peer-address [PEER_ADDRESS] (IPv4 address of the remote tunnel endpoint) --sharedsecret [SHARED_SECRET] --target-vpn-gateway [TARGET_VPN_GATEWAY] (target VPN gateway IP)`
 
 
 Chapter 15 - Networking in the Cloud: DNS, Load Balancing, and IP Addressing
@@ -479,7 +479,8 @@ Chapter 15 - Networking in the Cloud: DNS, Load Balancing, and IP Addressing
 ** gcloud dns record-sets transaction **execute** --zone=ace-exam-zone1
 - Reserved addresses stay attached to a VM when it is not in use and stay attached until released
 - Ephemeral addresses are released automatically when a VM shuts down
-- gcloud beta compute addresses create ace-exam-reserved-static1 --region=us-west2 --network-tier=PREMIUM
+- `gcloud beta compute addresses create ace-exam-reserved-static1 --region=us-west2 --network-tier=PREMIUM`
+- `gcloud beta compute addresses delete [ADDRESS_NAME] --region [REGION]`
 
 - Global Load Balancers
 ** HTTP(S)
@@ -497,9 +498,10 @@ Chapter 15 - Networking in the Cloud: DNS, Load Balancing, and IP Addressing
 ** Internal TCP/UDP
 - The prefix length specifies the length in bits of the subnet mask
 - In the GCP console there is an option between **From Internet To My VMs** and **Only Between My VMs**, this indicates public or private Load Balancer
-- gcloud compute target-pools add-instances ace-exam-pool --instances ig1,ig2
-- gcloud compute forwarding-rules create ace-exam-lb --port=80 --target-pool ace-exam-pool
-- gcloud compute networks subnets **expand-ip-range** ace-exam-subnet1 --prefix-length 16
+- `gcloud compute target-pools add-instances ace-exam-pool --instances ig1,ig2`
+- `gcloud compute forwarding-rules create ace-exam-lb --port=80 --target-pool ace-exam-pool`
+- `gcloud compute forwarding-rules create my-int-lb-forwarding-rule --address my-ilb-ip-address --load-balancing-scheme internal --backend-service my-int-lb --ports 80 --region us-central1 --subnet my-subnet`
+- `gcloud compute networks subnets expand-ip-range ace-exam-subnet1 --prefix-length 16`
 
 
 Chapter 16 - Deploying Applications with Cloud Launcher and Deployment Manager

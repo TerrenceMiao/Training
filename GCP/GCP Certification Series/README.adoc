@@ -356,7 +356,7 @@ PCH (Packet Clearing House) Internet Exchange Directory, _https://www.pch.net/ix
 
 - Explore Google's Data Analytics, Data Encryption, Container Operations on Google Cloud Infrastructure and Global Network via virsualisation, _https://cloud.withgoogle.com/infrastructure_
 - **Edge Points of Presence** (POPs), 70+ Edge Points of Presence in 33 countries interconnected via the Backbone network
-- **Edge Cacching**, caching platform that sits on top of their infrastructure network. Edge locations can be found in virtually every country
+- **Edge Caching**, caching platform that sits on top of their infrastructure network. Edge locations can be found in virtually every country
 
 - Few of the resources in GCP are global, others may be restricted by region or zone. Regional resources can be used anywhere within the same region; zonal resources can be used anywhere within the same zone
 +
@@ -610,6 +610,10 @@ Includes:
 +
 image::GCP Certification Series - Connection.png[Google Cloud Connection]
 
+- Reserved static IP Address
+** Only reserve up to 200 static internal IP addresses per region by default
+** Only one resource at a time can use a static internal IP address
+** Reserving a static internal IP address is only supported for VPC networks. It is not supported for legacy mode networks
 
 Containers
 ----------
@@ -711,6 +715,7 @@ References
 - GCP Certification Series: 4.2 Managing Kubernetes Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-4-2-managing-kubernetes-engine-resources-41c582494efd_
 - GCP Certification Series: 4.3 Managing App Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-4-3-managing-app-engine-resources-aa3c9838572a_
 - GCP Certification Series: 4.4 Managing data solutions, _https://medium.com/@prashantapaudel/gcp-certification-series-4-4-managing-data-solutions-250a6efc787e_
+- GCP Certification Series: 4.5 Managing networking resources, _https://medium.com/@prashantapaudel/gcp-certification-series-4-5-managing-networking-resources-b1bd7d47f381_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

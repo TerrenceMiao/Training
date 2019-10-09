@@ -694,6 +694,64 @@ image::https://cloud.google.com/images/products/bigtable/iot.svg[GCP iot solutio
 +
 image::https://cloud.google.com/images/products/bigtable/financial-analysis.svg[GCP Financial Analysis solution]
 
+
+Cloud Identity and Access Management (IAM)
+------------------------------------------
+
+- IAM, _https://cloud.google.com/iam/_
+** Enterprise-grade access control
++
+image::https://kstatic.googleusercontent.com/files/ffa38717e84df6aa97dd654bf6ee396c052654b185cee77e0d15f42aa721e9457c4384cbeac47a8be2b21239d9b740cbf589f34fdedaca0ee5a0185ae35aebb0[Enterprise-grade access control]
++
+** The right roles
++
+image::https://kstatic.googleusercontent.com/files/b08fcb50c1526c6fbeeccdb10d8bf61a0eb523aa6c10eccdaba57174536d1eacae9350e701e76340c78c82fef0fdb7f1ab8c12b3f1d79cea9ef6657ea7d55443[The right roles]
++
+** Granular resource control
++
+image::https://kstatic.googleusercontent.com/files/6f760f33c7f51bd1848814831e3cc2837fff33f1c06da9ddfc675e724d054c873760338bbd28f50ab0b1230ed893f7ff1532a8b79db56a6c03a5c14172702ee0[Granular resource control]
++
+** Context-aware access
++
+image::https://kstatic.googleusercontent.com/files/14be178af570bd890a812d704aa60488a0e0417bf01bceaedb6b209b8b955bd8fcd561777e68891c9d2abf40cfd80659fef4df834cb052b2163d616e14261b1e[Context-aware access]
++
+** Simplicity first
++
+image::https://kstatic.googleusercontent.com/files/94f3dce44923a9b0b932da73e6cce6f3d0673b6870ff04f6c8c59b8dcfb383c267766feadbfed79b279eac2b83d6502070fcdbf4de1f1459a92c7ff490103ba2[Simplicity first]
++
+** Built-in audit trail
++
+image::https://kstatic.googleusercontent.com/files/252b6d1fbb541678affce9892219940e55e18b1384b866e9430e92afc6146f093241d4e8504e0c52b5f0e6c75a385a7244120f34ae9cefb7d30fb566e9e52aa2[Built-in audit trail]
++
+** Access control your way
++
+image::https://kstatic.googleusercontent.com/files/67ccfdf5c228d34e2fcec08373aca8617fc0e3ace40f981375a75f6bae8c1b2a2dadbc8b5ddb8ce8fb0203b2387fe99d54a3ce84d7ec7fce1f7826a2a9325220[Access control your way]
++
+** Enterprise identity made easy
++
+image::https://kstatic.googleusercontent.com/files/6b087eb71a06ef00e973e48fc4d7cfa217e6136738a0d886f6c2374e6314d0f0c9018ba6c99a71f5859ba4b5e9d3b4afe4e103abc6a30a6a954215e6bc4afca9[Enterprise identity made easy]
+
+- Identity
+** **Google account (user:)**
+** **Service account (serviceAccount:)**
+** **Google group (group:)**, don’t have login credentials, and cannot establish identity to make a request to access a resource
+** **G Suite domain (domain:)**, represents a virtual group of all the Google accounts that have been created in an organization’s G Suite account. G Suite domains cannot be used to establish identity, but they enable convenient permission management
+** **Cloud Identity domain (domain:)**, represents a virtual group of all Google accounts in an organization, but users don’t have access to G Suite applications and features
+** **allAuthenticatedUsers**, a special identifier that represents anyone who is authenticated with a Google account or a service account. Users who are not authenticated, such as anonymous visitors, are not included
+** **allUsers**, a special identifier that represents anyone who is on the internet, including authenticated and unauthenticated users
+
+- Permissions
+** Permissions are represented in the form of **<service>.<resource>.<verb>**, for example `pubsub.subscriptions.consume`
+** Permissions usually, but not always, correspond 1:1 with REST methods
+** Don’t assign permissions to users directly. Instead, assign users a **Role** (a collection of permissions) which contains one or more permissions
+
+- Cloud IAM policy at level in the resource hierarchy. The effective policy is the union of the policy set at specific level and the policy inherited from higher up in the hierarchy
+** organization level
+** folder level
+** project level
+** resource level
+
+
 References
 ----------
 
@@ -716,6 +774,8 @@ References
 - GCP Certification Series: 4.3 Managing App Engine resources, _https://medium.com/@prashantapaudel/gcp-certification-series-4-3-managing-app-engine-resources-aa3c9838572a_
 - GCP Certification Series: 4.4 Managing data solutions, _https://medium.com/@prashantapaudel/gcp-certification-series-4-4-managing-data-solutions-250a6efc787e_
 - GCP Certification Series: 4.5 Managing networking resources, _https://medium.com/@prashantapaudel/gcp-certification-series-4-5-managing-networking-resources-b1bd7d47f381_
+- GCP Certification Series: 4.6 Monitoring and logging, _https://medium.com/@prashantapaudel/gcp-certification-series-4-6-monitoring-and-logging-7b0314322786_
+- GCP Certification Series: 5.1 Managing Identity and Access Management (IAM), _https://medium.com/@prashantapaudel/gcp-certification-series-section-5-configuring-access-and-security-5-1-316a4775d8bc_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

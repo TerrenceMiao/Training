@@ -766,12 +766,69 @@ Leverage Cloud Identity, Google Cloud’s built-in managed identity to easily cr
 ** Permissions usually, but not always, correspond 1:1 with REST methods
 ** Don’t assign permissions to users directly. Instead, assign users a **Role** (a collection of permissions) which contains one or more permissions
 
-- Cloud IAM policy at level in the resource hierarchy. The effective policy is the union of the policy set at specific level and the policy inherited from higher up in the hierarchy
+- User can be granted roles by **Cloud IAM policy**, which is a collection of statements that define who has what type of access, at level in the resource hierarchy. The **Cloud IAM policy** hierarchy follows the same path as the GCP resource hierarchy. The effective policy is the union of the policy set at specific level and the policy inherited from higher up in the hierarchy
 ** organization level
 ** folder level
 ** project level
 ** resource level
++
+image::https://cloud.google.com/iam/img/iam-overview-policy.png[Cloud IAM Policy Overview]
++
+[source.console]
+----
+{
+  "bindings": [
+    {
+      "role": "roles/storage.objectAdmin",
+      "members": [
+        "user:alice@example.com",
+        "serviceAccount:my-other-app@appspot.gserviceaccount.com",
+        "group:admins@example.com",
+        "domain:google.com"
+      ]
+    },
+    {
+      "role": "roles/storage.objectViewer",
+      "members": ["user:bob@example.com"]
+    }
+  ]
+}
+----
 
+- Service Account
+** User-managed service accounts
+*** Default Compute Engine service account `PROJECT_NUMBER-compute@developer.gserviceaccount.com`
+*** Default App Engine service account `PROJECT_ID@appspot.gserviceaccount.com`
+*** Customised service account `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`
+*** Can have up to 100 service accounts per project, including default service accounts
+** Google-managed service accounts, created and owned by Google
+***  Google API service account `PROJECT_NUMBER@cloudservices.gserviceaccount.com`
+
+** **Access scopes** are the legacy method of specifying permissions for your VM. Before the existence of IAM roles. **Access scopes** were the only mechanism for granting permissions to service accounts. Although they are not the primary way of granting permissions now, you must still set **Access scopes** when configuring an instance to run as a service account
+
+** **Application Default Credentials** are a mechanism to make it easy to use service accounts when operating inside and outside GCP, as well as across multiple GCP projects
+
+** Least privilege
+*** Predefined Roles provide more granular access than the Primitive Roles. Grant Predefined Roles to identities when possible, so you only give the least amount of access necessary to access your resources
+*** Grant Primitive Roles in the following cases:
+**** when the Cloud Platform service does not provide a Predefined Role
+**** when you want to grant broader permissions for a project. This often happens when you’re granting permissions in development or test environments
+**** when you need to allow a member to modify permissions for a project, you’ll want to grant them the owner role because only owners have the permission to grant access to other users for projects
+**** when you work in a small team where the team members don’t need granular permissions
+*** Treat each component of your application as a separate trust boundary. If you have multiple services that require different permissions, create a separate service account for each of the services so that they can be permissioned differently
+*** Remember that a policy set on a child resource cannot restrict access granted to its parent. Check the policy granted on every resource and make sure you understand the hierarchical inheritance
+*** Grant roles at the smallest scope needed. For example, if a user only needs access to publish Pub/Sub topic, grant the Publisher role to the user for that topic
+*** Restrict who can act as service accounts. Users who are granted the Service Account Actor role for a service account can access all the resources for which the service account has access. Therefore be cautious when granting the Service Account Actor role to a user
+*** Restrict who has access to create and manage service accounts in your project
+*** Granting owner role to a member will allow them to modify the IAM policy. Therefore grant the owner role only if the member has a legitimate purpose to manage the IAM policy. This is because as your policy contains sensitive access control data and having a minimal set of users manage it will simplify any auditing that you may have to do
+
+** Service Account keys
+*** Rotate your service account keys using the IAM Service Account API. You can rotate a key by creating a new key, switching applications to use the new key and then deleting old key. Use the `serviceAccount.keys.create()`` method and `serviceAccount.keys.delete()`` method together to automate the rotation
+*** Implement processes to manage user-managed Service Account keys
+*** Be careful not to confuse encryption keys with Service Account keys. Encryption keys are typically used to encrypt data, and Service Account keys are used for secure access to Google Cloud Platform APIs
+*** Do not delete Service Accounts that are in use by running instances. This could result in all or parts of your application to fail if you have not transitioned to using an alternative Service Account first
+*** Use the display name of a Service Account to keep track of what they are used for and what permissions they should have
+*** Don’t check in the Service Account keys into the source code or leave them in the Downloads directory
 
 References
 ----------

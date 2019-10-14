@@ -842,6 +842,59 @@ image::https://cloud.google.com/iam/img/iam-overview-policy.png[Cloud IAM Policy
 *** **Service Account Admin** (roles/iam.serviceAccountAdmin)
 
 
+Logging
+-------
+
+image::https://cloud.google.com/logging/docs/images/life_of_a_log.png[Life of a log]
+
+- Cloud audit logs:
+** Admin Activity audit logs
+** Data Access audit logs
+** System Event audit logs
+
+- audit log names:
++
+[source.console]
+----
+projects/[PROJECT_ID]/logs/cloudaudit.googleapis.com/activity
+projects/[PROJECT_ID]/logs/cloudaudit.googleapis.com/data_access
+projects/[PROJECT_ID]/logs/cloudaudit.googleapis.com/system_event
+
+folders/[FOLDER_ID]/logs/cloudaudit.googleapis.com/activity
+folders/[FOLDER_ID]/logs/cloudaudit.googleapis.com/data_access
+folders/[FOLDER_ID]/logs/cloudaudit.googleapis.com/system_event
+
+organizations/[ORGANIZATION_ID]/logs/cloudaudit.googleapis.com/activity
+organizations/[ORGANIZATION_ID]/logs/cloudaudit.googleapis.com/data_access
+organizations/[ORGANIZATION_ID]/logs/cloudaudit.googleapis.com/system_event
+----
+
+- Most logs can be read by any member with the **Cloud IAM Viewer** role. **Data Access audit logs**, except BigQuery Data Access audit logs, are the only “private logs”; to read these, the member requires either the **Cloud IAM Owner** role or other special permissions
+
+- Exported logs organisation
++
+[source.console]
+----
+gcs-bucket/syslog/YYYY/MM/DD/
+gcs-bucket/appengine.googleapis.com/request_log/YYYY/MM/DD/
+----
++
+The leaf directories contain multiple files, each of which holds the exported log entries for a time period specified in the file name. The files are sharded and their names end in a shard number, **Sn or An (n=0, 1, 2, ...)**. For example:
++
+[source.console]
+----
+08:00:00_08:59:59_S0.json
+08:00:00_08:59:59_S1.json
+----
++
+The log entry timestamps are expressed in UTC (Coordinated Universal Time)
+
+- Exported log entries are saved to Cloud Storage buckets in hourly batches. It might take from 2 to 3 hours before the first entries begin to appear. Exported log file shards with the suffix An ("Append") hold log entries that arrived late
+
+- fluentd, Unified Logging Layer, that runs on your virtual machine (VM) instances
++
+image::https://miro.medium.com/max/2952/0*nDxKh2r-YOiPpLZS.png[How the Logging Agent works]
+
 References
 ----------
 
@@ -866,6 +919,8 @@ References
 - GCP Certification Series: 4.5 Managing networking resources, _https://medium.com/@prashantapaudel/gcp-certification-series-4-5-managing-networking-resources-b1bd7d47f381_
 - GCP Certification Series: 4.6 Monitoring and logging, _https://medium.com/@prashantapaudel/gcp-certification-series-4-6-monitoring-and-logging-7b0314322786_
 - GCP Certification Series: 5.1 Managing Identity and Access Management (IAM), _https://medium.com/@prashantapaudel/gcp-certification-series-section-5-configuring-access-and-security-5-1-316a4775d8bc_
+- GCP Certification Series: 5.2 Managing service accounts, _https://medium.com/@prashantapaudel/gcp-certification-series-5-2-managing-service-accounts-2e7ea05ef7b9_
+- GCP Certification Series: 5.3 Viewing audit logs for the project and managed services, _https://medium.com/@prashantapaudel/gcp-certification-series-5-3-viewing-audit-logs-for-the-project-and-managed-services-f4134ef636ee_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

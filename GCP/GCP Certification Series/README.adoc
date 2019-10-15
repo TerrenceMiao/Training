@@ -895,6 +895,15 @@ The log entry timestamps are expressed in UTC (Coordinated Universal Time)
 +
 image::https://miro.medium.com/max/2952/0*nDxKh2r-YOiPpLZS.png[How the Logging Agent works]
 
+
+Commands
+--------
+
+image::gcloud command.jpeg[gcloud command]
+
+image::gsutil command.jpeg[gsutil command]
+
+
 References
 ----------
 

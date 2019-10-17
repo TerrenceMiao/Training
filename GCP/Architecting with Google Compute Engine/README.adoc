@@ -1,0 +1,6 @@
+
+
+References
+----------
+
+- Architecting with Google Compute Engine Specialization, _https://www.coursera.org/specializations/gcp-architecture_

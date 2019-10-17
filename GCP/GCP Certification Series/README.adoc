@@ -823,7 +823,7 @@ image::https://cloud.google.com/iam/img/iam-overview-policy.png[Cloud IAM Policy
 *** Granting owner role to a member will allow them to modify the IAM policy. Therefore grant the owner role only if the member has a legitimate purpose to manage the IAM policy. This is because as your policy contains sensitive access control data and having a minimal set of users manage it will simplify any auditing that you may have to do
 
 ** Service Account keys
-*** Rotate your service account keys using the IAM Service Account API. You can rotate a key by creating a new key, switching applications to use the new key and then deleting old key. Use the `serviceAccount.keys.create()`` method and `serviceAccount.keys.delete()`` method together to automate the rotation
+*** Rotate your service account keys using the IAM Service Account API. You can rotate a key by creating a new key, switching applications to use the new key and then deleting old key. Use the `serviceAccount.keys.create()` method and `serviceAccount.keys.delete()` method together to automate the rotation
 *** Implement processes to manage user-managed Service Account keys
 *** Be careful not to confuse encryption keys with Service Account keys. Encryption keys are typically used to encrypt data, and Service Account keys are used for secure access to Google Cloud Platform APIs
 *** Do not delete Service Accounts that are in use by running instances. This could result in all or parts of your application to fail if you have not transitioned to using an alternative Service Account first
@@ -854,6 +854,7 @@ References
 - GCP Certification Series: 4.5 Managing networking resources, _https://medium.com/@prashantapaudel/gcp-certification-series-4-5-managing-networking-resources-b1bd7d47f381_
 - GCP Certification Series: 4.6 Monitoring and logging, _https://medium.com/@prashantapaudel/gcp-certification-series-4-6-monitoring-and-logging-7b0314322786_
 - GCP Certification Series: 5.1 Managing Identity and Access Management (IAM), _https://medium.com/@prashantapaudel/gcp-certification-series-section-5-configuring-access-and-security-5-1-316a4775d8bc_
+- GCP Certification Series: 5.2 Managing service accounts, _https://medium.com/@prashantapaudel/gcp-certification-series-5-2-managing-service-accounts-2e7ea05ef7b9_
 
 - Quizlet
 ** Google Cloud, _https://quizlet.com/255667344/google-cloud-flash-cards/_

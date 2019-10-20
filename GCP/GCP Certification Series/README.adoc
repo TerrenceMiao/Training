@@ -25,6 +25,7 @@ Basic Knowledge
 
 - IAM policy can be set at the organization level, folder level, project level, or (in some cases) resource level
 - Permissions that were inherited from the original parent will be lost when the project is moved to a new folder. Permissions set at the destination folder will be inherited by the project as it is moved
+- Organization nodes are optional, but must have one if want to define / create folders, or apply organization-wide policies centrally
 +
 image::https://miro.medium.com/max/1202/0*oNHpRfBVe4xrGmXm[G Suite account, Cloud Identity, and the GCP resource hierarchy]
 

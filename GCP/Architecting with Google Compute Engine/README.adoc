@@ -7,10 +7,16 @@ Networking
 - The default quota for each project is five networks but you can simply request additional quota using the GCP console. These networks do not have IP ranges but are simply a construct of all of the individual IP addresses and services within that network. GCP networks are global spending all available regions across the world that I showed earlier. So you can have one network that later exists anywhere in the world
 - 3 types of networks: **Default** (The default network is actually an auto mode network), **Auto**, and **Custom**. Can convert an **Auto** mode network to a **Custom** mode network
 - Avoid creating large subnets. Overly large subnets are more likely to cause site arrange collisions when using multiple network interfaces and VPC network peering or when configuring a VPN or other connections to an on-premises network. Therefore, do not scale your subnet beyond what you actually need
-- FQDN is [hostname].[zone].c.[project-id].internal e.g. `my-server.us-central1-a.c.guestbook-15617.internal` 
+- FQDN is [hostname].[zone].c.[project-id].internal e.g. `my-server.us-central1-a.c.guestbook-15617.internal`
 - Internal DNS resolver, provided as part of Compute Engine (169.254.169.254), configured for use on instance via DHCP, providing answer for internal and extenal addresses
 - A **bastion** host provides an external facing point of entry into a network containing private network instances. This host can provide a **single-point of fortification or audit** and can be started and stopped to enable or disable inbound SSH communication from the Internet
 
+Identities and Roles
+--------------------
+
+- In GCP resource hierarchy, each resource has exactly one parent
+- The organization represents your company. The folder could represent your department. Projects represent a trust boundary within your company. Roles represent an abstraction of job roles
+- Always select the smallest scope that's necessary for the task in order to reduce your exposure to risk
 
 Compute Engine
 --------------

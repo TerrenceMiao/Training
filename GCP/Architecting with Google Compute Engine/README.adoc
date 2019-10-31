@@ -27,6 +27,12 @@ Compute Engine
 ** `nproc`
 ** `lscpu`
 
+Storage
+-------
+
+- A directory in Cloud Storage is just another object that points to different objects in the bucket
+- "Valet Key" access to bucket and objects via ticket (a cryptographically signed URL): `gsutil signurl -d 10m path/to/privatekey.p12 gs://bucket/object`
+- A Cloud Bigtable table is sharded into blocks of contiguous rows called **Tablets**, to help balance the workload of queries. **Tablets** are similar to HBase regions. **Tablets** in Bigtable are stored on Colossus file system in **SSTable** format. An **SSTable** provides a persistent, ordered, immutable map from keys to values where both keys and values are arbitrary byte strings. Cloud Bigtable learns to adjust to specific access patterns. If a certain Bigtable node is frequently accessing a certain subset of data, Cloud Bigtable will update the indexes so that other nodes can distribute that workload evenly
 
 References
 ----------

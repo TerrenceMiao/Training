@@ -1,6 +1,11 @@
 Architecting with Google Compute Engine Specialization
 ======================================================
 
+Infrastructure
+--------------
+
+- Terraform is actually now integrated into GCP Cloud Shell
+
 Networking
 ----------
 

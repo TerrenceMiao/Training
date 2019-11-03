@@ -10,6 +10,16 @@ Networking
 - FQDN is [hostname].[zone].c.[project-id].internal e.g. `my-server.us-central1-a.c.guestbook-15617.internal`
 - Internal DNS resolver, provided as part of Compute Engine (169.254.169.254), configured for use on instance via DHCP, providing answer for internal and extenal addresses
 - A **bastion** host provides an external facing point of entry into a network containing private network instances. This host can provide a **single-point of fortification or audit** and can be started and stopped to enable or disable inbound SSH communication from the Internet
+- Layer 2 connections use a **VLAN** that pipes directly into your GCP environment, providing connectivity to internal IP addresses in the RFC 1918 address space. Layer 3 connections provide access to G Suite services, YouTube and Google Cloud APIs using public IP addresses
++
+image::Architecting with Google Compute Engine - Cloud Interconnect and Peering.png[Cloud Interconnect and Peering]
++
+- The internal load balancer uses **Andromeda** which is GCP's software defined network virtualization stack and the network load balancer uses **Maglev** which is a large distributed software system.
++
+image::Architecting with Google Compute Engine - Network Load Balancer.png[Network Load Balancer]
++
+- HTTPS load balancer support the **QUIC** transport layer protocol. **QUIC** is a transport layer protocol that allows faster client connection initiation, eliminates head of line blocking in multiplexed streams, and supports connection migration when a client's IP address changes
+- Network load balancing is a regional **non proxied** load balancing service. In other words, all traffic is passed through the load balancer instead of being proxied and traffic can only be balanced between virtual machine instances that are in the same region unlike a global load balancer. This load balancing service uses forwarding rules to balance the load on your systems based on incoming IP protocol data such as address, port, and protocol type
 
 Identities and Roles
 --------------------

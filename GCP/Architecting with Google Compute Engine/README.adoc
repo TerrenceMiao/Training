@@ -54,6 +54,15 @@ Resource Management
 
 - In GCP, Labels are user-defined strings in key-value format that are used to organize resources and they can propagate through billing. Tags are user-defined strings that are applied to instances only and are mainly used for networking such as applying firewall rule
 
+Design and Process
+------------------
+
+- People tend to grab a great new idea or design pattern and use it for everything - overuse it, which can create problems later
+- A central control mechanism can be the choke point and a single point of failure. Think about distributing system
+- State is the cornerstone of Cloud based design. The best state is NO state. If can't avoid Stateless, best way is to put Stateless at frontends, separate read and write paths, caching of the read path, push Stateful servers to lower in the stack
++
+image::Architecting with Google Compute Engine - large-scale cloud-based systems.png[A general solution for large-scale cloud-based systems]
+
 
 References
 ----------

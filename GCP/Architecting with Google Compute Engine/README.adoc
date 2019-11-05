@@ -62,6 +62,12 @@ Design and Process
 - State is the cornerstone of Cloud based design. The best state is NO state. If can't avoid Stateless, best way is to put Stateless at frontends, separate read and write paths, caching of the read path, push Stateful servers to lower in the stack
 +
 image::Architecting with Google Compute Engine - large-scale cloud-based systems.png[A general solution for large-scale cloud-based systems]
++
+- Four golden monitoring signals: **Latency**, **Traffic**, **Errors**, **Resource Saturation / Usage**
+- The categories of requirements during requirements gathering: **Qualitative**, **Quantative**, **Scaling**, **Size**
+- In a way, think of airlines very much like Microservices perform at a very single, larger, grander scale. One little hitch in the system can also have a huge chain of event effects on whole system
+- Microservices make sense when there are many consumers of atomic unit of functionality. When there is one consumer of tight-coupled functionality, Microservices add overhead without much benefit. So use Microservices where they make sense in the design
+- Design first, dimension later
 
 
 References

@@ -68,9 +68,25 @@ image::Architecting with Google Compute Engine - large-scale cloud-based systems
 - In a way, think of airlines very much like Microservices perform at a very single, larger, grander scale. One little hitch in the system can also have a huge chain of event effects on whole system
 - Microservices make sense when there are many consumers of atomic unit of functionality. When there is one consumer of tight-coupled functionality, Microservices add overhead without much benefit. So use Microservices where they make sense in the design
 - Design first, dimension later
+- Failure is not optional, it is mandatory. Anticipate failure, design for failure, and fail gracefully
+** Hardware will fail, don't depend on it
+** Software will fail, modularise, monitor, test, canary it
+** People will fail, review procedure, escalate it
+** Communication will fail, don't assume it happened, like the Internet, is designed to route around failure
+- Design to avoid Single Point Of Failures (SPOFs), is to design for a spare for teh spare, so N+2
+- A group of related items that could fail at one time is called a failure domain. Best avoid correlated failure is to divide business logic into services based on failure domains; understand if that failure domain would occur, who to recover from it, not just individual components, but entire failure domains. Separate and isolate the risk, design independent but collaborating services
+- People don't plan to fail, they fail to plan
+- The goal isn't backup, its restore
+- Cascading failure is when, due to an overload failure, the system seeks additional resources and spreads the overload until the system loses integrity
+- Positive feedback cycle overload failure, for example, a single replica for a service can fail due to overload, increasing load on remaining replicas and increasing their probability of failing, causing a domino effect that takes down all the replicas for a service
++
+image::http://www.gopnhat.com/tut-note/gcp-a6-cloud-infrastructure-design-process/06-03%200323%20fan-in%20overload%20failure.png[Fan-in (incast) overload failure]
++
+image::http://www.gopnhat.com/tut-note/gcp-a6-cloud-infrastructure-design-process/06-03%200402%20design%20to%20mitigate%20incast%20overload.png[Design to mitigate incast overload]
 
 
 References
 ----------
 
 - Architecting with Google Compute Engine Specialization, _https://www.coursera.org/specializations/gcp-architecture_
+- Tutorial Note - GCP Cloud Infrastructure Design Process, _http://www.gopnhat.com/tut-note/gcp-a6-cloud-infrastructure-design-process/gcp-a6-cloud-infrastructure-design-process.html_

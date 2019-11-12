@@ -83,7 +83,8 @@ image::Architecting with Google Compute Engine - large-scale cloud-based systems
 image::http://www.gopnhat.com/tut-note/gcp-a6-cloud-infrastructure-design-process/06-03%200323%20fan-in%20overload%20failure.png[Fan-in (incast) overload failure]
 +
 image::http://www.gopnhat.com/tut-note/gcp-a6-cloud-infrastructure-design-process/06-03%200402%20design%20to%20mitigate%20incast%20overload.png[Design to mitigate incast overload]
-
++
+- Don't just design your service, design its operation
 
 References
 ----------

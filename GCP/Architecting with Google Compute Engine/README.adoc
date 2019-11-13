@@ -85,6 +85,27 @@ image::http://www.gopnhat.com/tut-note/gcp-a6-cloud-infrastructure-design-proces
 image::http://www.gopnhat.com/tut-note/gcp-a6-cloud-infrastructure-design-process/06-03%200402%20design%20to%20mitigate%20incast%20overload.png[Design to mitigate incast overload]
 +
 - Don't just design your service, design its operation
+- Ideally with launch automation is to automate everything. The key here is reliability. Reliability is the fundamental feature. And reliability comes from consistency. So in a self service release process, allows a high velocity teams create code, deploy simply automatically, and also control over critical operations
+- Monitoring is measuring
++
+image::Architecting with Google Compute Engine - Monitoring.png[Monitoring is measuring]
++
+- Incident Response
+** Create actionable alerts
+** Test before and during launch
+** Keep development simple, iterative, and aligned
+** Systematic logical troubleshooting
+** Collaboration and communication
+** Find and fix the real problems
+** Policy for writing postmortem reports
+** Prevent overload, make load testing real
+** Prepare the team using simulation sessions
+** Meetings matter for resiliency
+** Prepare the team for disasters by using drills
+** Have a plan for dealing with a major outage
+** **User trust depends on incident response**
+** Develop a structured incident response including a dashboard, regimen, and plans and tools for responding to issues
+** Have a balanced approach to the launch process
 
 References
 ----------

@@ -5,6 +5,8 @@ image::https://cdn.qwiklabs.com/TQXFLFhWIKiwNS5WfFzqbo7zYaukguShztoxNFwxzYc%3D[K
 
 [source.console]
 ----
+$ kubectl edit deployment hello-node
+
 $ kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep token:
 
 token: eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3M ... cqqV01MbOUcA

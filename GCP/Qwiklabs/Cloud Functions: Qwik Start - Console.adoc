@@ -1,0 +1,19 @@
+Baseline: Infrastructure
+========================
+
+**Cloud Functions: Qwik Start - Console**
+
+image::Cloud Functions: Qwik Start - Console - Create function.png[Cloud Functions: Qwik Start - Console - Create function]
+
+image::Cloud Functions: Qwik Start - Console - REST response.png[Cloud Functions: Qwik Start - Console - REST response]
+
+image::Cloud Functions: Qwik Start - Console - General.png[Cloud Functions: Qwik Start - Console - General]
+
+image::Cloud Functions: Qwik Start - Console - Trigger.png[Cloud Functions: Qwik Start - Console - Trigger]
+
+
+References
+----------
+
+- Baseline: Infrastructure, _https://google.qwiklabs.com/quests/33_
+- Cloud Functions: Qwik Start - Console, _https://google.qwiklabs.com/focuses/1763?parent=catalog_

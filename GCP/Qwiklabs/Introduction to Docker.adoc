@@ -3,6 +3,12 @@ Kubernetes in the Google Cloud
 
 **Introduction to Docker**
 
+image::Introduction to Docker - GCR.png[Introduction to Docker - GCR]
+
+image::Introduction to Docker - Vulnerabilities.png[Introduction to Docker - Vulnerabilities]
+
+image::Introduction to Docker - Vulnerability Settings.png[Introduction to Docker - Vulnerability Settings]
+
 
 References
 ----------

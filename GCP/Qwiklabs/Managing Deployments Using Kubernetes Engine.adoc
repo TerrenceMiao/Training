@@ -1,0 +1,19 @@
+Kubernetes in the Google Cloud
+==============================
+
+**Managing Deployments Using Kubernetes Engine**
+
+image::Managing Deployments Using Kubernetes Engine - Configuration.png[Managing Deployments Using Kubernetes Engine - Configuration]
+
+image::Managing Deployments Using Kubernetes Engine - Config Map.png[Managing Deployments Using Kubernetes Engine - Config Map]
+
+image::Managing Deployments Using Kubernetes Engine - Config Map YAML.png[Managing Deployments Using Kubernetes Engine - Config Map YAML]
+
+image::Managing Deployments Using Kubernetes Engine - Configuration Secret.png[Managing Deployments Using Kubernetes Engine - Configuration Secret]
+
+
+References
+----------
+
+- Kubernetes in the Google Cloud, _https://google.qwiklabs.com/quests/29_
+- Managing Deployments Using Kubernetes Engine, _https://google.qwiklabs.com/focuses/7986?parent=catalog_

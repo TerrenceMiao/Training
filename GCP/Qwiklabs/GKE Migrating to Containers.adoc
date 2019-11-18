@@ -3,6 +3,12 @@ Google Kubernetes Engine Best Practices
 
 **GKE Migrating to Containers**
 
+image::GKE Migrating to Containers - VM instances.png[GKE Migrating to Containers - VM instances]
+
+image::GKE Migrating to Containers - Connectivity Tests.png[GKE Migrating to Containers - Connectivity Tests]
+
+image::GKE Migrating to Containers - Cloud Source Repositories.png[GKE Migrating to Containers - Cloud Source Repositories]
+
 
 References
 ----------

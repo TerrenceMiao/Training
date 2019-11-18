@@ -1,0 +1,19 @@
+Baseline: Infrastructure
+========================
+
+**Google Cloud Pub/Sub: Qwik Start - Python**
+
+image::Google Cloud PubSub: Qwik Start - Python - Topics.png[Google Cloud PubSub: Qwik Start - Python - Topics]
+
+image::Google Cloud PubSub: Qwik Start - Python - Subscriptions.png[Google Cloud PubSub: Qwik Start - Python - Subscriptions]
+
+image::Google Cloud PubSub: Qwik Start - Python - Snapshots.png[Google Cloud PubSub: Qwik Start - Python - Snapshots]
+
+image::Google Cloud PubSub: Qwik Start - Python - Messages.png[Google Cloud PubSub: Qwik Start - Python - Messages]
+
+
+References
+----------
+
+- Baseline: Infrastructure, _https://google.qwiklabs.com/quests/33_
+- Google Cloud Pub/Sub: Qwik Start - Python, _https://google.qwiklabs.com/focuses/2775?parent=catalog_

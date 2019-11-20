@@ -1,0 +1,17 @@
+Google Kubernetes Engine Best Practices
+=======================================
+
+**Connect to Cloud SQL from an Application in Kubernetes Engine**
+
+image::Connect to Cloud SQL from an Application in Kubernetes Engine - Kubernetes Engine.png[Connect to Cloud SQL from an Application in Kubernetes Engine - Kubernetes Engine]
+
+image::Connect to Cloud SQL from an Application in Kubernetes Engine - Postgres login.png[Connect to Cloud SQL from an Application in Kubernetes Engine - Postgres login]
+
+image::Connect to Cloud SQL from an Application in Kubernetes Engine - Postgres workbench.png[Connect to Cloud SQL from an Application in Kubernetes Engine - Postgres workbench]
+
+
+References
+----------
+
+- Google Kubernetes Engine Best Practices, _https://google.qwiklabs.com/quests/63_
+- Connect to Cloud SQL from an Application in Kubernetes Engine, _https://google.qwiklabs.com/focuses/5625?parent=catalog_

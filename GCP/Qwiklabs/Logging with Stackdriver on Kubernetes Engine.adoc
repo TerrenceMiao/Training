@@ -1,0 +1,17 @@
+Google Kubernetes Engine Best Practices
+=======================================
+
+**Logging with Stackdriver on Kubernetes Engine**
+
+image::Logging with Stackdriver on Kubernetes Engine - Storage bucket.png[Logging with Stackdriver on Kubernetes Engine - Storage bucket]
+
+image::Logging with Stackdriver on Kubernetes Engine - Logging Exports.png[Logging with Stackdriver on Kubernetes Engine - Logging Exports]
+
+image::Logging with Stackdriver on Kubernetes Engine - Logs ingestion.png[Logging with Stackdriver on Kubernetes Engine - Log ingestion]
+
+
+References
+----------
+
+- Google Kubernetes Engine Best Practices, _https://google.qwiklabs.com/quests/63_
+- Logging with Stackdriver on Kubernetes Engine, _https://google.qwiklabs.com/focuses/5539?parent=catalog_

@@ -3,6 +3,41 @@ Google Kubernetes Engine Best Practices
 
 **Tracing with Stackdriver on Kubernetes Engine**
 
+[source.console]
+----
+student_00_2bacd5902676@cloudshell:~/gke-tracing-demo/terraform (qwiklabs-gcp-00-90e86d083b72)$ \
+>  gcloud container clusters get-credentials tracing-demo-space --zone us-central1-a --project qwiklabs-gcp-00-90e86d083b72 \
+>  && echo "# When the next line says 'Forwarding from...', go to: https://ssh.cloud.google.com/devshell/proxy?port=8080" && kubectl port-forward $(kubectl get pod --selector="app=tracing-demo" --output jsonpath='{.items[0].metadata.name}') 8080:8080
+
+Fetching cluster endpoint and auth data.
+kubeconfig entry generated for tracing-demo-space.
+
+# When the next line says 'Forwarding from...', go to: https://ssh.cloud.google.com/devshell/proxy?port=8080
+Forwarding from 127.0.0.1:8080 -> 8080
+----
+
+image::Tracing with Stackdriver on Kubernetes Engine - Clusters.png[Tracing with Stackdriver on Kubernetes Engine - Clusters]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Workloads.png[Tracing with Stackdriver on Kubernetes Engine - Workloads]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Services and Ingress.png[Tracing with Stackdriver on Kubernetes Engine - Services and Ingress]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Configuration.png[Tracing with Stackdriver on Kubernetes Engine - Configuration]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Configuration secret details.png[Tracing with Stackdriver on Kubernetes Engine - Configuration secret details]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Storage.png[Tracing with Stackdriver on Kubernetes Engine - Storage]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Trace Overview.png[Tracing with Stackdriver on Kubernetes Engine - Trace Overview]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Trace list.png[Tracing with Stackdriver on Kubernetes Engine - Trace list]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Metrics.png[Tracing with Stackdriver on Kubernetes Engine - Metrics]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Log-based metrics.png[Tracing with Stackdriver on Kubernetes Engine - Log-based metrics]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Log ingestion.png[Tracing with Stackdriver on Kubernetes Engine - Log ingestion]
+
 
 References
 ----------

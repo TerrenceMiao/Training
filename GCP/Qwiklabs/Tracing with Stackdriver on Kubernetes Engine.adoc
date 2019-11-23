@@ -28,6 +28,30 @@ image::Tracing with Stackdriver on Kubernetes Engine - Configuration secret deta
 
 image::Tracing with Stackdriver on Kubernetes Engine - Storage.png[Tracing with Stackdriver on Kubernetes Engine - Storage]
 
+image::Tracing with Stackdriver on Kubernetes Engine - PubSub Topics.png[Tracing with Stackdriver on Kubernetes Engine - PubSub Topics]
+
+image::Tracing with Stackdriver on Kubernetes Engine - PubSub Subscriptions.png[Tracing with Stackdriver on Kubernetes Engine - PubSub Subscriptions]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Monitoring.png[Tracing with Stackdriver on Kubernetes Engine - Monitoring]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Monitoring Block Storage Volumes.png[Tracing with Stackdriver on Kubernetes Engine - Monitoring Block Storage Volumes]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Monitoring Instances.png[Tracing with Stackdriver on Kubernetes Engine - Monitoring Instances]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Monitoring Security Groups.png[Tracing with Stackdriver on Kubernetes Engine - Monitoring Security Groups]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Monitoring Cloud PubSub.png[Tracing with Stackdriver on Kubernetes Engine - Monitoring Cloud PubSub]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Monitoring Cloud PubSub Topic.png[Tracing with Stackdriver on Kubernetes Engine - Monitoring Cloud PubSub Topic]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Monitoring Cloud PubSub Subscription.png[Tracing with Stackdriver on Kubernetes Engine - Monitoring Cloud PubSub Subscription]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Monitoring Kubernetes Infrastructure.png[Tracing with Stackdriver on Kubernetes Engine - Monitoring Kubernetes Infrastructure]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Monitoring Kubernetes Workloads.png[Tracing with Stackdriver on Kubernetes Engine - Monitoring Kubernetes Workloads]
+
+image::Tracing with Stackdriver on Kubernetes Engine - Monitoring Kubernetes Services.png[Tracing with Stackdriver on Kubernetes Engine - Monitoring Kubernetes Services]
+
 image::Tracing with Stackdriver on Kubernetes Engine - Trace Overview.png[Tracing with Stackdriver on Kubernetes Engine - Trace Overview]
 
 image::Tracing with Stackdriver on Kubernetes Engine - Trace list.png[Tracing with Stackdriver on Kubernetes Engine - Trace list]

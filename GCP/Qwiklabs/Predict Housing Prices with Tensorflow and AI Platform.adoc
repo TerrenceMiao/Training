@@ -1,0 +1,29 @@
+Data Engineering
+================
+
+**Predict Housing Prices with Tensorflow and AI Platform**
+
+image::Predict Housing Prices with Tensorflow and AI Platform - Bucket objects.png[Predict Housing Prices with Tensorflow and AI Platform - Bucket objects]
+
+image::Predict Housing Prices with Tensorflow and AI Platform - Bucket overview.png[Predict Housing Prices with Tensorflow and AI Platform - Bucket overview]
+
+image::Predict Housing Prices with Tensorflow and AI Platform - Bucket permissions.png[Predict Housing Prices with Tensorflow and AI Platform - Bucket permissions]
+
+image::Predict Housing Prices with Tensorflow and AI Platform - Bucket lock.png[Predict Housing Prices with Tensorflow and AI Platform - Bucket lock]
+
+image::Predict Housing Prices with Tensorflow and AI Platform - Notebook instances.png[Predict Housing Prices with Tensorflow and AI Platform - Notebook instances]
+
+image::Predict Housing Prices with Tensorflow and AI Platform - Jupyter notebook.png[Predict Housing Prices with Tensorflow and AI Platform - Jupyter notebook]
+
+image::Predict Housing Prices with Tensorflow and AI Platform - Logs.png[Predict Housing Prices with Tensorflow and AI Platform - Logs]
+
+image::Predict Housing Prices with Tensorflow and AI Platform - Jobs.png[Predict Housing Prices with Tensorflow and AI Platform - Jobs]
+
+image::Predict Housing Prices with Tensorflow and AI Platform - Job details.png[Predict Housing Prices with Tensorflow and AI Platform - Job details]
+
+
+References
+----------
+
+- Data Engineering, _https://google.qwiklabs.com/quests/25_
+- Predict Housing Prices with Tensorflow and AI Platform, _https://google.qwiklabs.com/focuses/3644?parent=catalog_

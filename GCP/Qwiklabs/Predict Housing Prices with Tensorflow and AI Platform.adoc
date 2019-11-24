@@ -13,7 +13,7 @@ image::Predict Housing Prices with Tensorflow and AI Platform - Bucket lock.png[
 
 image::Predict Housing Prices with Tensorflow and AI Platform - Notebook instances.png[Predict Housing Prices with Tensorflow and AI Platform - Notebook instances]
 
-image::Predict Housing Prices with Tensorflow and AI Platform - Jupyter notebook.png[Predict Housing Prices with Tensorflow and AI Platform - Jupyter notebook]
+image::Predict Housing Prices with Tensorflow and AI Platform - JupyterLab.png[Predict Housing Prices with Tensorflow and AI Platform - JupyterLab]
 
 image::Predict Housing Prices with Tensorflow and AI Platform - Logs.png[Predict Housing Prices with Tensorflow and AI Platform - Logs]
 

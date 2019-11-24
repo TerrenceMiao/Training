@@ -1,0 +1,60 @@
+Data Engineering
+================
+
+**Streaming IoT Kafka to Google Cloud Pub/Sub**
+
+image::Streaming IoT Kafka to Google Cloud PubSub - Kafka Overview.png[Streaming IoT Kafka to Google Cloud PubSub - Kafka Overview]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - Deployment Manager.png[Streaming IoT Kafka to Google Cloud PubSub - Deployment Manager]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - VM instance.png[Streaming IoT Kafka to Google Cloud PubSub - VM instance]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - VM instance details.png[Streaming IoT Kafka to Google Cloud PubSub - VM instance details]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - PubSub Topics.png[Streaming IoT Kafka to Google Cloud PubSub - PubSub Topics]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - PubSub Subscriptions.png[Streaming IoT Kafka to Google Cloud PubSub - PubSub Subscriptions]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - IoT Simulator.png[Streaming IoT Kafka to Google Cloud PubSub - IoT Simulator]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - IoT Core registries.png[Streaming IoT Kafka to Google Cloud PubSub - IoT Core registries]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - IoT Core registry details.png[Streaming IoT Kafka to Google Cloud PubSub - IoT Core registry details]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - IoT Core Devices.png[Streaming IoT Kafka to Google Cloud PubSub - IoT Core Devices]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - IoT Core device details.png[Streaming IoT Kafka to Google Cloud PubSub - IoT Core device details]
+
+[source.console]
+----
+student-00-d9571ba9e09f@iot-device-simulator:~/training-data-analyst/quests/iotlab$ ls -al
+total 124
+drwxr-xr-x  4 student-00-d9571ba9e09f google-sudoers  4096 Nov 24 05:08 .
+drwxr-xr-x 15 student-00-d9571ba9e09f google-sudoers  4096 Nov 24 05:05 ..
+-rw-r--r--  1 student-00-d9571ba9e09f google-sudoers  7902 Nov 24 05:05 cloudiot_mqtt_example_json.py
+-rw-r--r--  1 student-00-d9571ba9e09f google-sudoers  7835 Nov 24 05:05 cloudiot_mqtt_example.py
+drwxr-xr-x  2 student-00-d9571ba9e09f google-sudoers  4096 Nov 24 05:05 labinfra
+-rw-r--r--  1 student-00-d9571ba9e09f google-sudoers  2925 Nov 24 05:05 pom.xml
+-rw-r--r--  1 student-00-d9571ba9e09f google-sudoers 76276 Oct 22 18:15 roots.pem
+-rw-r--r--  1 student-00-d9571ba9e09f google-sudoers  1090 Nov 24 05:07 rsa_cert.pem
+-rw-------  1 student-00-d9571ba9e09f google-sudoers  1704 Nov 24 05:07 rsa_private.pem
+-rwxr-xr-x  1 student-00-d9571ba9e09f google-sudoers   589 Nov 24 05:05 run_oncloud.sh
+drwxr-xr-x  3 student-00-d9571ba9e09f google-sudoers  4096 Nov 24 05:05 src
+----
+
+image::Streaming IoT Kafka to Google Cloud PubSub - IoT Core Monitoring.png[Streaming IoT Kafka to Google Cloud PubSub - IoT Core Monitoring]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - IoT Core Monitoring to-kafka.png[Streaming IoT Kafka to Google Cloud PubSub - IoT Core Monitoring to-kafka]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - IoT Core Monitoring from-kafka.png[Streaming IoT Kafka to Google Cloud PubSub - IoT Core Monitoring from-kafka]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - IoT Core Monitoring from-kafka-pub.png[Streaming IoT Kafka to Google Cloud PubSub - IoT Core Monitoring from-kafka-pub]
+
+image::Streaming IoT Kafka to Google Cloud PubSub - IoT Core Monitoring to-kafka-sub.png[Streaming IoT Kafka to Google Cloud PubSub - IoT Core Monitoring to-kafka-sub]
+
+
+References
+----------
+
+- Data Engineering, _https://google.qwiklabs.com/quests/25_
+- Streaming IoT Kafka to Google Cloud Pub/Sub, _https://google.qwiklabs.com/focuses/2766?parent=catalog_

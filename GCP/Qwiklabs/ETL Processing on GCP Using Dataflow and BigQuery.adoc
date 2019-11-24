@@ -1,0 +1,29 @@
+Data Engineering
+================
+
+**ETL Processing on GCP Using Dataflow and BigQuery**
+
+image::ETL Processing on GCP Using Dataflow and BigQuery - BigQuery.png[ETL Processing on GCP Using Dataflow and BigQuery - BigQuery]
+
+image::ETL Processing on GCP Using Dataflow and BigQuery - Query editor.png[ETL Processing on GCP Using Dataflow and BigQuery - Query editor]
+
+image::ETL Processing on GCP Using Dataflow and BigQuery - Dataflow.png[ETL Processing on GCP Using Dataflow and BigQuery - Dataflow]
+
+image::ETL Processing on GCP Using Dataflow and BigQuery - Data ingestion.png[ETL Processing on GCP Using Dataflow and BigQuery - Data ingestion]
+
+image::ETL Processing on GCP Using Dataflow and BigQuery - Data transformation.png[ETL Processing on GCP Using Dataflow and BigQuery - Data transformation]
+
+image::ETL Processing on GCP Using Dataflow and BigQuery - Data enrichment.png[ETL Processing on GCP Using Dataflow and BigQuery - Data enrichment]
+
+image::ETL Processing on GCP Using Dataflow and BigQuery - Data lake to mart.png[ETL Processing on GCP Using Dataflow and BigQuery - Data lake to mart]
+
+image::ETL Processing on GCP Using Dataflow and BigQuery - Data lake to mart CoGroupByKey.png[ETL Processing on GCP Using Dataflow and BigQuery - Data lake to mart CoGroupByKey]
+
+image::ETL Processing on GCP Using Dataflow and BigQuery - Data lake tables.png[ETL Processing on GCP Using Dataflow and BigQuery - Data lake tables]
+
+
+References
+----------
+
+- Data Engineering, _https://google.qwiklabs.com/quests/25_
+- ETL Processing on GCP Using Dataflow and BigQuery, _https://google.qwiklabs.com/focuses/3460?parent=catalog_

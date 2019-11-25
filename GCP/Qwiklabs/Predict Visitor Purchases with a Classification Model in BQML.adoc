@@ -1,0 +1,67 @@
+Data Engineering
+================
+
+**Predict Visitor Purchases with a Classification Model in BQML**
+
+- Sample Dataset
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Dataset schema.png[Predict Visitor Purchases with a Classification Model in BQML - Dataset schema]
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Dataset details.png[Predict Visitor Purchases with a Classification Model in BQML - Dataset details]
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Dataset preview.png[Predict Visitor Purchases with a Classification Model in BQML - Dataset preview]
+
+- Out of the total visitors who visited our website, what % made a purchase?
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Question percentage purchase.png[Predict Visitor Purchases with a Classification Model in BQML - Question percentage purchase]
+
+- What are the top 5 selling products?
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Question top 5 products.png[Predict Visitor Purchases with a Classification Model in BQML - Question top 5 products]
+
+- How many visitors bought on subsequent visits to the website?
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Question subsequent purchase.png[Predict Visitor Purchases with a Classification Model in BQML - Question subsequent purchase]
+
+- What are the risks of only using totals.bounces and totals.timeOnSite two fields?
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Question total bounces and timeOnSite.png[Predict Visitor Purchases with a Classification Model in BQML - Question total bounces and timeOnSite]
+
+- Dataset to store models
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Dataset to store models.png[Predict Visitor Purchases with a Classification Model in BQML - Dataset to store models]
+
+- Classification model
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Classification model.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model]
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Classification model roc_auc.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model roc_auc]
+
+- Classification model 2
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Classification model 2.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model 2]
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 details.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 details]
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 evaluation.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 evaluation]
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 schema.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 schema]
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 roc_auc.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 roc_auc]
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Query job information.png[Predict Visitor Purchases with a Classification Model in BQML - Query job information]
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Query results.png[Predict Visitor Purchases with a Classification Model in BQML - Query results]
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Query execution details.png[Predict Visitor Purchases with a Classification Model in BQML - Query execution details]
+
+- Visualizing BigQuery data using Data Studio
+
+image::Predict Visitor Purchases with a Classification Model in BQML - Data Studio.png[Predict Visitor Purchases with a Classification Model in BQML - Data Studio]
+
+
+References
+----------
+
+- Data Engineering, _https://google.qwiklabs.com/quests/25_
+- Predict Visitor Purchases with a Classification Model in BQML, _https://google.qwiklabs.com/focuses/1794?parent=catalog_

@@ -1,0 +1,13 @@
+Baseline: Infrastructure
+========================
+
+**Cloud Storage: Qwik Start - Console**
+
+image::Cloud Storage: Qwik Start - Console - Bucket details.png[Cloud Storage: Qwik Start - Console - Bucket details]
+
+
+References
+----------
+
+- Baseline: Infrastructure, _https://google.qwiklabs.com/quests/33_
+- Cloud Storage: Qwik Start - Console, _https://google.qwiklabs.com/focuses/1760?parent=catalog_

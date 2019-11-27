@@ -1,0 +1,27 @@
+Baseline: Infrastructure
+========================
+
+**Stackdriver: Qwik Start**
+
+image::GCP Stackdriver: Qwik Start - Uptime checks.png[GCP Stackdriver: Qwik Start - Uptime checks]
+
+image::GCP Stackdriver: Qwik Start - Alerting policies.png[GCP Stackdriver: Qwik Start - Alerting policies]
+
+image::GCP Stackdriver: Qwik Start - Alerting incidents.png[GCP Stackdriver: Qwik Start - Alerting incidents]
+
+image::GCP Stackdriver: Qwik Start - Alerting incidents resolved.png[GCP Stackdriver: Qwik Start - Alerting incidents resolved]
+
+image::GCP Stackdriver: Qwik Start - Alerting events.png[GCP Stackdriver: Qwik Start - Alerting events]
+
+image::GCP Stackdriver: Qwik Start - Monitoring overview.png[GCP Stackdriver: Qwik Start - Monitoring overview]
+
+image::GCP Stackdriver: Qwik Start - Resources instances.png[GCP Stackdriver: Qwik Start - Resources instances]
+
+image::GCP Stackdriver: Qwik Start - Dashboards.png[GCP Stackdriver: Qwik Start - Dashboards]
+
+
+References
+----------
+
+- Baseline: Infrastructure, _https://google.qwiklabs.com/quests/33_
+- Stackdriver: Qwik Start, _https://google.qwiklabs.com/focuses/858?parent=catalog_

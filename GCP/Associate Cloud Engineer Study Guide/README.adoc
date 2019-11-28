@@ -241,12 +241,13 @@ Chapter 9 - Computing with App Engine
 - **gcloud components install app-engine-python** command will install or update the App Engine Python library as needed
 - App Engine applications are accessible from URLs that consist of the project name followed by appspot.com. Can also assign a custom domain rather not **appspot.com** URL. Do this from the Add New Custom domain function on the App Engine Settings page
 - Two kinds of instances available in App Engine Standard - **resident instances** are resident and running all the time, optimized for performance so users will wait less while an instance is started, used with **manual scaling**; **dynamic instances** are scaled based on load, used with **autoscaling and basic scaling**
-- Autoscaling enables: **target_cpu_utilization**, **target_throughput_utilization**, **max_concurrent_requests**, **max_instances**, **min_instances**, **max_pending_latency**, **min_pending_latency**
+- Autoscaling enables: **target_cpu_utilization**, **target_throughput_utilization**, **max_concurrent_requests**, **max_instances**, **min_instances**, **max_pending_latency**, **min_pending_latency**, **max_idle_instances**, **min_idle_instances**
 ** **target_cpu_utilization** specifies the maximum CPU utilization that occurs before additional instances are started
 ** **target_throughput_utilization** specifies the maximum number of concurrent requests before additional instances are started, uses a 0.05 to 0.95 scale to specify maximum throughput utilization
 ** **max_concurrent_requests** specifies the max concurrent requests an instance can accept before starting a new instance. The default is 10; the max is 80
 ** **max_instances** / **min_instances** specifie the maximum / minimum number of instances that can run for this application
 ** **max_pending_latency** / **min_pending_latency** indicates the maximum and minimum time a request will wait in the queue to be processed
+** **max_idle_instances** / **min_idle_instances** specifies the maximum / mininum number of idle instances to be kept running and ready to serve traffic
 - Basic scaling only allows parameters for **idle_timeout** and **max_instances**
 - Manual scaling, then instances will be resident, and only allows parameter is **instances** (number of instances to run)
 - **IP address**, **HTTP cookie** (preferred way), and **random splitting**, are allowed methods for splitting traffic

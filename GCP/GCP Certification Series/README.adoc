@@ -851,6 +851,9 @@ image::https://cloud.google.com/iam/img/iam-overview-policy.png[Cloud IAM Policy
 *** **Service Account User** (roles/iam.serviceAccountUser)
 *** **Service Account Admin** (roles/iam.serviceAccountAdmin)
 
+- Identity Management product option
++
+image::GCP Certification Series - IAM Product Options Flowchart.png[GCP Certification Series - IAM Product Options Flowchart]
 
 Logging
 -------

@@ -8,8 +8,8 @@ Basic Knowledge
 
 - The project number and project ID are unique across the Google Cloud Platform
 - Name such as **Google** or **SSL** cannot be used for the project name
-- gcloud projects create [PROJECT_ID] [--organization=ORGANIZATION_ID | --folder=FOLDER_ID]. Project ID must **start with a lowercase letter**, and can contain only ASCII letters, digits, and hyphens, and must be between 6 and 30 characters.
-- Project owners can restore a deleted project within the 30-day recovery period that starts when the project is shut down. Restoring a project returns it to the state it was in before it was shut down. Cloud Storage resources are deleted before the 30-day period ends, and may not be fully recoverable.
+- `gcloud projects create [PROJECT_ID] [--organization=ORGANIZATION_ID | --folder=FOLDER_ID]` Project ID must **start with a lowercase letter**, and can contain only ASCII letters, digits, and hyphens, and must be between 6 and 30 characters.
+- Project owners can restore a deleted project within the **30-day recovery period** that starts when the project is shut down. Restoring a project returns it to the state it was in before it was shut down. Cloud Storage resources are deleted before the 30-day period ends, and may not be fully recoverable.
 
 - Standard user access types or Primitive Roles:
 ** Browser (Beta)
@@ -19,9 +19,9 @@ Basic Knowledge
 
 - Cloud Shell gives 5GB of persistent disk storage in your home directory
 
-- To place a **lien** on a project protecting GCP project accidentally delete by any owners and administrator, untile **lien** is revoked
-- gcloud alpha resource-manager liens list
-- gcloud beta **interactive**
+- To place a **lien** on a project protecting GCP project accidentally delete by any owners and administrator, until **lien** is revoked
+- `gcloud alpha resource-manager liens list`
+- `gcloud beta interactive`
 
 - IAM policy can be set at the organization level, folder level, project level, or (in some cases) resource level
 - Permissions that were inherited from the original parent will be lost when the project is moved to a new folder. Permissions set at the destination folder will be inherited by the project as it is moved
@@ -44,14 +44,14 @@ Pricing
 -------
 
 - These savings are achieved by:
-** **Sustained use discount**: _**More your instances are running bigger discount you will get.**_
+** **Sustained use discount**: More your instances are running bigger discount you will get.
 ** **List price differences**: Google is reducing the price of services and instances according to **Moore’s law** and immediately after the price of any instance or services are reduced they are applied in your monthly billing.
-** **Rightsizing recommendations**: Google cloud provides recommendations for compute engine based on the 8 days stack driver monitoring to resize the VM.
+** **Rightsizing recommendations**: Google cloud provides recommendations for compute engine based on the **8 days Stackdriver monitoring** to resize the VM.
 - Per-second billing
 - Network traffic:
 ** Ingress is free
 ** Egress is charged. Egress to some GCP services sometimes free
-- Committed-use discounts
+- **Committed-use discounts**
 +
 image::https://cloud.google.com/images/pricing/pricing-hero.png[GCP compared to other Cloud vendors]
 
@@ -80,7 +80,7 @@ Computing
 - Instances in the same VPC communicate in local area network
 - Public IP is only used when it has to communicate outside the project
 - Compute Engine can automatically generate SSH keys for you and apply them to your Google account, or G Suite account, or **project metadata**
-- Shared-core machine types provide one vCPU that is allowed to run for a portion of the time on a single hardware hyper-thread on the host CPU running your instance. Shared-core instances can be more cost-effective for running small, non-resource intensive applications than standard, high-memory or high-CPU machine types
+- **Shared-core** machine types provide one vCPU that is allowed to run for a portion of the time on a single hardware hyper-thread on the host CPU running your instance. **Shared-core** instances can be more cost-effective for running small, non-resource intensive applications than standard, high-memory or high-CPU machine types
 - Bursting happens automatically when your instance requires more physical CPU than originally allocated. During these spikes, your instance will opportunistically take advantage of available physical CPU in bursts. Note that bursts are not permanent and are only possible periodically
 - Attach GPUs only to instances with a predefined machine type or custom machine type are able to create in a zone. GPUs are not supported on shared-core machine types or memory-optimized machine types
 - Preemption process:
@@ -103,7 +103,7 @@ image::GCP Certification Series - Resource Quotas.png[Resource Quotas]
 +
 Project wide SSH key (key-value pairs) in Metadata, available to all VM instances in the project. Format is:
 +
-ssh-rsa [KEY_VALUE] google-ssh {“userName”:”[USERNAME]”,”expireOn”:”[EXPIRE_TIME]”}
+`ssh-rsa [KEY_VALUE] google-ssh {"userName":"[USERNAME]","expireOn":"[EXPIRE_TIME]"}`
 +
 [EXPIRE_TIME] is a value in ISO 8601 format, e.g. **2018-12-04T20:12:00+0000**
 +
@@ -322,14 +322,18 @@ Networking
 
 If you look closely the most important part of GCP is its network infrastructure as all of the things from instances to API because there is a network between them.
 
-image::https://www.telegeography.com/assets/website/images/maps/submarine-cable-map-2011/submarine-cable-map-2011-x.jpg[Submarine Cable Map 2011]
+image::GCP Certification Series - Submarine Cable Map 2010.jpg[Submarine Cable Map 2010]
+
+image::GCP Certification Series - Submarine Cable Map 2011.jpg[Submarine Cable Map 2011]
 
 image::GCP Certification Series - Submarine Cable Map.png[Submarine Cable Map today]
 
 - Submarine Cable Map, _https://www.submarinecablemap.com/_
+- Submarine Cable Map 2019, _https://submarine-cable-map-2019.telegeography.com/_
+- Submarine Cable Map 2018, _https://submarine-cable-map-2018.telegeography.com/_
 - Worldwide Submarine Map, _https://studyandreference.weebly.com/worldwide-submarine-map.html_
 
-Google’s global network is one of the strongest features for choosing Google Cloud Platform.
+**Google’s global network is one of the strongest features for choosing Google Cloud Platform.**
 
 image::https://cloud.google.com/images/locations/edgepoint.png[Google Cloud Network]
 
@@ -642,7 +646,8 @@ image::https://cloud.google.com/images/containers-landing/complete-container-sol
 Complete Container Solution
 
 - Pod lifecycle
-** **Pending**: Pod has been created and accepted by the cluster, but one or more of its containers are not yet running. This phase includes time spent being scheduled on a node and downloading images ** **Running**: Pod has been bound to a node, and all of the containers have been created. At least one container is running, is in the process of starting, or is restarting
+** **Pending**: Pod has been created and accepted by the cluster, but one or more of its containers are not yet running. This phase includes time spent being scheduled on a node and downloading images
+** **Running**: Pod has been bound to a node, and all of the containers have been created. At least one container is running, is in the process of starting, or is restarting
 ** **Succeeded**: All containers in the Pod have terminated successfully. Terminated Pods do not restart
 ** **Failed**: All containers in the Pod have terminated, and at least one container has terminated in failure. A container “fails” if it exits with a non-zero status
 ** **Unknown**: The state of the Pod cannot be determined
@@ -854,6 +859,12 @@ image::https://cloud.google.com/iam/img/iam-overview-policy.png[Cloud IAM Policy
 - Identity Management product option
 +
 image::GCP Certification Series - IAM Product Options Flowchart.png[GCP Certification Series - IAM Product Options Flowchart]
++
+** Cloud Identity for Customers and Partners (CICP)
++
+image::https://storage.googleapis.com/gweb-cloudblog-publish/images/gcp_dash.max-1800x1800.png[Cloud Identity for Customers and Partners (CICP)]
++
+** Identity Aware Proxy (IAP)
 
 Logging
 -------

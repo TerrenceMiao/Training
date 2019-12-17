@@ -489,7 +489,7 @@ image::https://cloud.google.com/vpc/images/alias-ip/alias-ip-2.svg[IP aliasing]
 +
 - VPC resource quotas, _https://cloud.google.com/vpc/docs/quota_
 
-- VPC has TWO types of networks: **auto mode** network, **custom mode** network. You can switch a network from auto mode to custom mode. But custom mode network canno- t be changed to auto mode network
+- VPC has TWO types of networks: **auto mode** network, **custom mode** network. You can switch a network from auto mode to custom mode. But custom mode network cannot be changed to auto mode network
 
 - **Shared VPC** connects projects within the **SAME** organisation. Project participates in **Shared VPC** is:
 ** **host project**, must be first enabled project by Shared VPC Admin

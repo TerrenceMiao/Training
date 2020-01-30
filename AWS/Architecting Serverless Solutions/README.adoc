@@ -1,0 +1,39 @@
+Architecting Serverless Solutions
+---------------------------------
+
+- AWS Lambda function call
+
+image::AWS Lambda function call.png[AWS Lambda function call]
+
+- AWS Serverless Compute
+
+image::AWS Serverless Compute.png[AWS Serverless Compute]
+
+- Combining polling and WebSockets
+
+image::Combining polling and WebSockets.jpg[Combining polling and WebSockets]
+
+- Using WebSockets with AWS AppSync
+
+image::Using WebSockets with AWS AppSync.jpg[Using WebSockets with AWS AppSync]
+
+- Using the presigned URL in the order processing flow
+
+image::Using the presigned URL in the order processing flow.jpg[Using the presigned URL in the order processing flow]
+
+- Choosing Fargate or Lambda for Serverless Compute
+
+image::Choosing Fargate or Lambda for Serverless Compute.png[Choosing Fargate or Lambda for Serverless Compute]
+
+- Characteristics of an SQS queue as a Lambda event source
+
+image::Characteristics of an SQS queue as a Lambda event source.png[Characteristics of an SQS queue as a Lambda event source]
+
+- AWS CodePipeline
+
+image::AWS CodePipeline.jpg[AWS CodePipeline]
+
+References
+==========
+
+- New Digital Course: Architecting Serverless Solutions, _https://aws.amazon.com/about-aws/whats-new/2020/01/new-digital-course-architecting-serverless-solutions/_

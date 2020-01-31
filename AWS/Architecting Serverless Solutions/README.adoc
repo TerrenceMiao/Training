@@ -130,4 +130,6 @@ image::AWS CodePipeline with AWS SAM.jpg[AWS CodePipeline with AWS SAM]
 References
 ----------
 
-- New Digital Course: Architecting Serverless Solutions, _https://aws.amazon.com/about-aws/whats-new/2020/01/new-digital-course-architecting-serverless-solutions/_
+- New Digital Course: **Architecting Serverless Solutions**, _https://aws.amazon.com/about-aws/whats-new/2020/01/new-digital-course-architecting-serverless-solutions/_
+- **Serverless Application Lens**, AWS Well-Architected Framework December 2019, _https://d1.awsstatic.com/whitepapers/architecture/AWS-Serverless-Applications-Lens.pdf_
+- 10 Things Serverless Architects Should Know, _https://aws.amazon.com/blogs/architecture/ten-things-serverless-architects-should-know/_

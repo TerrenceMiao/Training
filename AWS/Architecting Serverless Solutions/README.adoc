@@ -1,5 +1,10 @@
 Architecting Serverless Solutions
----------------------------------
+=================================
+
+How well-architected serverless patterns combine AWS Lambda with other AWS managed services to create scalable and secure event-driven serverless architectures.
+
+Serverless Event Submission Patterns
+------------------------------------
 
 - AWS Lambda function call
 
@@ -21,19 +26,108 @@ image::Using WebSockets with AWS AppSync.jpg[Using WebSockets with AWS AppSync]
 
 image::Using the presigned URL in the order processing flow.jpg[Using the presigned URL in the order processing flow]
 
-- Choosing Fargate or Lambda for Serverless Compute
+- API AppSync vs. API Gateway
 
-image::Choosing Fargate or Lambda for Serverless Compute.png[Choosing Fargate or Lambda for Serverless Compute]
+image::API AppSync vs. API Gateway.png[API AppSync vs. API Gateway]
+
+- Standard vs. FIFO SQS queues
+
+image::Standard vs. FIFO SQS queues.png[Standard vs. FIFO SQS queues]
 
 - Characteristics of an SQS queue as a Lambda event source
 
 image::Characteristics of an SQS queue as a Lambda event source.png[Characteristics of an SQS queue as a Lambda event source]
 
+Serverless Data Processing Patterns
+-----------------------------------
+
+- Amazon Kinesis Data Streams
+
+image::Amazon Kinesis Data Streams.jpg[Amazon Kinesis Data Streams]
+
+- Serverless data processing flow with Kinesis Data Firehose
+
+image::Serverless data processing flow with Kinesis Data Firehose.jpg[Serverless data processing flow with Kinesis Data Firehose]
+
+- Kinesis Data Streams vs. Kinesis Data Firehose
+
+image::Kinesis Data Streams vs. Kinesis Data Firehose.png[Kinesis Data Streams vs. Kinesis Data Firehose]
+
+Failure Management in Event-Driven Architectures
+------------------------------------------------
+
+- Error Handling
+
+image::Error Handling.png[Error Handling]
+
+- Dead-Letter Queue
+
+image::Dead-Letter Queue.png[Dead-Letter Queue]
+
+- AWS Event Fork Pipelines
+
+image::AWS Event Fork Pipelines.jpg[AWS Event Fork Pipelines]
+
+Migrating to Serverless
+-----------------------
+
+- Application Load Balancer vs. API Gateway
+
+image::Application Load Balancer vs. API Gateway.png[Application Load Balancer vs. API Gateway]
+
+Choosing Compute Services and Data Stores
+-----------------------------------------
+
+- Choosing Fargate or Lambda for Serverless Compute
+
+image::Choosing Fargate or Lambda for Serverless Compute.png[Choosing Fargate or Lambda for Serverless Compute]
+
+Application Architecture Patterns
+---------------------------------
+
+- Web application
+
+image::Web application.jpg[Web application]
+
+- Mobile backend
+
+image::Mobile backend.jpg[Mobile backend]
+
+Thinking Serverless at Scale
+----------------------------
+
+- Concurrency Measure
+
+image::Concurrency Measure.png[Concurrency Measure]
+
+- AWS based solution
+
+image::AWS based solution.jpg[AWS based solution]
+
+Scaling Considerations for Databases, Orchestration, and Streaming
+------------------------------------------------------------------
+
+- Kinesis Data Streams standard consumer
+
+image::Kinesis Data Streams standard consumer.jpg[Kinesis Data Streams standard consumer]
+
+- Kinesis Data Streams enhanced fan-out
+
+image::Kinesis Data Streams enhanced fan-out.jpg[Kinesis Data Streams enhanced fan-out]
+
+Automating the Deployment Pipeline
+----------------------------------
+
 - AWS CodePipeline
 
 image::AWS CodePipeline.jpg[AWS CodePipeline]
 
+- AWS CodePipeline with AWS SAM
+
+image::AWS CodePipeline with AWS SAM.jpg[AWS CodePipeline with AWS SAM]
+
+
 References
-==========
+----------
 
 - New Digital Course: Architecting Serverless Solutions, _https://aws.amazon.com/about-aws/whats-new/2020/01/new-digital-course-architecting-serverless-solutions/_

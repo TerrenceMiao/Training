@@ -8,12 +8,17 @@ Encyclopedia Britannica
 
 image::History of the Internet timeline.png[History of the Internet timeline]
 
+Video Online
+------------
+
+- History of the Internet, an animated documentary explaining the inventions from time-sharing to file-sharing, from Arpanet to Internet, _https://www.youtube.com/watch?v=9hIQjrMHTv4_
+
 Internet Hall of Fame
 ---------------------
 
 - Internet History Timeline, _https://www.internethalloffame.org/internet-history/timeline_
 
-Video Online
-------------
+World Wide Web (WWW)
+--------------------
 
-- History of the Internet, an animated documentary explaining the inventions from time-sharing to file-sharing, from Arpanet to Internet, _https://www.youtube.com/watch?v=9hIQjrMHTv4_
+- World Wide Web Timeline, _https://www.pewresearch.org/internet/2014/03/11/world-wide-web-timeline/_

@@ -1,0 +1,19 @@
+Teaching Kids Series - The History Of Internet
+==============================================
+
+Encyclopedia Britannica
+-----------------------
+
+- Encyclopedia Britannica Kids, Internet introduction, _https://kids.britannica.com/kids/article/Internet/353293_
+
+image::History of the Internet timeline.png[History of the Internet timeline]
+
+Internet Hall of Fame
+---------------------
+
+- Internet History Timeline, _https://www.internethalloffame.org/internet-history/timeline_
+
+Video Online
+------------
+
+- History of the Internet, an animated documentary explaining the inventions from time-sharing to file-sharing, from Arpanet to Internet, _https://www.youtube.com/watch?v=9hIQjrMHTv4_

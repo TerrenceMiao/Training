@@ -1,0 +1,25 @@
+Explore a BigQuery Public Dataset
+=================================
+
+- BigQuery window
+
+image::Explore a BigQuery Public Dataset - BigQuery.png[Explore a BigQuery Public Dataset - BigQuery]
+
+- Public Datasets
+
+image::Explore a BigQuery Public Dataset - Dataset 1.png[Explore a BigQuery Public Dataset - Dataset 1]
+
+image::Explore a BigQuery Public Dataset - Dataset 2.png[Explore a BigQuery Public Dataset - Dataset 2]
+
+image::Explore a BigQuery Public Dataset - Dataset 3.png[Explore a BigQuery Public Dataset - Dataset 3]
+
+image::Explore a BigQuery Public Dataset - Dataset 4.png[Explore a BigQuery Public Dataset - Dataset 4]
+
+image::Explore a BigQuery Public Dataset - Dataset for COVID-19 research.png[Explore a BigQuery Public Dataset - Dataset for COVID-19 research]
+
+image::Explore a BigQuery Public Dataset - Dataset USA Names.png[Explore a BigQuery Public Dataset - Dataset USA Names]
+
+References
+----------
+
+- Explore a BigQuery Public Dataset, _https://googlecoursera.qwiklabs.com/focuses/31817_

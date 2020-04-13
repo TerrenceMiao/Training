@@ -43,6 +43,8 @@ image::Predict Visitor Purchases with a Classification Model in BQML - Classific
 
 image::Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 details.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 details]
 
+image::Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 training.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 training]
+
 image::Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 evaluation.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 evaluation]
 
 image::Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 schema.png[Predict Visitor Purchases with a Classification Model in BQML - Classification model 2 schema]
@@ -65,3 +67,4 @@ References
 
 - Data Engineering, _https://google.qwiklabs.com/quests/25_
 - Predict Visitor Purchases with a Classification Model in BQML, _https://google.qwiklabs.com/focuses/1794?parent=catalog_
+- Predict Visitor Purchases with a Classification Model with BigQuery ML, _https://googlecoursera.qwiklabs.com/focuses/31819_

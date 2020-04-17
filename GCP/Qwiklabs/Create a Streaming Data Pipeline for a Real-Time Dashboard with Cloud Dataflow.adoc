@@ -1,0 +1,26 @@
+Data Engineering
+================
+
+**Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow**
+
+image::Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - APIs and Services.png[Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - APIs and Services]
+
+image::Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - Create Dataflow Job.png[Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - Create Dataflow Job]
+
+image::Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - Dataflow Job.png[Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - Dataflow Job]
+
+image::Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - Dataflow Job Metrics.png[Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - Dataflow Job Metrics]
+
+image::Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - BigQuery.png[Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - BigQuery]
+
+image::Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - BigQuery Aggregation.png[Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - BigQuery Aggregation]
+
+image::Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - Data Studio.png[Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - Data Studio]
+
+image::Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - Dataflow Stop Job.png[Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow - Dataflow Stop Job]
+
+References
+----------
+
+- Data Engineering, _https://google.qwiklabs.com/quests/25_
+- Create a Streaming Data Pipeline for a Real-Time Dashboard with Cloud Dataflow, _https://googlecoursera.qwiklabs.com/focuses/31820_

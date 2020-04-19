@@ -1,0 +1,32 @@
+Data Engineering
+================
+
+**Classify Images with Pre-built ML Models using Cloud Vision API and AutoML**
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Cloud AutoML API.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Cloud AutoML API]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Create new dataset.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Create new dataset]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Import dataset.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Import dataset]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Importing images.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Importing images]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Importing images.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Importing images]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Importing images done.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Importing images done]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Images.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Images]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Label stats.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Label stats]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Define model.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Define model]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Set node.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Set node]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Training model.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Training model]
+
+References
+----------
+
+- Data Engineering, _https://google.qwiklabs.com/quests/25_
+- Classify Images with Pre-built ML Models using Cloud Vision API and AutoML, _https://googlecoursera.qwiklabs.com/focuses/31821_

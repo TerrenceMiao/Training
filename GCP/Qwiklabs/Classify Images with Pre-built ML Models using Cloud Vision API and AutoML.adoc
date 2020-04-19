@@ -25,6 +25,12 @@ image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoM
 
 image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Training model.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Training model]
 
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Models.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Models]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Evaluate.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Evaluate]
+
+image::Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Test.png[Classify Images with Pre-built ML Models using Cloud Vision API and AutoML - Test]
+
 References
 ----------
 

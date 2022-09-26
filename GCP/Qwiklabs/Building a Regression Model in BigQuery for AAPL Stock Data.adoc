@@ -1,0 +1,14 @@
+Building a Regression Model in BigQuery for AAPL Stock Data
+===========================================================
+
+image::Building a Regression Model in BigQuery for AAPL Stock Data - Create dataset.png[Building a Regression Model in BigQuery for AAPL Stock Data - Create dataset]
+
+image::Building a Regression Model in BigQuery for AAPL Stock Data - Create table.png[Building a Regression Model in BigQuery for AAPL Stock Data - Create table]
+
+image::Building a Regression Model in BigQuery for AAPL Stock Data - APPL10Y.png[Building a Regression Model in BigQuery for AAPL Stock Data - APPL10Y]
+
+image::Building a Regression Model in BigQuery for AAPL Stock Data - Generate model_data.png[Building a Regression Model in BigQuery for AAPL Stock Data - Generate model_data]
+
+image::Building a Regression Model in BigQuery for AAPL Stock Data - model_data.png[Building a Regression Model in BigQuery for AAPL Stock Data - model_data]
+
+image::Building a Regression Model in BigQuery for AAPL Stock Data - model.png[Building a Regression Model in BigQuery for AAPL Stock Data - model]

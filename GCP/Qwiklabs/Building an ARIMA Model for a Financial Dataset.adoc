@@ -1,0 +1,9 @@
+Building an ARIMA Model for a Financial Dataset
+===============================================
+
+image::Building an ARIMA Model for a Financial Dataset - instance.png[Building an ARIMA Model for a Financial Dataset - instance]
+
+image::Building an ARIMA Model for a Financial Dataset - notebook.png[Building an ARIMA Model for a Financial Dataset - notebook]
+
+image::Building an ARIMA Model for a Financial Dataset - model.png[Building an ARIMA Model for a Financial Dataset - model]
+
